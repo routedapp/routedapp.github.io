@@ -6,7 +6,7 @@ module.exports = {
 		titleTemplate: "RoutED · %s",
 		description: "Directing patients to the most available care."
 	},
-	pathPrefix: "/routed-website",
+	pathPrefix: "",
 	plugins: [
 		"gatsby-plugin-theme-ui",
 		"gatsby-plugin-styled-components",

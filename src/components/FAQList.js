@@ -1,12 +1,12 @@
 import React from "react";
 import { graphql, useStaticQuery } from "gatsby";
 import { renderRichText } from "gatsby-source-contentful/rich-text";
-import { QnA, Q, A } from "./QnA";
+import { QnA, Q, A, QnAList } from "./QnA";
 
 const query = graphql`
 	{
-		allContentfulFaq(sort: { fields: createdAt, order: ASC }) {
-			nodes {
+		contentfulList(name: { eq: "faqs" }) {
+			items {
 				question
 				answer {
 					raw
@@ -18,16 +18,16 @@ const query = graphql`
 
 export default function FAQList()
 {
-	const { allContentfulFaq: { nodes } } = useStaticQuery(query);
+	const { contentfulList: { items } } = useStaticQuery(query);
 
 	return (
-		<>
-			{nodes.map(({ question, answer }, i) => (
+		<QnAList>
+			{items.map(({ question, answer }, i) => (
 				<QnA key={i}>
 					<Q>{question}</Q>
 					<A>{renderRichText(answer)}</A>
 				</QnA>
 			))}
-		</>
+		</QnAList>
 	);
 }

@@ -1,7 +1,12 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 
-const Container = styled.div`
+const List = styled.ul`
+	padding: 0;
+	margin: 0;
+`;
+const Item = styled.li`
+	list-style: none;
 	margin: -1px 0 0 0;
 	padding: 1rem;
 	border: 1px solid #999;
@@ -18,18 +23,27 @@ const Answer = styled.p`
 	padding: 0;
 `;
 
+export function QnAList({ children })
+{
+	return (
+		<List>
+			{children}
+		</List>
+	);
+}
+
 export function QnA({ defaultExpanded = false, children })
 {
 	const [expanded, setExpanded] = useState(defaultExpanded);
 	const [Question, Answer] = React.Children.toArray(children);
 
 	return (
-		<Container
+		<Item
 			onClick={() => setExpanded(!expanded)}
 		>
 			{Question}
 			{expanded && Answer}
-		</Container>
+		</Item>
 	);
 }
 

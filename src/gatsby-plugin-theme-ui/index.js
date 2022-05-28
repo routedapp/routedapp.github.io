@@ -10,7 +10,7 @@ const theme = {
 
 	fonts: {
 		...bootstrap.fonts,
-		body: "'Public Sans', " + bootstrap.fonts.body
+		body: `"Public SansVariable", ${bootstrap.fonts.body}`
 	},
 	colors: {
 		...bootstrap.colors,

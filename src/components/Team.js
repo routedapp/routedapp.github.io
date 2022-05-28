@@ -47,6 +47,7 @@ export default function TeamList()
 		>
 			{nodes.map(({ fullName, role, imageUrl }) => (
 				<TeamMember
+					key={fullName}
 					name={fullName}
 					role={role}
 					picture={imageUrl}

@@ -1,8 +1,17 @@
 import { deep, bootstrap } from "@theme-ui/presets";
 
+const colors = {
+		primary: "#00205c",
+		secondary: "#425cc7",
+		highlight: "#00adbb",
+};
 const theme = {
 	...bootstrap,
 
+	fonts: {
+		...bootstrap.fonts,
+		body: "'Public Sans', " + bootstrap.fonts.body
+	},
 	colors: {
 		...bootstrap.colors,
 		modes: {
@@ -10,19 +19,12 @@ const theme = {
 				...deep.colors,
 			},
 		},
-		primary: "#00205c",
-		secondary: "#425cc7",
-		highlight: "#00adbb"
+		...colors,
+		text: colors.primary
 	},
 
 	styles: {
 		...bootstrap.styles,
-		p: {
-			fontFamily: "body",
-			fontWeight: "body",
-			lineHeight: "body",
-			fontSize: 3,
-		},
 		h1: {
 			fontSize: 8,
 			fontWeight: "bold",
@@ -32,6 +34,13 @@ const theme = {
 		h4: {
 			...bootstrap.styles.h4,
 			fontWeight: "bold"
+		},
+		root: {
+			...bootstrap.styles.root,
+			// make even bare <p> elements 1rem
+			p: {
+				fontSize: 3
+			}
 		}
 	},
 

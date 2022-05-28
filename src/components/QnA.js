@@ -1,3 +1,4 @@
+/** @jsxImportSource theme-ui */
 import React, { useState } from "react";
 import styled from "styled-components";
 
@@ -5,13 +6,20 @@ const List = styled.ul`
 	padding: 0;
 	margin: 0;
 `;
-const Item = styled.li`
-	list-style: none;
-	margin: -1px 0 0 0;
-	padding: 1rem;
-	border: 1px solid #999;
-	cursor: pointer;
-`;
+const Item = (props) => (
+	<li
+		{...props}
+		sx={{
+			listStyle: "none",
+			margin: "-1px 0 0 0",
+			padding: "1rem",
+			borderWidth: "1px",
+			borderStyle: "solid",
+			borderColor: "primary",
+			cursor: "pointer"
+		}}
+	/>
+);
 const Question = styled.h1`
 	font-size: 1.5rem;
 	margin: 1rem;

@@ -5,11 +5,17 @@ import { QnA, Q, A, QnAList } from "./QnA";
 
 const query = graphql`
 	{
-		contentfulList(name: { eq: "faqs" }) {
-			items {
-				question
-				answer {
-					raw
+		allContentfulList(filter: {name: {eq: "faqs"}}) {
+			nodes {
+				name
+				type
+				items {
+					... on ContentfulFaq {
+						question
+						answer {
+							raw
+						}
+					}
 				}
 			}
 		}
@@ -18,7 +24,7 @@ const query = graphql`
 
 export default function FAQList()
 {
-	const { contentfulList: { items } } = useStaticQuery(query);
+	const { allContentfulList: { nodes: [{ items }] } } = useStaticQuery(query);
 
 	return (
 		<QnAList>

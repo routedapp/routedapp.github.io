@@ -1,6 +1,6 @@
 import React from "react";
 import { graphql, useStaticQuery } from "gatsby";
-import { Box, Card, Heading, Image, Text } from "theme-ui";
+import { Box, Card, Heading, Image } from "theme-ui";
 
 function TeamMember({ name, role, picture })
 {
@@ -14,9 +14,9 @@ function TeamMember({ name, role, picture })
 			<Heading variant="name">
 				{name}
 			</Heading>
-			<Text>
+			<Heading variant="subheading">
 				{role}
-			</Text>
+			</Heading>
 		</Card>
 	);
 }

@@ -12,6 +12,12 @@ const theme = {
 		...bootstrap.fonts,
 		body: `"Public SansVariable", ${bootstrap.fonts.body}`
 	},
+
+	lineHeights: {
+		body: 1.3,
+		heading: 1.2
+	},
+
 	colors: {
 		...bootstrap.colors,
 		modes: {
@@ -37,9 +43,10 @@ const theme = {
 		},
 		root: {
 			...bootstrap.styles.root,
+			fontSize: "16px",
 			// make even bare <p> elements 1rem
 			p: {
-				fontSize: 3
+				fontSize: 5
 			}
 		}
 	},
@@ -47,7 +54,7 @@ const theme = {
 	text: {
 		name: {
 			fontWeight: "bold",
-			fontSize: 2
+			fontSize: 3
 		},
 		subheading: {
 			fontSize: 2,

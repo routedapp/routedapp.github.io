@@ -1,11 +1,16 @@
 /** @jsxImportSource theme-ui */
 import React, { useState } from "react";
-import styled from "styled-components";
 
-const List = styled.ul`
-	padding: 0;
-	margin: 0;
-`;
+export const QnAList = (props) => (
+	<ul
+		{...props}
+		sx={{
+			p: 0,
+			m: 0
+		}}
+	/>
+);
+
 const Item = (props) => (
 	<li
 		{...props}
@@ -21,16 +26,27 @@ const Item = (props) => (
 		}}
 	/>
 );
-const Question = styled.h1`
-	font-size: 1.5rem;
-	margin: 1rem;
-	padding: 0;
-`;
-const Answer = styled.p`
-	font-size: 1.5rem;
-	margin: 0 1rem 1rem;
-	padding: 0;
-`;
+
+export const Q = (props) => (
+	<h1
+		{...props}
+		sx={{
+			fontSize: 5,
+			m: "1rem",
+			p: 0
+		}}
+	/>
+)
+
+export const A = (props) => (
+	<div
+		{...props}
+		sx={{
+			m: "0 1rem 1rem",
+			p: 0
+		}}
+	/>
+)
 
 function Toggle({ expanded })
 {
@@ -54,15 +70,6 @@ function Toggle({ expanded })
 	)
 }
 
-export function QnAList({ children })
-{
-	return (
-		<List>
-			{children}
-		</List>
-	);
-}
-
 export function QnA({ defaultExpanded = false, children })
 {
 	const [expanded, setExpanded] = useState(defaultExpanded);
@@ -76,23 +83,5 @@ export function QnA({ defaultExpanded = false, children })
 			{Question}
 			{expanded && Answer}
 		</Item>
-	);
-}
-
-export function Q({ children })
-{
-	return (
-		<Question>
-			{children}
-		</Question>
-	);
-}
-
-export function A({ children })
-{
-	return (
-		<Answer>
-			{children}
-		</Answer>
 	);
 }

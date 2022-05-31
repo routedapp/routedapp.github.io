@@ -9,7 +9,6 @@ import { Link as GatsbyLink } from "gatsby";
 export default function Link({ sx, ...props })
 {
 	return <GatsbyLink
-		{...props}
 		activeStyle={{ fontWeight: 700 }}
 		activeClassName="active"
 		sx={{
@@ -29,5 +28,6 @@ export default function Link({ sx, ...props })
 			},
 			...sx
 		}}
+		{...props}
 	/>;
 }

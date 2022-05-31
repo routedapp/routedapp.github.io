@@ -2,7 +2,14 @@ import React from "react";
 import { graphql, useStaticQuery } from "gatsby";
 import { renderRichText } from "gatsby-source-contentful/rich-text";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
-import { BaseStyles, Container, css, Heading, Text } from "theme-ui";
+import {
+	BaseStyles,
+	Container,
+	css,
+	Heading,
+	Text,
+	useThemeUI
+} from "theme-ui";
 import { BLOCKS } from "@contentful/rich-text-types";
 
 	// including __typename on the ContentfulAsset is critical, for some reason
@@ -67,10 +74,7 @@ const guideStyles = {
 		mr: 5
 	},
 	"li::marker": {
-			// for some reason, using 5 here as the fontSize produces 32px text and 4
-			// gives 24px, so it seems to be picking from some size list other than
-			// what's in the theme.  so use an explicit rem size to match the <p> text.
-		fontSize: "1.75rem",
+		fontSize: 5,
 		fontWeight: "bold"
 	}
 };
@@ -80,9 +84,11 @@ function UserGuide({
 	app,
 	body })
 {
+	const { theme } = useThemeUI();
+
 	return (
 		<Container
-			css={css(guideStyles)}
+			css={css(guideStyles)(theme)}
 		>
 			<Heading>
 				{title}

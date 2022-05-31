@@ -1,12 +1,29 @@
 import React from "react";
-import { Box, Flex, Text, Link as Anchor } from "theme-ui";
+import { Box, Flex, Text, Link as Anchor, css, useThemeUI } from "theme-ui";
 import BaseLink from "./Link";
+
+const footerStyles = {
+	"&": {
+		background: "primary",
+		color: "white",
+		mt: 5,
+		p: 0,
+	},
+	a: {
+		color: "white"
+	},
+	h3: {
+		mt: 0
+	}
+};
 
 const Link = ({ sx, ...props }) => (
 	<BaseLink
 		{...props}
+		activeStyle={{ fontWeight: "body" }}
+		activeClassName=""
 		sx={{
-			fontWeight: "normal",
+			fontWeight: "body",
 			fontSize: 2,
 			ml: 0,
 			...sx
@@ -14,26 +31,25 @@ const Link = ({ sx, ...props }) => (
 	/>
 );
 
-export default function Footer({ siteTitle, siteDescription })
+export default function Footer({
+	siteTitle,
+	siteDescription })
 {
+	const { theme } = useThemeUI();
+
 	return (
 		<Box as="footer"
-			sx={{
-				bg: "primary",
-				color: "white",
-				mt: "24px",
-				pb: "2rem"
-			}}
+			css={css(footerStyles)(theme)}
 		>
 			<Box
 				sx={{
 					m: "0 auto",
 					maxWidth: "80%",
 					px: 3,
-					py: 4,
+					py: "5rem",
 				}}
 			>
-				<Flex as="nav" sx={{  }}>
+				<Flex as="nav">
 					<Flex
 						sx={{
 							flexDirection: "column",

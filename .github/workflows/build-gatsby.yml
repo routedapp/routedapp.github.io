@@ -1,4 +1,4 @@
-name: Publish to GitHub Pages
+name: Build Gatsby Site
 
 on:
   repository_dispatch:
@@ -19,7 +19,7 @@ jobs:
       group: ${{ github.workflow }}-${{ github.ref }}
 
     steps:
-      - name: Checkout
+      - name: Checkout Repo
         uses: actions/checkout@v3
 
       - name: Setup Node
@@ -39,16 +39,16 @@ jobs:
           # otherwise, the cache will be busted on every build.
           key: ${{ runner.os }}-build-cache
 
-      - name: Install
+      - name: Install Packages
         run: npm ci --ignore-scripts --prefer-offline --no-audit
 
-      - name: Build
+      - name: Build Gatsby
         env:
           CONTENTFUL_SPACE_ID: ${{ secrets.CONTENTFUL_SPACE_ID }}
           CONTENTFUL_ACCESS_TOKEN: ${{ secrets.CONTENTFUL_ACCESS_TOKEN }}
         run: npm run build
 
-      - name: Publish
+      - name: Push to gh-pages branch
         uses: peaceiris/actions-gh-pages@v3
         if: ${{ github.ref == 'refs/heads/main' }}
         with:

@@ -183,10 +183,6 @@ const styles = makeStyles({
 		lineHeight: "body",
 		fontWeight: "body",
 		fontSize: "16px",
-		p: {
-			fontSize: 5,
-			lineHeight: "body",
-		},
   },
   a: {
     color: "primary",

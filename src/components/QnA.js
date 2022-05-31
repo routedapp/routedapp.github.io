@@ -28,6 +28,7 @@ const Item = (props) => (
 );
 
 export const Q = (props) => (
+		// eslint-disable-next-line jsx-a11y/heading-has-content
 	<h1
 		{...props}
 		sx={{

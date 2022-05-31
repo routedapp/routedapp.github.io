@@ -30,7 +30,12 @@ import HospitalsImage from "@/images/for-hospitals.png";
 		<Box sx={{ fontSize: "1.25rem" }}>
 			Know what emergency departments have open beds.
 		</Box>
-		<Button sx={{ mt: 16 }}>View EMT User Guide</Button>
+		<Button
+			sx={{ mt: 16 }}
+			onClick={() => window.location.href = "user-guides"}
+		>
+			View EMT User Guide
+		</Button>
 	</Description>
 	<Image src={EMTsImage} />
 </Feature>
@@ -44,6 +49,11 @@ import HospitalsImage from "@/images/for-hospitals.png";
 		<Box sx={{ fontSize: "1.25rem" }}>
 			Prepare for incoming patients with digital ringdowns.
 		</Box>
-		<Button sx={{ mt: 16 }}>View Hospital User Guide</Button>
+		<Button
+			sx={{ mt: 16 }}
+			onClick={() => window.location.href = "user-guides"}
+		>
+			View Hospital User Guide
+		</Button>
 	</Description>
 </Feature>

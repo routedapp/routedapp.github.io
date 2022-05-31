@@ -1,7 +1,6 @@
 /** @jsxImportSource theme-ui */
-import React from "react";
+import React, { Fragment } from "react";
 import { graphql, useStaticQuery } from "gatsby";
-import { Heading } from "theme-ui";
 
 const query = graphql`
 	{
@@ -24,14 +23,18 @@ function List(
 	props)
 {
 	return (
-		<ul
+		<dl
 			{...props}
 			sx={{
 				margin: 0,
 				padding: 0,
-				"& li": {
-					listStyle: "none",
-					mb: 3
+				fontSize: 5,
+				"& dt": {
+					fontWeight: "bold"
+				},
+				"& dd": {
+					marginInlineStart: 5,
+					mb: 5
 				}
 			}}
 		/>
@@ -45,10 +48,10 @@ export default function Glossary()
 	return (
 		<List>
 			{items.map(({ word, definition }, i) => (
-				<li key={i}>
-					<Heading variant="name">{word}</Heading>
-					<Heading variant="subheading">{definition}</Heading>
-				</li>
+				<Fragment key={i}>
+					<dt>{word}</dt>
+					<dd>{definition}</dd>
+				</Fragment>
 			))}
 		</List>
 	);

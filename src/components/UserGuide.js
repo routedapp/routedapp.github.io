@@ -2,7 +2,7 @@ import React from "react";
 import { graphql, useStaticQuery } from "gatsby";
 import { renderRichText } from "gatsby-source-contentful/rich-text";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
-import { Container, Heading, Text } from "theme-ui";
+import { BaseStyles, Container, css, Heading, Text } from "theme-ui";
 import { BLOCKS } from "@contentful/rich-text-types";
 
 const query = graphql`
@@ -44,27 +44,37 @@ const options = {
 	}
 };
 
-function UserGuide({ title, app, body })
+const guideStyles = {
+	h2: {
+		fontSize: 5
+	},
+	ol: {
+		fontSize: 3,
+		display: "flex",
+		flexFlow: "row wrap",
+		paddingInlineStart: "2rem"
+	},
+	li: {
+		flex: 1,
+		mr: 5
+	},
+	"li::marker": {
+			// for some reason, using 5 here as the fontSize produces 32px text and 4
+			// gives 24px, so it seems to be picking from some size list other than
+			// what's in the theme.  so use an explicit rem size to match the <p> text.
+		fontSize: "1.75rem",
+		fontWeight: "bold"
+	}
+};
+
+function UserGuide({
+	title,
+	app,
+	body })
 {
 	return (
 		<Container
-			sx={{
-				"& h2": {
-					fontSize: 5
-				},
-				"& ol": {
-					fontSize: 3,
-					display: "flex",
-					flexFlow: "row wrap",
-				},
-				"& li": {
-					flex: 1,
-					mr: 3
-				},
-				"& li::marker": {
-					fontWeight: "bold"
-				}
-			}}
+			css={css(guideStyles)}
 		>
 			<Heading>
 				{title}
@@ -81,7 +91,7 @@ export default function UserGuideList()
 	const { allContentfulUserGuide: { nodes } } = useStaticQuery(query);
 
 	return (
-		<Container
+		<BaseStyles
 			sx={{ mt: 5 }}
 		>
 			{nodes.map(({ title, app, body }, i) => (
@@ -92,6 +102,6 @@ export default function UserGuideList()
 					body={renderRichText(body, options)}
 				/>
 			))}
-		</Container>
+		</BaseStyles>
 	);
 }

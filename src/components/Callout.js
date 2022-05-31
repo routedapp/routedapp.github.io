@@ -1,7 +1,11 @@
 import React from "react";
 import { Box, Button, Flex, Heading } from "theme-ui";
 
-export default function Callout({ heading, subheading, cta })
+export default function Callout({
+	heading,
+	subheading,
+	cta,
+	ctaLink = "#" })
 {
 	return (
 		<Flex
@@ -38,6 +42,7 @@ export default function Callout({ heading, subheading, cta })
 							cursor: "pointer"
 						}
 					}}
+					onClick={() => window.location.href = ctaLink}
 				>
 					{cta}
 				</Button>

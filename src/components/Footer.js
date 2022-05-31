@@ -9,26 +9,36 @@ const footerStyles = {
 		mt: 5,
 		p: 0,
 	},
-	a: {
-		color: "white"
-	},
 	h3: {
 		mt: 0
+	},
+	a: {
+		color: "white"
 	}
 };
 
 const Link = ({ sx, ...props }) => (
-	<BaseLink
-		{...props}
-		activeStyle={{ fontWeight: "body" }}
-		activeClassName=""
-		sx={{
-			fontWeight: "body",
-			fontSize: 2,
-			ml: 0,
-			...sx
-		}}
-	/>
+		// wrap the GatsbyLink in a div so that the anchor won't be stretched to
+		// the width of the column.  that way, it only shows a hover state when the
+		// mouse is over the text.
+	<div className="Link">
+		<BaseLink
+			{...props}
+			activeStyle={{ fontWeight: "body" }}
+				// override the activeClassName so that links in the footer don't update
+				// to show the current page
+			activeClassName=""
+			sx={{
+				fontWeight: "body",
+				fontSize: 2,
+				ml: 0,
+				"&:hover": {
+					textDecoration: "underline"
+				},
+				...sx
+			}}
+		/>
+	</div>
 );
 
 export default function Footer({
@@ -66,7 +76,10 @@ export default function Footer({
 					<Flex
 						sx={{
 							flexDirection: "column",
-							mr: "3rem"
+							mr: "3rem",
+							"& .Link": {
+								mb: 2
+							}
 						}}
 					>
 						<h3>Directory</h3>

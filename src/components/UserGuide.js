@@ -5,19 +5,26 @@ import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import { BaseStyles, Container, css, Heading, Text } from "theme-ui";
 import { BLOCKS } from "@contentful/rich-text-types";
 
+	// including __typename on the ContentfulAsset is critical, for some reason
 const query = graphql`
 	{
-		allContentfulUserGuide {
+		allContentfulList(filter: {name: {eq: "userGuideEMS"}}) {
 			nodes {
-				title
-				app
-				body {
-					raw
-					references {
-						... on ContentfulAsset {
-							contentful_id
-							__typename
-							gatsbyImageData
+				name
+				type
+				items {
+					... on ContentfulUserGuide {
+						title
+						app
+						body {
+							raw
+							references {
+								... on ContentfulAsset {
+									contentful_id
+									__typename
+									gatsbyImageData
+								}
+							}
 						}
 					}
 				}
@@ -25,6 +32,7 @@ const query = graphql`
 		}
 	}
 `;
+
 
 	// create an options param for renderRichText() to specify how to render
 	// embedded images
@@ -88,20 +96,22 @@ function UserGuide({
 
 export default function UserGuideList()
 {
-	const { allContentfulUserGuide: { nodes } } = useStaticQuery(query);
+	const { allContentfulList: { nodes: [{ items }] } } = useStaticQuery(query);
 
 	return (
 		<BaseStyles
 			sx={{ mt: 5 }}
 		>
-			{nodes.map(({ title, app, body }, i) => (
-				<UserGuide
-					key={i}
-					title={title}
-					app={app}
-					body={renderRichText(body, options)}
-				/>
-			))}
+			{items.map(({ title, app, body }, i) => {
+				return (
+					<UserGuide
+						key={i}
+						title={title}
+						app={app}
+						body={renderRichText(body, options)}
+					/>
+				);
+			})}
 		</BaseStyles>
 	);
 }

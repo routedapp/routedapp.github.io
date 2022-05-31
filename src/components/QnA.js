@@ -43,6 +43,7 @@ export const A = (props) => (
 	<div
 		{...props}
 		sx={{
+			fontSize: 5,
 			m: "0 1rem 1rem",
 			p: 0
 		}}

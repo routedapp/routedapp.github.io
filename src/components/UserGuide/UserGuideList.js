@@ -21,7 +21,8 @@ export default function UserGuideList({
 					const style = title === selectedTitle
 						? {
 							fontWeight: "bold",
-							color: "highlight"
+							color: "highlight",
+							cursor: "default"
 						}
 						: {};
 
@@ -34,11 +35,11 @@ export default function UserGuideList({
 						>
 							<Text
 								sx={{
-									...style,
 									cursor: "pointer",
 									"&:hover, &:active": {
 										color: "highlight"
-									}
+									},
+									...style,
 								}}
 								onClick={() => onClick(title)}
 							>

@@ -28,7 +28,7 @@ function List(
 			sx={{
 				margin: 0,
 				padding: 0,
-				fontSize: 5,
+				fontSize: "body",
 				"& dt": {
 					fontWeight: "bold"
 				},

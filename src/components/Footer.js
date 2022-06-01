@@ -1,39 +1,65 @@
 import React from "react";
-import { Box, Flex, Text, Link as Anchor } from "theme-ui";
+import { Box, Flex, Text, Link as Anchor, css, useThemeUI } from "theme-ui";
 import BaseLink from "./Link";
 
+const footerStyles = {
+	"&": {
+		background: "primary",
+		color: "white",
+		mt: 5,
+		p: 0,
+	},
+	h3: {
+		mt: 0
+	},
+	a: {
+		color: "white"
+	}
+};
+
 const Link = ({ sx, ...props }) => (
-	<BaseLink
-		{...props}
-		sx={{
-			fontWeight: "normal",
-			fontSize: 2,
-			ml: 0,
-			...sx
-		}}
-	/>
+		// wrap the GatsbyLink in a div so that the anchor won't be stretched to
+		// the width of the column.  that way, it only shows a hover state when the
+		// mouse is over the text.
+	<div className="Link">
+		<BaseLink
+			{...props}
+			activeStyle={{ fontWeight: "body" }}
+				// override the activeClassName so that links in the footer don't update
+				// to show the current page
+			activeClassName=""
+			sx={{
+				fontWeight: "body",
+				fontSize: 2,
+				ml: 0,
+				"&:hover": {
+					textDecoration: "underline"
+				},
+				...sx
+			}}
+		/>
+	</div>
 );
 
-export default function Footer({ siteTitle, siteDescription })
+export default function Footer({
+	siteTitle,
+	siteDescription })
 {
+	const { theme } = useThemeUI();
+
 	return (
 		<Box as="footer"
-			sx={{
-				bg: "primary",
-				color: "white",
-				mt: "24px",
-				pb: "2rem"
-			}}
+			css={css(footerStyles)(theme)}
 		>
 			<Box
 				sx={{
 					m: "0 auto",
 					maxWidth: "80%",
 					px: 3,
-					py: 4,
+					py: "5rem",
 				}}
 			>
-				<Flex as="nav" sx={{  }}>
+				<Flex as="nav">
 					<Flex
 						sx={{
 							flexDirection: "column",
@@ -50,7 +76,10 @@ export default function Footer({ siteTitle, siteDescription })
 					<Flex
 						sx={{
 							flexDirection: "column",
-							mr: "3rem"
+							mr: "3rem",
+							"& .Link": {
+								mb: 2
+							}
 						}}
 					>
 						<h3>Directory</h3>

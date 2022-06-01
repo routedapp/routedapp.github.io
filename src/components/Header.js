@@ -2,7 +2,8 @@ import React from "react";
 import { Box, Flex } from "theme-ui";
 import Link from "./Link";
 
-export default function Header({ siteTitle })
+export default function Header({
+	siteTitle })
 {
 	return (
 		<Box as="header"

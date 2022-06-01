@@ -32,7 +32,7 @@ export const Q = (props) => (
 	<h1
 		{...props}
 		sx={{
-			fontSize: 5,
+			fontSize: "body",
 			m: "1rem",
 			p: 0
 		}}
@@ -43,7 +43,7 @@ export const A = (props) => (
 	<div
 		{...props}
 		sx={{
-			fontSize: 5,
+			fontSize: "body",
 			m: "0 1rem 1rem",
 			p: 0
 		}}

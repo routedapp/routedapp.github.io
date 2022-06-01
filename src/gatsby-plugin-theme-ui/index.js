@@ -93,6 +93,7 @@ const fontSizes = [
   "6rem",
 ]
 fontSizes.lead = fontSizes[3];
+fontSizes.body = fontSizes[5];
 
 const lineHeights = {
   body: 1.3,
@@ -192,7 +193,7 @@ const styles = makeStyles({
     },
   },
   p: {
-		fontSize: 5,
+		fontSize: "body",
     lineHeight: "body",
   },
   h1: {
@@ -220,6 +221,9 @@ const styles = makeStyles({
     ...heading,
     fontSize: 2,
   },
+	li: {
+		fontSize: "body"
+	},
   blockquote: {
     fontSize: 3,
     mb: 3,

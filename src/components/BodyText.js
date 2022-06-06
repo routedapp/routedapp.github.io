@@ -17,7 +17,8 @@ const query = graphql`
 `;
 
 export default function BodyText({
-	name })
+	name,
+	Container = BaseStyles })
 {
 	const { allContentfulBodyText: { nodes } } = useStaticQuery(query);
 		// because Gatsby static queries can't take variables, we have to get all of
@@ -29,9 +30,10 @@ export default function BodyText({
 	}
 
 	return (
-			// wrap the rich text with BaseStyles so the theme styles are applied
-		<BaseStyles>
+			// by default, wrap the rich text with BaseStyles so the theme styles are
+			// applied to the unstyled tags, but let the caller pass another container
+		<Container>
 			{renderRichText(node.text)}
-		</BaseStyles>
+		</Container>
 	);
 }

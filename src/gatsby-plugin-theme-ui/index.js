@@ -1,4 +1,4 @@
-import { deep } from "@theme-ui/presets";
+//import { deep } from "@theme-ui/presets";
 import { makeStyles, makeTheme } from "@theme-ui/css/utils";
 
 const baseColors = {
@@ -27,7 +27,6 @@ const baseColors = {
   green: "#28a745",
   teal: "#00adbb",
   cyan: "#17a2b8",
-  // gray: gray[6],
 };
 
 const colors = {
@@ -46,11 +45,11 @@ const colors = {
   light: baseColors.gray[1],
   dark: baseColors.gray[8],
   textMuted: baseColors.gray[6],
-	modes: {
-		dark: {
-			...deep.colors,
-		},
-	},
+//	modes: {
+//		dark: {
+//			...deep.colors,
+//		},
+//	},
 };
 
 const space = [0, 0.25, 0.5, 1, 1.5, 3].map((n) => n + "rem");

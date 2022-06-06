@@ -2,7 +2,10 @@ import React from "react";
 import { graphql, useStaticQuery } from "gatsby";
 import { Box, Card, Heading, Image } from "theme-ui";
 
-function TeamMember({ name, role, picture })
+function TeamMember({
+	name,
+	role,
+	picture })
 {
 	return (
 		<Card>

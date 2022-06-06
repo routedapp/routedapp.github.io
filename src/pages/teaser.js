@@ -1,7 +1,7 @@
 import React from "react";
 import { BaseStyles, Box } from "theme-ui";
-import BodyText from "@/components/BodyText";
 import { Helmet } from "react-helmet";
+import BodyText from "@/components/BodyText";
 import Logo from "@/images/logomark.png";
 
 const styles = {
@@ -29,6 +29,20 @@ const styles = {
 	},
 	"a:hover": {
 		textDecoration: "underline"
+	},
+	header: {
+		height: "8rem",
+		borderTop: "1rem solid black",
+		backgroundImage: `url(${Logo})`,
+		backgroundPosition: "center 2rem",
+		backgroundSize: "10rem",
+		backgroundRepeat: "no-repeat"
+	},
+	main: {
+		mx: "auto",
+		minWidth: "300px",
+		maxWidth: "1000px",
+		width: "80%"
 	}
 };
 
@@ -45,47 +59,13 @@ function Styles(
 	);
 }
 
-function Header(
-	props)
-{
-	return (
-		<Box as="header"
-			{...props}
-			sx={{
-				height: "8rem",
-				borderTop: "1rem solid black",
-				backgroundImage: `url(${Logo})`,
-				backgroundPosition: "center 2rem",
-				backgroundSize: "10rem",
-				backgroundRepeat: "no-repeat"
-			}}
-		/>
-	);
-}
-
-function Main(
-	props)
-{
-	return (
-		<Box as="main"
-			{...props}
-			sx={{
-				mx: "auto",
-				minWidth: "300px",
-				maxWidth: "1000px",
-				width: "80%"
-			}}
-		/>
-	);
-}
-
 export default function Teaser()
 {
 	return (
 		<Styles>
 			<Helmet title="Routed · Coming Soon" />
-			<Header />
-			<BodyText name="teaser" Container={Main} />
+			<header />
+			<BodyText name="teaser" Container="main" />
 		</Styles>
 	);
 }

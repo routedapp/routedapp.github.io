@@ -4,13 +4,14 @@ import { Helmet } from "react-helmet";
 import BodyText from "@/components/BodyText";
 import Logo from "@/images/logomark.png";
 
+const textColor = "black";
 	// since we can't seem to easily apply a new font-size to html or body from
 	// here, set the font-size on the container using vmin, so it's based on the
 	// smaller side of the viewport, and then use em instead of rem to scale the
 	// font in the rest of the elements
 const styles = {
 	"&": {
-		color: "primary",
+		color: textColor,
 		textAlign: "center",
 		fontSize: "3vmin"
 	},
@@ -23,7 +24,7 @@ const styles = {
 		fontWeight: 300
 	},
 	a: {
-		color: "primary",
+		color: textColor,
 		fontSize: "1em",
 		fontWeight: 500,
 		textDecoration: "none"

@@ -30,7 +30,6 @@ const baseColors = {
 };
 
 const colors = {
-  ...baseColors,
 	primary: baseColors.darkblue,
 	secondary: baseColors.blue,
 	highlight: baseColors.teal,
@@ -45,6 +44,7 @@ const colors = {
   light: baseColors.gray[1],
   dark: baseColors.gray[8],
   textMuted: baseColors.gray[6],
+  ...baseColors,
 //	modes: {
 //		dark: {
 //			...deep.colors,
@@ -124,8 +124,8 @@ const heading = {
   fontFamily: "heading",
   fontWeight: "heading",
   lineHeight: "heading",
-  mt: 0,
-  mb: 2,
+  mt: 4,
+  mb: 3,
 };
 
 const display = {

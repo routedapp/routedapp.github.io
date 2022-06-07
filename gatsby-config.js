@@ -13,6 +13,12 @@ module.exports = {
 		"gatsby-plugin-image",
 		"gatsby-plugin-react-helmet",
 		{
+			resolve: "@lekoarts/gatsby-theme-styleguide",
+			options: {
+				basePath: "/style-guide"
+			},
+		},
+		{
 			resolve: "gatsby-source-contentful",
 			options: {
 				spaceId: process.env.CONTENTFUL_SPACE_ID,

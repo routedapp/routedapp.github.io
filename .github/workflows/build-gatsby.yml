@@ -56,3 +56,4 @@ jobs:
           publish_dir: ./public
           # don't keep a history of all the commits to the gh_pages branch
           force_orphan: true
+          cname: routedapp.org

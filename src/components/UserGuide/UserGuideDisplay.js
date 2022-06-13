@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { graphql, useStaticQuery } from "gatsby";
+import React from "react";
+import { graphql, navigate, useStaticQuery } from "gatsby";
 import { Container } from "theme-ui";
 import AppList from "./AppList";
 import UserGuide from "./UserGuide";
@@ -33,28 +33,30 @@ const query = graphql`
 		}
 	}
 `;
+const userGuidePath = (app, slug) => `/user-guides/${app.toLowerCase()}/${slug}`;
 
-export default function UserGuideDisplay()
+export default function UserGuideDisplay({
+	app,
+	title })
 {
 	const { allContentfulList: { nodes } } = useStaticQuery(query);
-	const items = nodes.map(({ items }) => items).reduce((result, list) => result.concat(list), []);
-	const [selectedApp, setSelectedApp] = useState("EMS");
-	const [selectedTitle, setSelectedTitle] = useState(items[0].title);
-	const guideIndex = items.reduce((result, item) => {
-		const { title, app } = item;
+	const guides = nodes.map(({ items }) => items).reduce((result, list) => result.concat(list), []);
+	const guideIndex = guides.reduce((result, guide) => {
+		const { title, app } = guide;
 
-		result[app][title] = item;
+		result[app][title] = guide;
 
 		return result;
 	}, { EMS: {}, Hospital: {} });
+	const selectedApp = app || Object.keys(guideIndex)[0];
+	const selectedTitle = title || Object.keys(guideIndex[selectedApp])[0];
 	const { body } = guideIndex[selectedApp][selectedTitle];
 
 	const handleAppClick = ({ target: { textContent: app } }) => {
-		setSelectedApp(app);
-		setSelectedTitle(Object.keys(guideIndex[app])[0]);
+		navigate(userGuidePath(app, Object.values(guideIndex[app])[0].slug));
 	};
 
-	const handleGuideClick = (title) => setSelectedTitle(title);
+	const handleGuideClick = (title) => navigate(userGuidePath(selectedApp, guideIndex[selectedApp][title].slug));
 
 	return (
 		<Container

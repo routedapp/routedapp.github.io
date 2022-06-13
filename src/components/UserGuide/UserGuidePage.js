@@ -1,16 +1,14 @@
 import React from "react";
 import Layout from "@/components/Layout";
-import UserGuide from "./UserGuide";
-
-const guidePageTitle = ({ app, title }) => `${app} · ${title}`;
+import UserGuideDisplay from "./UserGuideDisplay";
 
 export default function UserGuidePage({
-	pageContext: { guide } })
+	pageContext })
 {
-	const { title, body } = guide;
+	const { app, title } = pageContext.guide;
 	const guidePageContext = {
 		frontmatter: {
-			title: guidePageTitle(guide)
+			title: `${app} · ${title}`
 		}
 	};
 
@@ -18,9 +16,9 @@ export default function UserGuidePage({
 		<Layout
 			pageContext={guidePageContext}
 		>
-			<UserGuide
+			<UserGuideDisplay
+				app={app}
 				title={title}
-				body={body}
 			/>
 		</Layout>
 	);

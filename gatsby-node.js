@@ -11,16 +11,6 @@ const userGuidesQuery = `
 						title
 						slug
 						app
-						body {
-							raw
-							references {
-								... on ContentfulAsset {
-									contentful_id
-									__typename
-									gatsbyImageData
-								}
-							}
-						}
 					}
 				}
 			}

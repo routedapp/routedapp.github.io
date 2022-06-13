@@ -1,5 +1,5 @@
 import React from "react";
-import Page from "@/pages/user-guides.mdx";
+import Page from "@/templates/user-guides.mdx";
 
 export default function UserGuidePage({
 	pageContext: { guide, guideIndex } })

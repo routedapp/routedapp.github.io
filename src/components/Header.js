@@ -29,7 +29,7 @@ export default function Header({
 						<Link to="/our-story/">Our Story</Link>
 						<Link to="/faq/">FAQ</Link>
 						<Link to="/support/">Support</Link>
-						<Link to="/user-guides/">User Guides</Link>
+						<Link to="/user-guides/" partiallyActive={true}>User Guides</Link>
 					</Flex>
 				</Flex>
 			</Box>

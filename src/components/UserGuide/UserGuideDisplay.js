@@ -15,6 +15,7 @@ const query = graphql`
 				items {
 					... on ContentfulUserGuide {
 						title
+						slug
 						app
 						body {
 							raw

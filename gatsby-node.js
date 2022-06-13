@@ -1,5 +1,6 @@
 const path = require("path");
 
+	// including __typename on the ContentfulAsset is critical, for some reason
 const userGuidesQuery = `
 	{
 		allContentfulList(filter: {type: {eq: "userGuide"}}) {
@@ -35,7 +36,14 @@ exports.createPages = async ({ graphql, actions: { createPage } }) => {
 	const result = await graphql(userGuidesQuery);
 	const nodes = result.data.allContentfulList.nodes;
 	const guides = nodes.map(({ items }) => items).reduce((result, list) => result.concat(list), []);
-	const [firstGuide] = guides;
+	const guideIndex = guides.reduce((result, guide) => {
+		const { title, app } = guide;
+
+		result[app][title] = guide;
+
+		return result;
+	}, { EMS: {}, Hospital: {} });
+	const [firstGuide] = Object.values(guideIndex.EMS);
 
 	guides.forEach(guide => {
 		const path = guidePath(guide.app, guide.slug);
@@ -43,13 +51,19 @@ exports.createPages = async ({ graphql, actions: { createPage } }) => {
 		createPage({
 			path,
 			component: guidePageComponentPath,
-			context: { guide }
+			context: {
+				guide,
+				guideIndex
+			}
 		});
 	});
 
 	createPage({
 		path: guideHomePath,
 		component: guidePageComponentPath,
-		context: { guide: firstGuide }
+		context: {
+			guide: firstGuide,
+			guideIndex
+		}
 	});
 };

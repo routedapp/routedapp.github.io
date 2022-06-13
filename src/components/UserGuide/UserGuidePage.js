@@ -1,25 +1,20 @@
 import React from "react";
-import Layout from "@/components/Layout";
-import UserGuideDisplay from "./UserGuideDisplay";
+import Page from "@/pages/user-guides.mdx";
 
 export default function UserGuidePage({
-	pageContext })
+	pageContext: { guide } })
 {
-	const { app, title } = pageContext.guide;
+	const { app, title } = guide;
 	const guidePageContext = {
+		guide,
 		frontmatter: {
 			title: `${app} · ${title}`
 		}
 	};
 
 	return (
-		<Layout
+		<Page
 			pageContext={guidePageContext}
-		>
-			<UserGuideDisplay
-				app={app}
-				title={title}
-			/>
-		</Layout>
+		/>
 	);
 }

@@ -36,8 +36,9 @@ const query = graphql`
 const userGuidePath = (app, slug) => `/user-guides/${app.toLowerCase()}/${slug}`;
 
 export default function UserGuideDisplay({
+	title,
 	app,
-	title })
+	body })
 {
 	const { allContentfulList: { nodes } } = useStaticQuery(query);
 	const guides = nodes.map(({ items }) => items).reduce((result, list) => result.concat(list), []);
@@ -50,7 +51,6 @@ export default function UserGuideDisplay({
 	}, { EMS: {}, Hospital: {} });
 	const selectedApp = app || Object.keys(guideIndex)[0];
 	const selectedTitle = title || Object.keys(guideIndex[selectedApp])[0];
-	const { body } = guideIndex[selectedApp][selectedTitle];
 
 	const handleAppClick = ({ target: { textContent: app } }) => {
 		navigate(userGuidePath(app, Object.values(guideIndex[app])[0].slug));

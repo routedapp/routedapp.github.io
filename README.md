@@ -37,7 +37,7 @@ To start the development server, use `npm run develop`.  You can then open a bro
 
 As you make changes to your local repo, Gatsby will rebuild the affected pages and automatically update what's shown in the browser (usually).  Sometimes, though, you may need to refresh the page to get it to show the latest changes.  Occasionally, especially when changing the `gatsby-config.js` file, you'll need to stop the development server and restart it for the site to build correctly.
 
-If things really go awry, stop the server and use `npm run clean` to completely wipe out the cache before rebuilding.  For example, deleting or renaming files while the server is running can sometimes confuse things.  Gatsby will keep complaining about "missing" files until you clear the cache.  Adding fields to existing content types in Contentful can also require a full cache rebuild.
+If things really go awry, stop the server and use `npm run clean` to completely wipe out the cache before rebuilding.  For example, deleting or renaming files while the server is running can sometimes confuse things.  Gatsby will keep complaining about "missing" files until you clear the cache.  Creating new content types or adding fields to existing ones in Contentful can also require a full cache rebuild.
 
 The development server also opens a page at `http://localhost:8000/___graphql`, which provides tools for previewing GraphQL queries against the site.  This can be useful for validating queries pull in content from the CMS.
 

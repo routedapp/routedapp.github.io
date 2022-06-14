@@ -4,8 +4,7 @@ import { Container } from "theme-ui";
 import AppList from "./AppList";
 import UserGuide from "./UserGuide";
 import UserGuideList from "./UserGuideList";
-
-const userGuidePath = (app, slug) => `/user-guides/${app.toLowerCase()}/${slug}`;
+import { userGuidePath } from "./userGuidePath";
 
 export default function UserGuideDisplay({
 	guide,

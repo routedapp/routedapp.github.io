@@ -1,4 +1,5 @@
 import path from "path";
+import { userGuidePath, home } from "./src/components/UserGuide/userGuidePath";
 
 	// including __typename on the ContentfulAsset is critical, for some reason
 const userGuidesQuery = `
@@ -29,8 +30,6 @@ const userGuidesQuery = `
 	}
 `;
 const guidePageComponentPath = path.resolve("src/components/UserGuide/UserGuidePage.js");
-const guideHomePath = "/user-guides";
-const guidePath = (app, slug) => `${guideHomePath}/${app.toLowerCase()}/${slug}`;
 
 export const createPages = async ({ graphql, actions: { createPage } }) => {
 	const result = await graphql(userGuidesQuery);
@@ -46,7 +45,7 @@ export const createPages = async ({ graphql, actions: { createPage } }) => {
 	const [firstGuide] = Object.values(guideIndex.EMS);
 
 	guides.forEach(guide => {
-		const path = guidePath(guide.app, guide.slug);
+		const path = userGuidePath(guide.app, guide.slug);
 
 		createPage({
 			path,
@@ -59,7 +58,7 @@ export const createPages = async ({ graphql, actions: { createPage } }) => {
 	});
 
 	createPage({
-		path: guideHomePath,
+		path: home,
 		component: guidePageComponentPath,
 		context: {
 			guide: firstGuide,

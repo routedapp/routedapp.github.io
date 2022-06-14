@@ -1,4 +1,4 @@
-const path = require("path");
+import path from "path";
 
 	// including __typename on the ContentfulAsset is critical, for some reason
 const userGuidesQuery = `
@@ -32,7 +32,7 @@ const guidePageComponentPath = path.resolve("src/components/UserGuide/UserGuideP
 const guideHomePath = "/user-guides";
 const guidePath = (app, slug) => `${guideHomePath}/${app.toLowerCase()}/${slug}`;
 
-exports.createPages = async ({ graphql, actions: { createPage } }) => {
+export const createPages = async ({ graphql, actions: { createPage } }) => {
 	const result = await graphql(userGuidesQuery);
 	const nodes = result.data.allContentfulList.nodes;
 	const guides = nodes.map(({ items }) => items).reduce((result, list) => result.concat(list), []);

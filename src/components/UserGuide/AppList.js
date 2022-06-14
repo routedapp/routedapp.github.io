@@ -3,15 +3,15 @@ import { Box, Text } from "theme-ui";
 
 function App({
 	title,
-	selectedApp })
+	isSelected })
 {
-	const style = title === selectedApp
+	const style = isSelected
 		? {
 			fontWeight: "bold",
 			color: "highlight",
 			cursor: "default"
 		}
-		: {};
+		: null;
 
 	return (
 		<Box>
@@ -32,6 +32,7 @@ function App({
 }
 
 export default function AppList({
+	apps,
 	selectedApp,
 	onClick })
 {
@@ -42,14 +43,13 @@ export default function AppList({
 			}}
 			onClick={onClick}
 		>
-			<App
-				title="EMS"
-				selectedApp={selectedApp}
-			/>
-			<App
-				title="Hospital"
-				selectedApp={selectedApp}
-			/>
+			{apps.map((app) => (
+				<App
+					key={app}
+					title={app}
+					isSelected={app === selectedApp}
+				/>
+			))}
 		</Box>
 	);
 }

@@ -11,6 +11,7 @@ export default function UserGuideDisplay({
 	guideIndex })
 {
 	const { title, app, body } = guide;
+	const apps = Object.keys(guideIndex);
 
 	const handleAppClick = ({ target: { textContent: app } }) => {
 		navigate(userGuidePath(app, Object.values(guideIndex[app])[0].slug));
@@ -23,6 +24,7 @@ export default function UserGuideDisplay({
 			sx={{ mt: 5 }}
 		>
 			<AppList
+				apps={apps}
 				selectedApp={app}
 				onClick={handleAppClick}
 			/>

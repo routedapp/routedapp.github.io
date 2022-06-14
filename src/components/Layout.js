@@ -5,7 +5,7 @@ import { useSiteMetadata } from "@/hooks/useSiteMetadata";
 import Header from "./Header";
 import Footer from "./Footer";
 
-export default function DefaultLayout({ children, pageContext })
+export default function Layout({ children, pageContext })
 {
 	const site = useSiteMetadata();
 	const { title } = pageContext.frontmatter;

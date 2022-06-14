@@ -1,76 +1,41 @@
-import React, { useState } from "react";
-import { graphql, useStaticQuery } from "gatsby";
+import React from "react";
+import { navigate } from "gatsby";
 import { Container } from "theme-ui";
 import AppList from "./AppList";
 import UserGuide from "./UserGuide";
 import UserGuideList from "./UserGuideList";
+import { userGuidePath } from "./userGuidePath";
 
-	// including __typename on the ContentfulAsset is critical, for some reason
-const query = graphql`
-	{
-		allContentfulList(filter: {type: {eq: "userGuide"}}) {
-			nodes {
-				name
-				type
-				items {
-					... on ContentfulUserGuide {
-						title
-						app
-						body {
-							raw
-							references {
-								... on ContentfulAsset {
-									contentful_id
-									__typename
-									gatsbyImageData
-								}
-							}
-						}
-					}
-				}
-			}
-		}
-	}
-`;
-
-export default function UserGuideDisplay()
+export default function UserGuideDisplay({
+	guide,
+	guideIndex })
 {
-	const { allContentfulList: { nodes } } = useStaticQuery(query);
-	const items = nodes.map(({ items }) => items).reduce((result, list) => result.concat(list), []);
-	const [selectedApp, setSelectedApp] = useState("EMS");
-	const [selectedTitle, setSelectedTitle] = useState(items[0].title);
-	const guideIndex = items.reduce((result, item) => {
-		const { title, app } = item;
-
-		result[app][title] = item;
-
-		return result;
-	}, { EMS: {}, Hospital: {} });
-	const { body } = guideIndex[selectedApp][selectedTitle];
+	const { title, app, body } = guide;
+	const apps = Object.keys(guideIndex);
 
 	const handleAppClick = ({ target: { textContent: app } }) => {
-		setSelectedApp(app);
-		setSelectedTitle(Object.keys(guideIndex[app])[0]);
+		navigate(userGuidePath(app, Object.values(guideIndex[app])[0].slug));
 	};
 
-	const handleGuideClick = (title) => setSelectedTitle(title);
+	const handleGuideClick = (title) => navigate(userGuidePath(app, guideIndex[app][title].slug));
 
 	return (
 		<Container
 			sx={{ mt: 5 }}
 		>
 			<AppList
-				selectedApp={selectedApp}
+				apps={apps}
+				selectedApp={app}
 				onClick={handleAppClick}
 			/>
 			<UserGuideList
-				titles={Object.keys(guideIndex[selectedApp])}
-				selectedTitle={selectedTitle}
+				titles={Object.keys(guideIndex[app])}
+				selectedTitle={title}
 				onClick={handleGuideClick}
 			/>
 			<UserGuide
-				title={selectedTitle}
-				app={selectedApp}
+				title={title}
+				app={app}
 				body={body}
 			/>
 		</Container>

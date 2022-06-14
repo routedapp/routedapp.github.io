@@ -10,4 +10,7 @@ import UserGuideDisplay from "@/components/UserGuide/UserGuideDisplay";
 ## Follow the step-by-step instructions below to get started with your RoutED account.
 
 
-<UserGuideDisplay />
+<UserGuideDisplay
+	guide={props.pageContext.guide}
+	guideIndex={props.pageContext.guideIndex}
+/>

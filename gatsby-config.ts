@@ -1,6 +1,9 @@
-require("dotenv").config();
+import path from "path";
+import * as dotenv from "dotenv";
 
-module.exports = {
+dotenv.config();
+
+export default {
 	siteMetadata: {
 		title: "RoutED",
 		titleTemplate: "RoutED · %s",
@@ -30,7 +33,7 @@ module.exports = {
 			options: {
 				extensions: [".md", ".mdx"],
 				defaultLayouts: {
-					default: require.resolve("./src/components/DefaultLayout.js")
+					default: path.resolve("./src/components/Layout.js")
 				}
 			}
 		},

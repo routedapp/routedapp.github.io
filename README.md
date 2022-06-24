@@ -44,8 +44,15 @@ The development server also opens a page at `http://localhost:8000/___graphql`, 
 The Theme-UI config is in `src/gatsby-plugin-theme-ui/index.js`.  While that's a somewhat awkward path, it has to be there to work with Gatsby's ["shadowing"](https://www.gatsbyjs.com/docs/how-to/plugins-and-themes/shadowing/) feature.
 
 
+## Previewing changes from Contentful
+
+There's a [preview version of the site](https://routed-website-test.netlify.app/) hosted on Netlify that builds from the GitHub repo but pulls draft content from Contentful.  This enables changes to be previewed before they're published to the live site.
+
+To preview a change, modify a piece of content on Contentful.  Let the auto-save finish, but don't click Publish.  Instead, click the *Build website* button in the sidebar, which will trigger a build of the Netlify site using the draft content.  When the build finishes, click *Open site* to open the Netlify preview site to see the changes.
+
+
 ## Publishing to GitHub Pages
 
-The [publish.yml](https://github.com/sfbrigade/routed-website/blob/main/.github/workflows/publish.yml) GitHub Action is set up to build the Gatsby site on every commit to `main`, and then push the static files to GitHub Pages.  This action is also triggered whenever a change to the Contentful site is published.
+The [build-gatsby.yml](.github/workflows/build-gatsby.yml) GitHub Action is set up to build the Gatsby site on every commit to `main`, and then push the static files to GitHub Pages.  This action is also triggered whenever a change to the Contentful site is published.
 
 On the [Actions tab](https://github.com/routedapp/routedapp.github.io/actions), you can see the recent pushes to GitHub Pages.  Workflows labeled as `contentful-change` were started when the webhook was triggered by a change published to Contentful.

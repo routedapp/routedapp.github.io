@@ -53,6 +53,8 @@ To preview a change, modify a piece of content on Contentful.  Let the auto-save
 
 ## Publishing to GitHub Pages
 
-The [build-gatsby.yml](.github/workflows/build-gatsby.yml) GitHub Action is set up to build the Gatsby site on every commit to `main`, and then push the static files to GitHub Pages.  This action is also triggered whenever a change to the Contentful site is published.
+The [build-gatsby.yml](.github/workflows/build-gatsby.yml) GitHub Action is set up to build the Gatsby site on every commit to `main`, and then push the static files to GitHub Pages.
 
-On the [Actions tab](https://github.com/routedapp/routedapp.github.io/actions), you can see the recent pushes to GitHub Pages.  Workflows labeled as `contentful-change` were started when the webhook was triggered by a change published to Contentful.
+This action is also triggered via a webhook whenever a change to the Contentful site is published.  The `GitHub Pages Deploy` webhook in the Settings on Contentful uses a personal access token to reach GitHub.  If the token needs to be updated, add it as a secret header in the webhook settings.  The *Key* should be `Authorization` and the *Value* should be `token ` (with a space), followed by the personal access token, which starts with `ghp_`.
+
+On the [Actions tab](https://github.com/routedapp/routedapp.github.io/actions), you can see the recent pushes to GitHub Pages.  Workflows labeled as `contentful-change` were started by the webhook call from Contentful.

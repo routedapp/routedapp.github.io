@@ -1,15 +1,13 @@
 import React from "react";
 import { Box, Flex } from "theme-ui";
 import Link from "./Link";
+import Logo from "./Logo";
 
-export default function Header({
-	siteTitle })
+export default function Header()
 {
 	return (
 		<Box as="header"
 			sx={{
-				borderBottom: "1px solid #aaa",
-				borderBottomColor: "gray.3",
 				mb: "24px"
 			}}
 		>
@@ -22,8 +20,8 @@ export default function Header({
 				}}
 			>
 				<Flex as="nav" sx={{ justifyContent: "space-between" }}>
-					<Link to="/" sx={{ m: 0 }}>
-						{siteTitle}
+					<Link to="/">
+						<Logo />
 					</Link>
 					<Flex>
 						<Link to="/our-story/">Our Story</Link>

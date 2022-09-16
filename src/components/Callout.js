@@ -36,7 +36,6 @@ export default function Callout({
 					sx={{
 						bg: "white",
 						color: "primary",
-						py: 2,
 						"&:hover": {
 							bg: "#e6e6e6",
 							cursor: "pointer"

@@ -5,8 +5,8 @@ dotenv.config();
 
 export default {
 	siteMetadata: {
-		title: "RoutED",
-		titleTemplate: "RoutED · %s",
+		title: "Routed",
+		titleTemplate: "Routed · %s",
 		description: "Directing patients to the most available care."
 	},
 	pathPrefix: "",
@@ -61,6 +61,14 @@ export default {
 				"path": "./src/pages/"
 			},
 			__key: "pages"
+		},
+		{
+			resolve: "gatsby-plugin-react-svg",
+			options: {
+				rule: {
+					include: /.+\.svg$/
+				}
+			}
 		},
 	]
 };

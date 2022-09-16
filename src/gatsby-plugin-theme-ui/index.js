@@ -2,49 +2,49 @@
 import { makeStyles, makeTheme } from "@theme-ui/css/utils";
 
 const baseColors = {
-  white: "#fff",
-  black: "#000",
-  gray: [
-    "#fff", // 0 index
-    "#f8f9fa",
-    "#e9ecef",
-    "#dee2e6",
-    "#ced4da",
-    "#adb5bd",
-    "#6c757d",
-    "#495057",
-    "#343a40",
-    "#212529",
-  ],
-  darkblue: "#00205c",
-  blue: "#425cc7",
-  indigo: "#6610f2",
-  purple: "#6f42c1",
-  pink: "#e83e8c",
-  red: "#dc3545",
-  orange: "#fd7e14",
-  yellow: "#ffc107",
-  green: "#28a745",
-  teal: "#00adbb",
-  cyan: "#17a2b8",
+	white: "#fff",
+	black: "#000",
+	gray: [
+		"#fff", // 0 index
+		"#f8f9fa",
+		"#e9ecef",
+		"#dee2e6",
+		"#ced4da",
+		"#adb5bd",
+		"#6c757d",
+		"#495057",
+		"#343a40",
+		"#212529",
+	],
+	darkblue: "#00205c",
+	blue: "#425cc7",
+	indigo: "#6610f2",
+	purple: "#6f42c1",
+	pink: "#e83e8c",
+	red: "#dc3545",
+	orange: "#fd7e14",
+	yellow: "#ffc107",
+	green: "#28a745",
+	teal: "#00adbb",
+	cyan: "#17a2b8",
 };
 
 const colors = {
-	primary: baseColors.darkblue,
+	primary: baseColors.black,
 	secondary: baseColors.blue,
 	highlight: baseColors.teal,
-  text: baseColors.darkblue,
-  grayDark: baseColors.gray[8],
-  background: baseColors.white,
-  muted: baseColors.gray[3],
-  success: baseColors.green,
-  info: baseColors.cyan,
-  warning: baseColors.yellow,
-  danger: baseColors.red,
-  light: baseColors.gray[1],
-  dark: baseColors.gray[8],
-  textMuted: baseColors.gray[6],
-  ...baseColors,
+	text: baseColors.black,
+	grayDark: baseColors.gray[8],
+	background: baseColors.white,
+	muted: "#f5f5f5",
+	success: baseColors.green,
+	info: baseColors.cyan,
+	warning: baseColors.yellow,
+	danger: baseColors.red,
+	light: baseColors.gray[1],
+	dark: baseColors.gray[8],
+	textMuted: baseColors.gray[6],
+	...baseColors,
 //	modes: {
 //		dark: {
 //			...deep.colors,
@@ -57,86 +57,89 @@ const space = [0, 0.25, 0.5, 1, 1.5, 3].map((n) => n + "rem");
 const breakpoints = ["576px", "768px", "992px", "1200px"];
 
 const fonts = {
-  body: "'Public SansVariable', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'",
-  heading: "inherit",
-  monospace:
-    "SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace",
-  // NOTE(@mxstbr): TypeScript does not let us do the self-references below if we don"t provide "default" values
-  sans: "",
+	body: "'Public SansVariable', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'",
+	heading: "inherit",
+	monospace:
+		"SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace",
+	// NOTE(@mxstbr): TypeScript does not let us do the self-references below if we don"t provide "default" values
+	sans: "",
 };
 fonts.sans = fonts.body;
 
 const fontWeights = {
-  body: 400,
-  heading: 700,
-  bold: 700,
-  light: 300,
-  // NOTE(@mxstbr): TypeScript does not let us do the self-references below if we don"t provide "default" values
-  normal: 0,
-  display: 0,
+	body: 400,
+	heading: 700,
+	bold: 700,
+	light: 300,
+	// NOTE(@mxstbr): TypeScript does not let us do the self-references below if we don"t provide "default" values
+	normal: 0,
+	display: 0,
 };
 fontWeights.normal = fontWeights.body;
 fontWeights.display = fontWeights.light;
 
 const fontSizes = [
-  "0.75rem", // "80%",
-  "0.875rem",
-  "1rem",
-  "1.25rem",
-  "1.5rem",
-  "1.75rem",
-  "2rem",
-  "3rem",
-  "4rem",
-  "5rem",
-  "6rem",
-]
+	"0.75rem", // "80%",
+	"0.875rem",
+	"1rem",
+	"1.125rem",
+	"1.5rem",
+	"1.75rem",
+	"2rem",
+	"3rem",
+	"4rem",
+	"5rem",
+	"6rem",
+];
 fontSizes.lead = fontSizes[3];
 fontSizes.body = fontSizes[5];
 
 const lineHeights = {
-  body: 1.3,
-  heading: 1.2,
+	body: 1.3,
+	heading: 1.2,
 };
 
 const sizes = {
-  // container widths
-  sm: 540,
-  md: 720,
-  lg: 960,
-  xl: 1140,
+	// container widths
+	sm: 540,
+	md: 720,
+	lg: 960,
+	xl: 1140,
 };
 
 const radii = {
-  default: "0.25rem",
-  sm: "0.2rem",
-  lg: "0.3rem",
-  pill: "50rem",
+	default: "0.25rem",
+	sm: "0.2rem",
+	lg: "0.3rem",
+	pill: "50rem",
 };
 
 const shadows = {
-  default: "0 .5rem 1rem rgba(0, 0, 0, .15)",
-  sm: "0 .125rem .25rem rgba(0, 0, 0, .075)",
-  lg: "0 1rem 3rem rgba(0, 0, 0, .175)",
+	default: "0 .5rem 1rem rgba(0, 0, 0, .15)",
+	sm: "0 .125rem .25rem rgba(0, 0, 0, .075)",
+	lg: "0 1rem 3rem rgba(0, 0, 0, .175)",
 };
 
 const heading = {
-  fontFamily: "heading",
-  fontWeight: "heading",
-  lineHeight: "heading",
-  mt: 4,
-  mb: 3,
+	fontFamily: "heading",
+	fontWeight: "heading",
+	lineHeight: "heading",
+	mt: 4,
+	mb: 3,
 };
 
 const display = {
-  fontWeight: "display",
-  lineHeight: "heading",
+	fontWeight: "display",
+	lineHeight: "heading",
 };
 
 // variants
 const text = {
-  heading,
-  display,
+	default: {
+		fontSize: "body"
+	},
+	heading,
+	display,
 	name: {
 		fontWeight: "bold",
 		fontSize: 3
@@ -151,6 +154,10 @@ const text = {
 const buttons = {
 	primary: {
 		fontWeight: "bold",
+		fontSize: 4,
+		px: "2.5rem",
+		py: "1.25rem",
+		borderRadius: "1.25rem",
 		":hover": {
 			cursor: "pointer"
 		}
@@ -178,102 +185,102 @@ const images = {
 };
 
 const styles = makeStyles({
-  root: {
+	root: {
 		fontFamily: "body",
 		lineHeight: "body",
 		fontWeight: "body",
 		fontSize: "16px",
-  },
-  a: {
-    color: "primary",
-    textDecoration: "none",
-    ":hover": {
-      textDecoration: "underline",
-    },
-  },
-  p: {
+	},
+	a: {
+		color: "primary",
+		textDecoration: "none",
+		":hover": {
+			textDecoration: "underline",
+		},
+	},
+	p: {
 		fontSize: "body",
-    lineHeight: "body",
-  },
-  h1: {
-    ...heading,
-    fontSize: 8,
+		lineHeight: "body",
+	},
+	h1: {
+		...heading,
+		fontSize: 8,
 		my: 5,
-  },
-  h2: {
-    ...heading,
-    fontSize: 6,
-  },
-  h3: {
-    ...heading,
-    fontSize: 5,
-  },
-  h4: {
-    ...heading,
-    fontSize: 4,
-  },
-  h5: {
-    ...heading,
-    fontSize: 3,
-  },
-  h6: {
-    ...heading,
-    fontSize: 2,
-  },
+	},
+	h2: {
+		...heading,
+		fontSize: 6,
+	},
+	h3: {
+		...heading,
+		fontSize: 5,
+	},
+	h4: {
+		...heading,
+		fontSize: 4,
+	},
+	h5: {
+		...heading,
+		fontSize: 3,
+	},
+	h6: {
+		...heading,
+		fontSize: 2,
+	},
 	li: {
 		fontSize: "body"
 	},
-  blockquote: {
-    fontSize: 3,
-    mb: 3,
-  },
-  table: {
-    width: "100%",
-    marginBottom: 3,
-    color: "gray.9",
-    borderCollapse: "collapse",
-  },
-  th: {
-    verticalAlign: "bottom",
-    borderTopWidth: 2,
-    borderTopStyle: "solid",
-    borderTopColor: "gray.3",
-    borderBottomWidth: 2,
-    borderBottomStyle: "solid",
-    borderBottomColor: "gray.3",
-    padding: ".75rem",
-    textAlign: "inherit",
-  },
-  td: {
-    borderBottomWidth: 2,
-    borderBottomStyle: "solid",
-    borderBottomColor: "gray.3",
-    verticalAlign: "top",
-    padding: ".75rem",
-  },
-  inlineCode: {
-    color: "pink",
-  },
-  img: {
-    maxWidth: "100%",
-    height: "auto",
-  },
+	blockquote: {
+		fontSize: 3,
+		mb: 3,
+	},
+	table: {
+		width: "100%",
+		marginBottom: 3,
+		color: "gray.9",
+		borderCollapse: "collapse",
+	},
+	th: {
+		verticalAlign: "bottom",
+		borderTopWidth: 2,
+		borderTopStyle: "solid",
+		borderTopColor: "gray.3",
+		borderBottomWidth: 2,
+		borderBottomStyle: "solid",
+		borderBottomColor: "gray.3",
+		padding: ".75rem",
+		textAlign: "inherit",
+	},
+	td: {
+		borderBottomWidth: 2,
+		borderBottomStyle: "solid",
+		borderBottomColor: "gray.3",
+		verticalAlign: "top",
+		padding: ".75rem",
+	},
+	inlineCode: {
+		color: "pink",
+	},
+	img: {
+		maxWidth: "100%",
+		height: "auto",
+	},
 });
 
 export default makeTheme({
-  breakpoints,
-  colors,
-  space,
-  fonts,
-  fontSizes,
-  fontWeights,
-  lineHeights,
-  sizes,
-  shadows,
-  radii,
-  text,
+	breakpoints,
+	colors,
+	space,
+	fonts,
+	fontSizes,
+	fontWeights,
+	lineHeights,
+	sizes,
+	shadows,
+	radii,
+	text,
 	buttons,
 	cards,
 	images,
-  styles,
+	styles,
 });

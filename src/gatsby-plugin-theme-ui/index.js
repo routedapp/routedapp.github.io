@@ -31,6 +31,8 @@ const baseColors = {
 
 const colors = {
 	primary: baseColors.black,
+	secondaryDarker: "#1f3387",
+	secondaryDarkest: "#061659",
 	secondary: baseColors.blue,
 	highlight: baseColors.teal,
 	text: baseColors.black,
@@ -186,11 +188,17 @@ const buttons = {
 	primary: {
 		fontWeight: "bold",
 		fontSize: 4,
+		bg: "priamry",
+		color: "white",
 		px: "2.5rem",
 		py: "1.25rem",
 		borderRadius: "1.25rem",
 		":hover": {
+			bg: "secondaryDarker",
 			cursor: "pointer"
+		},
+		":active": {
+			bg: "secondaryDarkest",
 		}
 	}
 };

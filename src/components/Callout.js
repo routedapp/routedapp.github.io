@@ -31,14 +31,6 @@ export default function Callout({
 			</Box>
 			{cta &&
 				<Button
-					sx={{
-						bg: "white",
-						color: "primary",
-						"&:hover": {
-							bg: "#e6e6e6",
-							cursor: "pointer"
-						}
-					}}
 					onClick={() => window.location.href = ctaLink}
 				>
 					{cta}

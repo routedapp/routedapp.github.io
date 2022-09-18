@@ -12,7 +12,7 @@ export default function ImageBanner({
 				backgroundImage: `url(${src})`,
 				backgroundSize: "cover",
 				backgroundPosition: "center",
-				mb: "l"
+				mb: "lg"
 			}}
 		/>
 	);

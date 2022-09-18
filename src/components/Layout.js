@@ -1,6 +1,6 @@
 import React from "react";
 import { Helmet } from "react-helmet";
-import { Box, Container } from "theme-ui";
+import { Container } from "theme-ui";
 import { useSiteMetadata } from "@/hooks/useSiteMetadata";
 import Header from "./Header";
 import Footer from "./Footer";

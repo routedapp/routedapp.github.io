@@ -55,8 +55,8 @@ export default function Footer({
 					<Link to="/"
 						sx={{
 							position: "absolute",
-							left: "3px",
-							top: "-m"
+							left: "2px",
+							top: "-md"
 						}}
 					>
 						<Logo />
@@ -66,7 +66,7 @@ export default function Footer({
 				<Flex
 					sx={{
 						flexDirection: "column",
-						mr: "m",
+						mr: "md",
 					}}
 				>
 					<Themed.h5>Directory</Themed.h5>

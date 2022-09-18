@@ -10,18 +10,16 @@ export default function Callout({
 	return (
 		<Flex
 			sx={{
-				bg: "secondary",
+				bg: "primary",
 				color: "white",
-				p: "m",
-				my: "m",
-				border: "1px solid #aaa",
-				borderWidth: "1px 0",
-				borderColor: "gray.3",
+				p: "xl",
+				mx: "-lg",
+				my: "xl",
 				alignItems: "center",
 				justifyContent: "space-between"
 			}}
 		>
-			<Box>
+			<Box sx={{ textAlign: "center" }}>
 				<Heading>
 					{heading}
 				</Heading>

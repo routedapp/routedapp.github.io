@@ -32,7 +32,7 @@ export default function BodyText({
 	return (
 			// by default, wrap the rich text with BaseStyles so the theme styles are
 			// applied to the unstyled tags, but let the caller pass another container
-		<Container>
+		<Container sx={{ mb: "lg" }}>
 			{renderRichText(node.text)}
 		</Container>
 	);

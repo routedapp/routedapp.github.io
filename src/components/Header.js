@@ -8,14 +8,14 @@ export default function Header()
 	return (
 		<Container as="header"
 			sx={{
-				py: "m",
+				py: "md",
 			}}
 		>
 			<Flex as="nav" sx={{ justifyContent: "space-between" }}>
 				<Link to="/">
 					<Logo />
 				</Link>
-				<Flex sx={{ gap: "m" }} >
+				<Flex sx={{ gap: "md" }} >
 					<Link to="/our-story/">Our Story</Link>
 					<Link to="/faq/">FAQ</Link>
 					<Link to="/support/">Support</Link>

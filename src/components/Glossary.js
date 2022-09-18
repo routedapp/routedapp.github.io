@@ -35,7 +35,7 @@ function List(
 				},
 				"& dd": {
 					marginInlineStart: 0,
-					mb: "m"
+					mb: "md"
 				}
 			}}
 		/>

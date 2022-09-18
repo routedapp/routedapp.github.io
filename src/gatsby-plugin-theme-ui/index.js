@@ -56,9 +56,9 @@ const spaceUnit = 1.25;
 const space = [
 	["none", 0],	// 0
 	["xs", .5],		// 10px
-	["s", 1],			// 20px
-	["m", 2],			// 40px
-	["l", 4],			// 80px
+	["sm", 1],			// 20px
+	["md", 2],			// 40px
+	["lg", 4],			// 80px
 	["xl", 6]			// 120px
 ]
 	.reduce((result, [key, value]) => {
@@ -171,7 +171,7 @@ const text = {
 
 const layout = {
 	container: {
-		px: "l"
+		px: "lg"
 	}
 };
 
@@ -185,18 +185,6 @@ const buttons = {
 		":hover": {
 			cursor: "pointer"
 		}
-	}
-};
-
-const cards = {
-	primary: {
-		width: 180,
-		textAlign: "center",
-		padding: "20px 30px",
-		mr: "1.5rem",
-		mb: "1.5rem",
-		borderRadius: 4,
-		boxShadow: "0 0 8px rgba(0, 0, 0, 0.125)",
 	}
 };
 
@@ -232,7 +220,7 @@ const styles = makeStyles({
 		fontWeight: "normal",
 		lineHeight: 1.75,
 		mt: "-.5em",
-		mb: "m",
+		mb: "md",
 		borderBottom: "5px solid",
 		borderBottomColor: "highlight",
 		display: "inline-block"
@@ -311,7 +299,6 @@ export default makeTheme({
 	text,
 	layout,
 	buttons,
-	cards,
 	images,
 	styles,
 });

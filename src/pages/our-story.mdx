@@ -5,11 +5,12 @@ title: Our Story
 import Callout from "@/components/Callout";
 import BodyText from "@/components/BodyText";
 import Team from "@/components/Team";
-import ImageBanner from "@/components/ImageBanner";
+import HeaderImage from "@/components/HeaderImage";
+import TextBanner from "@/components/TextBanner";
 import gg from "@/images/header-golden-gate.jpg";
 
 
-<ImageBanner src={gg} />
+<HeaderImage src={gg} />
 
 
 <BodyText name="ourStory" />
@@ -21,12 +22,7 @@ import gg from "@/images/header-golden-gate.jpg";
 />
 
 
-<BodyText name="meetTheTeam" />
-
-<Callout
-	heading="Meet the team"
-	subheading="Our all-volunteer team includes software engineers, data analysts, full-stack developers, and designers — with experience in patient health care records, hospitality, government services, and logistics."
-/>
+<BodyText name="meetTheTeam" Container={TextBanner} />
 
 <Team />
 

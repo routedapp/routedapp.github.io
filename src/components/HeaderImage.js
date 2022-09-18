@@ -1,7 +1,7 @@
 import React from "react";
 import { Box } from "theme-ui";
 
-export default function ImageBanner({
+export default function HeaderImage({
 	src,
 	height = 320 })
 {

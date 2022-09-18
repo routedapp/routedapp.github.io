@@ -54,12 +54,13 @@ const colors = {
 
 const spaceUnit = 1.25;
 const space = [
-	["none", 0],	// 0
-	["xs", .5],		// 10px
+	["none", 0],		// 0
+	["xs", .5],			// 10px
 	["sm", 1],			// 20px
 	["md", 2],			// 40px
 	["lg", 4],			// 80px
-	["xl", 6]			// 120px
+	["xl", 6],			// 120px
+	["xxl", 12],		// 240px
 ]
 	.reduce((result, [key, value]) => {
 		const cssValue = `${value * spaceUnit}rem`;
@@ -156,6 +157,12 @@ const text = {
 	default: {
 		fontSize: "body"
 	},
+	paragraph: {
+		fontSize: "body",
+		lineHeight: "body",
+		mt: 0,
+		mb: "xs",
+	},
 	heading,
 	display,
 	name: {
@@ -196,6 +203,7 @@ const images = {
 	}
 };
 
+	// set up base styles for normal HTML tags
 const styles = makeStyles({
 	root: {
 		fontFamily: "body",
@@ -213,6 +221,8 @@ const styles = makeStyles({
 	p: {
 		fontSize: "body",
 		lineHeight: "body",
+		mt: 0,
+		mb: "sm"
 	},
 	h1: {
 		...heading,
@@ -250,7 +260,7 @@ const styles = makeStyles({
 	},
 	blockquote: {
 		fontSize: 3,
-		mb: 3,
+		mb: "md",
 	},
 	table: {
 		width: "100%",

@@ -12,8 +12,8 @@ export default function Callout({
 			sx={{
 				bg: "secondary",
 				color: "white",
-				p: 4,
-				my: "4rem",
+				p: "m",
+				my: "m",
 				border: "1px solid #aaa",
 				borderWidth: "1px 0",
 				borderColor: "gray.3",

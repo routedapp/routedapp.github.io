@@ -1,23 +1,13 @@
 import React from "react";
-import { Themed, Box, Flex, Text, Link as Anchor, css, useThemeUI } from "theme-ui";
+import {
+	Themed,
+	Flex,
+	Text,
+	Link as Anchor,
+	Container
+} from "theme-ui";
 import BaseLink from "./Link";
 import Logo from "./Logo";
-
-const footerStyles = {
-	"&": {
-		background: "muted",
-		color: "",
-		mt: 5,
-		p: 0,
-	},
-	h5: {
-		mt: 0,
-		mb: "1rem"
-	},
-	a: {
-		fontSize: 3
-	}
-};
 
 const Link = ({ sx, ...props }) => (
 		// wrap the GatsbyLink in a div so that the anchor won't be stretched to
@@ -33,7 +23,8 @@ const Link = ({ sx, ...props }) => (
 			sx={{
 				fontWeight: "body",
 				fontSize: 3,
-				ml: 0,
+				m: 0,
+				mb: "xs",
 				"&:hover": {
 					textDecoration: "underline"
 				},
@@ -46,64 +37,58 @@ const Link = ({ sx, ...props }) => (
 export default function Footer({
 	siteDescription })
 {
-	const { theme } = useThemeUI();
-
 	return (
-		<Box as="footer"
-			css={css(footerStyles)(theme)}
+		<Container as="footer"
+			sx={{
+				bg: "muted",
+				p: 4,
+			}}
 		>
-			<Box
-				sx={{
-					m: "0 auto",
-					maxWidth: "80%",
-					px: 3,
-					py: "5rem",
-				}}
-			>
-				<Flex as="nav">
-					<Flex
+			<Flex as="nav">
+				<Flex
+					sx={{
+						position: "relative",
+						flexDirection: "column",
+						flex: 2
+					}}
+				>
+					<Link to="/"
 						sx={{
-							position: "relative",
-							flexDirection: "column",
-							flex: 2
+							position: "absolute",
+							left: "3px",
+							top: "-m"
 						}}
 					>
-						<Link to="/"
-							sx={{
-								position: "absolute",
-								left: "3px",
-								top: -2
-							}}
-						>
-							<Logo />
-						</Link>
-						<Text>{siteDescription}</Text>
-					</Flex>
-					<Flex
-						sx={{
-							flexDirection: "column",
-							mr: "3rem",
-							"& .Link": {
-								mb: 1
-							}
-						}}
-					>
-						<Themed.h5>Directory</Themed.h5>
-						<Link to="/our-story/">Our Story</Link>
-						<Link to="/faq/">FAQ</Link>
-						<Link to="/support/">Support</Link>
-						<Link to="/user-guides/">User Guides</Link>
-					</Flex>
-					<Flex
-						sx={{
-							flexDirection: "column"
-						}}
-					>
-						<Themed.h5>Contact</Themed.h5>
-						<Anchor href="mailto:support@routed.freshdesk.com">support@routed.freshdesk.com</Anchor>
-					</Flex>
+						<Logo />
+					</Link>
+					<Text>{siteDescription}</Text>
 				</Flex>
-			</Box>
-		</Box>
+				<Flex
+					sx={{
+						flexDirection: "column",
+						mr: "m",
+					}}
+				>
+					<Themed.h5>Directory</Themed.h5>
+					<Link to="/our-story/">Our Story</Link>
+					<Link to="/faq/">FAQ</Link>
+					<Link to="/support/">Support</Link>
+					<Link to="/user-guides/">User Guides</Link>
+				</Flex>
+				<Flex
+					sx={{
+						flexDirection: "column"
+					}}
+				>
+					<Themed.h5>Contact</Themed.h5>
+					<Anchor
+						href="mailto:support@routed.freshdesk.com"
+						sx={{ fontSize: 3 }}
+					>
+						support@routed.freshdesk.com
+					</Anchor>
+				</Flex>
+			</Flex>
+		</Container>
 	);
 }

@@ -34,7 +34,7 @@ const colors = {
 	secondary: baseColors.blue,
 	highlight: baseColors.teal,
 	text: baseColors.black,
-	grayDark: baseColors.gray[8],
+	grayDark: baseColors.gray[4],
 	background: baseColors.white,
 	muted: "#f5f5f5",
 	success: baseColors.green,
@@ -52,7 +52,24 @@ const colors = {
 //	},
 };
 
-const space = [0, 0.25, 0.5, 1, 1.5, 3].map((n) => n + "rem");
+const spaceUnit = 1.25;
+const space = [
+	["none", 0],	// 0
+	["xs", .5],		// 10px
+	["s", 1],			// 20px
+	["m", 2],			// 40px
+	["l", 4],			// 80px
+	["xl", 6]			// 120px
+]
+	.reduce((result, [key, value]) => {
+		const cssValue = `${value * spaceUnit}rem`;
+
+		result[key] = cssValue;
+		result["-" + key] = "-" + cssValue;
+		result[value] = cssValue;
+
+		return result;
+	}, {});
 
 const breakpoints = ["576px", "768px", "992px", "1200px"];
 
@@ -61,7 +78,7 @@ const fonts = {
 	heading: "inherit",
 	monospace:
 		"SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace",
-	// NOTE(@mxstbr): TypeScript does not let us do the self-references below if we don"t provide "default" values
+	// NOTE(@mxstbr): TypeScript does not let us do the self-references below if we don't provide "default" values
 	sans: "",
 };
 fonts.sans = fonts.body;
@@ -71,7 +88,7 @@ const fontWeights = {
 	heading: 700,
 	bold: 700,
 	light: 300,
-	// NOTE(@mxstbr): TypeScript does not let us do the self-references below if we don"t provide "default" values
+	// NOTE(@mxstbr): TypeScript does not let us do the self-references below if we don't provide "default" values
 	normal: 0,
 	display: 0,
 };
@@ -105,6 +122,7 @@ const sizes = {
 	md: 720,
 	lg: 960,
 	xl: 1140,
+	container: 1440,
 };
 
 const radii = {
@@ -124,8 +142,8 @@ const heading = {
 	fontFamily: "heading",
 	fontWeight: "heading",
 	lineHeight: "heading",
-	mt: 4,
-	mb: 3,
+	mt: 0,
+	mb: 1,
 };
 
 const display = {
@@ -149,6 +167,12 @@ const text = {
 		fontWeight: "normal",
 		mt: 2
 	},
+};
+
+const layout = {
+	container: {
+		px: "l"
+	}
 };
 
 const buttons = {
@@ -204,8 +228,14 @@ const styles = makeStyles({
 	},
 	h1: {
 		...heading,
-		fontSize: 8,
-		my: 5,
+		fontSize: "body",
+		fontWeight: "normal",
+		lineHeight: 1.75,
+		mt: "-.5em",
+		mb: "m",
+		borderBottom: "5px solid",
+		borderBottomColor: "highlight",
+		display: "inline-block"
 	},
 	h2: {
 		...heading,
@@ -279,6 +309,7 @@ export default makeTheme({
 	shadows,
 	radii,
 	text,
+	layout,
 	buttons,
 	cards,
 	images,

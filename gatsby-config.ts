@@ -3,11 +3,13 @@ import * as dotenv from "dotenv";
 
 dotenv.config();
 
+const description = "Directing patients to the most available care.";
+
 export default {
 	siteMetadata: {
 		title: "Routed",
-		titleTemplate: "Routed · %s",
-		description: "Directing patients to the most available care."
+		titleTemplate: `%s · Routed · ${description}`,
+		description
 	},
 	pathPrefix: "",
 	plugins: [

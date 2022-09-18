@@ -6,7 +6,8 @@ export const QnAList = (props) => (
 		{...props}
 		sx={{
 			p: 0,
-			m: 0
+			m: 0,
+			mb: "xl"
 		}}
 	/>
 );
@@ -20,7 +21,7 @@ const Item = (props) => (
 			padding: "1rem 5rem 1rem 1rem",
 			borderWidth: "1px",
 			borderStyle: "solid",
-			borderColor: "primary",
+			borderColor: "grayDark",
 			cursor: "pointer",
 			position: "relative"
 		}}

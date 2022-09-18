@@ -1,6 +1,6 @@
 import React from "react";
 import { Helmet } from "react-helmet";
-import { Box } from "theme-ui";
+import { Box, Container } from "theme-ui";
 import { useSiteMetadata } from "@/hooks/useSiteMetadata";
 import Header from "./Header";
 import Footer from "./Footer";
@@ -13,6 +13,7 @@ export default function Layout({ children, pageContext })
 	return (
 		<>
 			<Helmet
+				htmlAttributes={{ lang: "en" }}
 				title={title}
 				titleTemplate={site.titleTemplate}
 			/>
@@ -20,16 +21,9 @@ export default function Layout({ children, pageContext })
 				siteTitle={site.title}
 				siteDescription={site.description}
 			/>
-			<Box
-				as="div"
-				sx={{
-					margin: "0 auto",
-					maxWidth: "80%",
-					padding: "0 1.0875rem 1.45rem",
-				}}
-			>
-				<Box as="main">{children}</Box>
-			</Box>
+			<Container as="main">
+				{children}
+			</Container>
 			<Footer
 				siteTitle={site.title}
 				siteDescription={site.description}

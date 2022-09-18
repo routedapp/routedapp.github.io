@@ -26,15 +26,16 @@ function List(
 		<dl
 			{...props}
 			sx={{
-				margin: 0,
-				padding: 0,
+				m: 0,
+				mb: "xl",
+				p: 0,
 				fontSize: "body",
 				"& dt": {
 					fontWeight: "bold"
 				},
 				"& dd": {
-					marginInlineStart: 5,
-					mb: 5
+					marginInlineStart: 0,
+					mb: "m"
 				}
 			}}
 		/>

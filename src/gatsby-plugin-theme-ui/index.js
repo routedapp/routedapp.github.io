@@ -30,9 +30,12 @@ const baseColors = {
 
 const colors = {
 	primary: baseColors.black,
+	primary50: "#959595",
+	secondary: baseColors.blue,
+	secondary50: "#b7b9ea",
+	secondary70: "#9699de",
 	secondaryDarker: "#1f3387",
 	secondaryDarkest: "#061659",
-	secondary: baseColors.blue,
 	highlight: baseColors.teal,
 	text: baseColors.black,
 	grayDark: baseColors.gray[4],
@@ -114,8 +117,8 @@ const lineHeights = {
 	heading: 1.2,
 };
 
-const sizes = {
 	// container widths
+const sizes = {
 	sm: 540,
 	md: 720,
 	lg: 960,
@@ -189,7 +192,7 @@ const buttons = {
 		fontFamily: "body",
 		fontWeight: "bold",
 		fontSize: 4,
-		bg: "priamry",
+		bg: "primary",
 		color: "white",
 		px: "2.5rem",
 		py: "1.25rem",

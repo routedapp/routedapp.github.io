@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, Flex } from "theme-ui";
+import { Flex, Grid } from "theme-ui";
 
 export function Description({ sx, children })
 {
@@ -19,17 +19,16 @@ export function Description({ sx, children })
 export function Feature({ children })
 {
 	return (
-		<Box
+		<Grid
 			sx={{
 				mx: "-lg",
 				gap: "lg",
-				display: "grid",
 				gridAutoFlow: "column",
 				gridAutoColumns: "1fr",
 				alignItems: "center",
 			}}
 		>
 			{children}
-		</Box>
+		</Grid>
 	);
 }

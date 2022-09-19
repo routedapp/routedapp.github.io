@@ -1,5 +1,18 @@
+/** @jsxImportSource theme-ui */
 import React from "react";
-import { Box, Text, Themed } from "theme-ui";
+import { Box } from "theme-ui";
+
+const selected = {
+	fontWeight: "bold",
+	color: "highlight",
+	cursor: "default"
+};
+const unselected = {
+	cursor: "pointer",
+	"&:hover, &:active": {
+		color: "highlight"
+	},
+};
 
 export default function UserGuideList({
 	titles,
@@ -12,43 +25,32 @@ export default function UserGuideList({
 				my: 5
 			}}
 		>
-			<Themed.ul
+			<ul
 				sx={{
-					p: 0
+					fontSize: "1.125rem",
+					p: 0,
+					m: 0
 				}}
 			>
 				{titles.map(title => {
-					const style = title === selectedTitle
-						? {
-							fontWeight: "bold",
-							color: "highlight",
-							cursor: "default"
-						}
-						: {};
-
 					return (
-						<Themed.li
+						<li
 							key={title}
 							sx={{
-								listStyle: "none"
+								listStyle: "none",
+								mb: "sm"
 							}}
 						>
-							<Text
-								sx={{
-									cursor: "pointer",
-									"&:hover, &:active": {
-										color: "highlight"
-									},
-									...style,
-								}}
+							<span
+								sx={title === selectedTitle ? selected : unselected}
 								onClick={() => onClick(title)}
 							>
 								{title}
-							</Text>
-						</Themed.li>
+							</span>
+						</li>
 					);
 				})}
-			</Themed.ul>
+			</ul>
 		</Box>
 	);
 }

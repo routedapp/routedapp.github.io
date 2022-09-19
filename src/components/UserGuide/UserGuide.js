@@ -1,5 +1,5 @@
 import React from "react";
-import { css, Heading, Text, useThemeUI } from "theme-ui";
+import { Box, css, Heading, Text, useThemeUI } from "theme-ui";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import { BLOCKS } from "@contentful/rich-text-types";
 import { BaseStyles } from "theme-ui";
@@ -24,22 +24,21 @@ const options = {
 };
 
 const guideStyles = {
-	h2: {
-		fontSize: "body"
-	},
 	ol: {
-		fontSize: 3,
 		display: "flex",
 		flexFlow: "row wrap",
 		paddingInlineStart: "2rem"
 	},
 	li: {
 		flex: 1,
-		mr: 5
+		mr: "sm"
 	},
 	"li::marker": {
 		fontSize: "body",
 		fontWeight: "bold"
+	},
+	p: {
+		fontSize: "1.125rem",
 	}
 };
 
@@ -50,15 +49,22 @@ export default function UserGuide({
 	const { theme } = useThemeUI();
 
 	return (
-		<BaseStyles
-			css={css(guideStyles)(theme)}
-		>
-			<Heading>
+		<Box>
+			<Heading
+				sx={{
+					fontSize: "banner",
+					mb: "md"
+				}}
+			>
 				{title}
 			</Heading>
-			<Text>
-				{renderRichText(body, options)}
-			</Text>
-		</BaseStyles>
+			<BaseStyles
+				css={css(guideStyles)(theme)}
+			>
+				<Text>
+					{renderRichText(body, options)}
+				</Text>
+			</BaseStyles>
+		</Box>
 	);
 }

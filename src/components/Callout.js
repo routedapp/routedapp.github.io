@@ -10,17 +10,20 @@ export default function Callout({
 	return (
 		<Flex
 			sx={{
-				bg: "primary",
+				bg: "secondary",
 				color: "white",
-				p: "xl",
+				px: "xxl",
+				py: "lg",
 				mx: "-lg",
-				my: "xl",
+				my: 0,
+				flexDirection: "column",
+				gap: "md",
 				alignItems: "center",
 				justifyContent: "space-between"
 			}}
 		>
 			<Box sx={{ textAlign: "center" }}>
-				<Heading>
+				<Heading sx={{ fontSize: "banner" }}>
 					{heading}
 				</Heading>
 				{subheading &&

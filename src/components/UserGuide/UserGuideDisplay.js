@@ -13,8 +13,12 @@ export default function UserGuideDisplay({
 	const { title, app, body } = guide;
 	const apps = Object.keys(guideIndex);
 
-	const handleAppClick = ({ target: { textContent: app } }) => {
-		navigate(userGuidePath(app, Object.values(guideIndex[app])[0].slug));
+	const handleAppClick = ({ target: { textContent: appName } }) => {
+		const app = guideIndex[appName];
+
+		if (app) {
+			navigate(userGuidePath(appName, Object.values(app)[0].slug));
+		}
 	};
 
 	const handleGuideClick = (title) => navigate(userGuidePath(app, guideIndex[app][title].slug));

@@ -2,12 +2,17 @@
 title: Our Story
 ---
 
+import { Box, Button, Image } from "theme-ui";
+import BlockRow from "@/components/BlockRow";
+import BlockCallout from "@/components/BlockCallout";
 import Callout from "@/components/Callout";
 import BodyText from "@/components/BodyText";
 import Team from "@/components/Team";
 import HeaderImage from "@/components/HeaderImage";
 import TextBanner from "@/components/TextBanner";
 import gg from "@/images/header-golden-gate.jpg";
+import health from "@/images/icon-health-dark-gradient.png";
+import foot from "@/images/callout-foot.jpg";
 
 
 <HeaderImage src={gg} />
@@ -15,11 +20,20 @@ import gg from "@/images/header-golden-gate.jpg";
 
 <BodyText name="ourStory" />
 
-<Callout
-	heading="Curious how RoutED could help your city?"
-	cta="Contact Us"
-	ctaLink="/contact"
-/>
+<BlockRow>
+	<Image src={foot} />
+	<BlockCallout icon={health}>
+		<Box
+			sx={{
+				fontSize: "banner",
+				fontWeight: "bold",
+				mb: "md"
+		}}>
+			Curious how Routed could help your city?
+		</Box>
+		<Button onClick={() => window.location.href = "/contact"}>Contact Us</Button>
+	</BlockCallout>
+</BlockRow>
 
 
 <BodyText name="meetTheTeam" Container={TextBanner} />
@@ -27,8 +41,7 @@ import gg from "@/images/header-golden-gate.jpg";
 <Team />
 
 <Callout
-	heading="Interested in volunteering?"
-	subheading="Join our Code for America meetup group on Wednesdays at 6:30pm (Pacific)"
+	heading="Interested in volunteering? Join our Code for America meetup on Wednesdays at 6:30pm PT"
 	cta="Learn More"
 	ctaLink="/volunteer"
 />

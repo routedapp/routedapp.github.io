@@ -3,7 +3,8 @@ import { Box } from "theme-ui";
 
 export default function HeaderImage({
 	src,
-	height = 320 })
+	height = 320,
+	children })
 {
 	return (
 		<Box
@@ -12,8 +13,11 @@ export default function HeaderImage({
 				backgroundImage: `url(${src})`,
 				backgroundSize: "cover",
 				backgroundPosition: "center",
-				mb: "lg"
+				mb: "xl",
+				position: "relative",
 			}}
-		/>
+		>
+			{children}
+		</Box>
 	);
 }

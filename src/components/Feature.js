@@ -1,32 +1,32 @@
 import React from "react";
-import { Box } from "theme-ui";
+import { Box, Flex } from "theme-ui";
 
-export const Description = ({ children }) => (
-	<Box
+export function Description({ sx, children })
+{
+	return <Flex
 		sx={{
-			px: "5rem",
-			py: "2rem",
+			fontSize: "banner",
+			flexDirection: "column",
+			alignItems: "self-start",
+			gap: "md",
+			...sx
 		}}
 	>
 		{children}
-	</Box>
-);
+	</Flex>;
+}
 
 export function Feature({ children })
 {
 	return (
 		<Box
 			sx={{
+				mx: "-lg",
+				gap: "lg",
 				display: "grid",
 				gridAutoFlow: "column",
 				gridAutoColumns: "1fr",
 				alignItems: "center",
-				"& button": {
-					bg: "highlight"
-				},
-				"& button:hover": {
-					bg: "#007f8a"
-				}
 			}}
 		>
 			{children}

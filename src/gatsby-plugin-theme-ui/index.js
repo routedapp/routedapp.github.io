@@ -1,4 +1,3 @@
-//import { deep } from "@theme-ui/presets";
 import { makeStyles, makeTheme } from "@theme-ui/css/utils";
 
 const baseColors = {
@@ -47,11 +46,6 @@ const colors = {
 	dark: baseColors.gray[8],
 	textMuted: baseColors.gray[6],
 	...baseColors,
-//	modes: {
-//		dark: {
-//			...deep.colors,
-//		},
-//	},
 };
 
 const spaceUnit = 1.25;
@@ -113,6 +107,7 @@ const fontSizes = [
 ];
 fontSizes.lead = fontSizes[3];
 fontSizes.body = fontSizes[5];
+fontSizes.banner = "2.5rem";
 
 const lineHeights = {
 	body: 1.3,
@@ -142,11 +137,12 @@ const shadows = {
 };
 
 const heading = {
+	fontSize: "body",
 	fontFamily: "heading",
 	fontWeight: "heading",
 	lineHeight: "heading",
 	mt: 0,
-	mb: 1,
+	mb: "xs",
 };
 
 const display = {
@@ -171,6 +167,10 @@ const text = {
 		fontWeight: "bold",
 		fontSize: 3
 	},
+	headingFeature: {
+		...heading,
+		mb: 0,
+	},
 	subheading: {
 		fontSize: 2,
 		fontWeight: "normal",
@@ -186,6 +186,7 @@ const layout = {
 
 const buttons = {
 	primary: {
+		fontFamily: "body",
 		fontWeight: "bold",
 		fontSize: 4,
 		bg: "priamry",
@@ -239,8 +240,10 @@ const styles = makeStyles({
 		lineHeight: 1.75,
 		mt: "-.5em",
 		mb: "md",
-		borderBottom: "5px solid",
-		borderBottomColor: "highlight",
+		borderStyle: "solid",
+		borderImageSlice: 1,
+		borderWidth: "0 0 5px 0",
+		borderImageSource: "linear-gradient(138.16deg, #425cc6 18.75%, #00adbb 61.85%, #99e6d8 94.61%)",
 		display: "inline-block"
 	},
 	h2: {

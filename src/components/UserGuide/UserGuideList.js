@@ -1,54 +1,46 @@
+/** @jsxImportSource theme-ui */
 import React from "react";
-import { Box, Text, Themed } from "theme-ui";
+import { Box } from "theme-ui";
+import Link from "@/components/Link";
+import { userGuidePath } from "@/components/UserGuide/userGuidePath";
 
 export default function UserGuideList({
-	titles,
-	selectedTitle,
-	onClick
-}) {
+	guides,
+	selectedTitle })
+{
 	return (
 		<Box as="nav"
 			sx={{
 				my: 5
 			}}
 		>
-			<Themed.ul
+			<ul
 				sx={{
-					p: 0
+					fontSize: "1.125rem",
+					p: 0,
+					m: 0
 				}}
 			>
-				{titles.map(title => {
-					const style = title === selectedTitle
-						? {
-							fontWeight: "bold",
-							color: "highlight",
-							cursor: "default"
-						}
-						: {};
-
+				{Object.values(guides).map(({ app, title, slug }) => {
 					return (
-						<Themed.li
+						<li
 							key={title}
 							sx={{
-								listStyle: "none"
+								listStyle: "none",
+								mb: "sm"
 							}}
 						>
-							<Text
-								sx={{
-									cursor: "pointer",
-									"&:hover, &:active": {
-										color: "highlight"
-									},
-									...style,
-								}}
-								onClick={() => onClick(title)}
+							<Link
+								to={userGuidePath(app, slug)}
+								className={(title === selectedTitle ? "active" : "")}
+								sx={{ fontSize: "1.125rem" }}
 							>
 								{title}
-							</Text>
-						</Themed.li>
+							</Link>
+						</li>
 					);
 				})}
-			</Themed.ul>
+			</ul>
 		</Box>
 	);
 }

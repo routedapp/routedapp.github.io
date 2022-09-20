@@ -1,33 +1,37 @@
 import React from "react";
-import { Box, Text } from "theme-ui";
+import { Button, Flex } from "theme-ui";
+
+const selected = {
+	bg: "secondary",
+	":hover": {
+		cursor: "default",
+		bg: "secondary"
+	},
+	":active": {
+		bg: "secondary"
+	},
+};
+const unselected = {
+	color: "primary",
+	bg: "unset",
+	":hover": {
+		bg: "secondary50"
+	},
+	":active": {
+		bg: "secondary70"
+	},
+};
 
 function App({
 	title,
 	isSelected })
 {
-	const style = isSelected
-		? {
-			fontWeight: "bold",
-			color: "highlight",
-			cursor: "default"
-		}
-		: null;
-
 	return (
-		<Box>
-			<Text
-				sx={{
-					fontSize: "body",
-					"&:hover": {
-						color: "highlight",
-						cursor: "pointer"
-					},
-					...style
-				}}
-			>
+		<Button
+			sx={isSelected ? selected : unselected }
+		>
 				{title}
-			</Text>
-		</Box>
+		</Button>
 	)
 }
 
@@ -37,9 +41,13 @@ export default function AppList({
 	onClick })
 {
 	return (
-		<Box
+		<Flex
 			sx={{
-				my: 5
+				pb: "sm",
+				mb: "lg",
+				gap: "sm",
+				borderBottom: "1px solid",
+				borderBottomColor: "primary50"
 			}}
 			onClick={onClick}
 		>
@@ -50,6 +58,6 @@ export default function AppList({
 					isSelected={app === selectedApp}
 				/>
 			))}
-		</Box>
+		</Flex>
 	);
 }

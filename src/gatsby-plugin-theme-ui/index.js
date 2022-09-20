@@ -1,4 +1,3 @@
-//import { deep } from "@theme-ui/presets";
 import { makeStyles, makeTheme } from "@theme-ui/css/utils";
 
 const baseColors = {
@@ -31,10 +30,15 @@ const baseColors = {
 
 const colors = {
 	primary: baseColors.black,
+	primary50: "#959595",
 	secondary: baseColors.blue,
+	secondary50: "#b7b9ea",
+	secondary70: "#9699de",
+	secondaryDarker: "#1f3387",
+	secondaryDarkest: "#061659",
 	highlight: baseColors.teal,
 	text: baseColors.black,
-	grayDark: baseColors.gray[8],
+	grayDark: baseColors.gray[4],
 	background: baseColors.white,
 	muted: "#f5f5f5",
 	success: baseColors.green,
@@ -45,14 +49,27 @@ const colors = {
 	dark: baseColors.gray[8],
 	textMuted: baseColors.gray[6],
 	...baseColors,
-//	modes: {
-//		dark: {
-//			...deep.colors,
-//		},
-//	},
 };
 
-const space = [0, 0.25, 0.5, 1, 1.5, 3].map((n) => n + "rem");
+const spaceUnit = 1.25;
+const space = [
+	["none", 0],		// 0
+	["xs", .5],			// 10px
+	["sm", 1],			// 20px
+	["md", 2],			// 40px
+	["lg", 4],			// 80px
+	["xl", 6],			// 120px
+	["xxl", 12],		// 240px
+]
+	.reduce((result, [key, value]) => {
+		const cssValue = `${value * spaceUnit}rem`;
+
+		result[key] = cssValue;
+		result["-" + key] = "-" + cssValue;
+		result[value] = cssValue;
+
+		return result;
+	}, {});
 
 const breakpoints = ["576px", "768px", "992px", "1200px"];
 
@@ -61,7 +78,7 @@ const fonts = {
 	heading: "inherit",
 	monospace:
 		"SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace",
-	// NOTE(@mxstbr): TypeScript does not let us do the self-references below if we don"t provide "default" values
+	// NOTE(@mxstbr): TypeScript does not let us do the self-references below if we don't provide "default" values
 	sans: "",
 };
 fonts.sans = fonts.body;
@@ -71,7 +88,7 @@ const fontWeights = {
 	heading: 700,
 	bold: 700,
 	light: 300,
-	// NOTE(@mxstbr): TypeScript does not let us do the self-references below if we don"t provide "default" values
+	// NOTE(@mxstbr): TypeScript does not let us do the self-references below if we don't provide "default" values
 	normal: 0,
 	display: 0,
 };
@@ -93,18 +110,20 @@ const fontSizes = [
 ];
 fontSizes.lead = fontSizes[3];
 fontSizes.body = fontSizes[5];
+fontSizes.banner = "2.5rem";
 
 const lineHeights = {
 	body: 1.3,
 	heading: 1.2,
 };
 
-const sizes = {
 	// container widths
+const sizes = {
 	sm: 540,
 	md: 720,
 	lg: 960,
 	xl: 1140,
+	container: 1440,
 };
 
 const radii = {
@@ -121,11 +140,12 @@ const shadows = {
 };
 
 const heading = {
+	fontSize: "body",
 	fontFamily: "heading",
 	fontWeight: "heading",
 	lineHeight: "heading",
-	mt: 4,
-	mb: 3,
+	mt: 0,
+	mb: "xs",
 };
 
 const display = {
@@ -138,11 +158,21 @@ const text = {
 	default: {
 		fontSize: "body"
 	},
+	paragraph: {
+		fontSize: "body",
+		lineHeight: "body",
+		mt: 0,
+		mb: "xs",
+	},
 	heading,
 	display,
 	name: {
 		fontWeight: "bold",
 		fontSize: 3
+	},
+	headingFeature: {
+		...heading,
+		mb: 0,
 	},
 	subheading: {
 		fontSize: 2,
@@ -151,28 +181,29 @@ const text = {
 	},
 };
 
+const layout = {
+	container: {
+		px: "lg"
+	}
+};
+
 const buttons = {
 	primary: {
+		fontFamily: "body",
 		fontWeight: "bold",
 		fontSize: 4,
+		bg: "primary",
+		color: "white",
 		px: "2.5rem",
 		py: "1.25rem",
 		borderRadius: "1.25rem",
 		":hover": {
+			bg: "secondaryDarker",
 			cursor: "pointer"
+		},
+		":active": {
+			bg: "secondaryDarkest",
 		}
-	}
-};
-
-const cards = {
-	primary: {
-		width: 180,
-		textAlign: "center",
-		padding: "20px 30px",
-		mr: "1.5rem",
-		mb: "1.5rem",
-		borderRadius: 4,
-		boxShadow: "0 0 8px rgba(0, 0, 0, 0.125)",
 	}
 };
 
@@ -184,6 +215,7 @@ const images = {
 	}
 };
 
+	// set up base styles for normal HTML tags
 const styles = makeStyles({
 	root: {
 		fontFamily: "body",
@@ -201,11 +233,21 @@ const styles = makeStyles({
 	p: {
 		fontSize: "body",
 		lineHeight: "body",
+		mt: 0,
+		mb: "sm"
 	},
 	h1: {
 		...heading,
-		fontSize: 8,
-		my: 5,
+		fontSize: "body",
+		fontWeight: "normal",
+		lineHeight: 1.75,
+		mt: "-.5em",
+		mb: "md",
+		borderStyle: "solid",
+		borderImageSlice: 1,
+		borderWidth: "0 0 5px 0",
+		borderImageSource: "linear-gradient(138.16deg, #425cc6 18.75%, #00adbb 61.85%, #99e6d8 94.61%)",
+		display: "inline-block"
 	},
 	h2: {
 		...heading,
@@ -232,7 +274,7 @@ const styles = makeStyles({
 	},
 	blockquote: {
 		fontSize: 3,
-		mb: 3,
+		mb: "md",
 	},
 	table: {
 		width: "100%",
@@ -279,8 +321,8 @@ export default makeTheme({
 	shadows,
 	radii,
 	text,
+	layout,
 	buttons,
-	cards,
 	images,
 	styles,
 });

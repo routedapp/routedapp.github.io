@@ -18,6 +18,7 @@ const query = graphql`
 
 export default function BodyText({
 	name,
+	sx,
 	Container = BaseStyles })
 {
 	const { allContentfulBodyText: { nodes } } = useStaticQuery(query);
@@ -32,7 +33,7 @@ export default function BodyText({
 	return (
 			// by default, wrap the rich text with BaseStyles so the theme styles are
 			// applied to the unstyled tags, but let the caller pass another container
-		<Container>
+		<Container sx={{ mb: "lg", ...sx }}>
 			{renderRichText(node.text)}
 		</Container>
 	);

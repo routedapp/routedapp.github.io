@@ -9,22 +9,20 @@ import { Link as GatsbyLink } from "gatsby";
 export default function Link({ sx, ...props })
 {
 	return <GatsbyLink
+		activeStyle={{ fontWeight: 700 }}
 		activeClassName="active"
 		sx={{
 			color: "inherit",
 			textDecoration: "none",
 			fontSize: 4,
 			fontWeight: "normal",
-			ml: 5,
-			"&:first-of-type": {
-				ml: 0
-			},
 			"&:hover": {
 				color: "highlight"
 			},
 				// set a class on active links so we can disable any hover effect
 			"&.active, &.active:hover": {
 				color: "highlight",
+				fontWeight: "bold",
 				cursor: "default"
 			},
 			...sx

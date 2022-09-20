@@ -12,17 +12,18 @@ export default function Callout({
 			sx={{
 				bg: "secondary",
 				color: "white",
-				p: 4,
-				my: "4rem",
-				border: "1px solid #aaa",
-				borderWidth: "1px 0",
-				borderColor: "gray.3",
+				px: "xxl",
+				py: "lg",
+				mx: "-lg",
+				my: 0,
+				flexDirection: "column",
+				gap: "md",
 				alignItems: "center",
 				justifyContent: "space-between"
 			}}
 		>
-			<Box>
-				<Heading>
+			<Box sx={{ textAlign: "center" }}>
+				<Heading sx={{ fontSize: "banner" }}>
 					{heading}
 				</Heading>
 				{subheading &&
@@ -33,14 +34,6 @@ export default function Callout({
 			</Box>
 			{cta &&
 				<Button
-					sx={{
-						bg: "white",
-						color: "primary",
-						"&:hover": {
-							bg: "#e6e6e6",
-							cursor: "pointer"
-						}
-					}}
 					onClick={() => window.location.href = ctaLink}
 				>
 					{cta}

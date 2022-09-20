@@ -1,6 +1,7 @@
+/** @jsxImportSource theme-ui */
 import React from "react";
 import { graphql, useStaticQuery } from "gatsby";
-import { Box, Card, Heading, Image } from "theme-ui";
+import { Box, Flex, Image } from "theme-ui";
 
 function TeamMember({
 	name,
@@ -8,19 +9,30 @@ function TeamMember({
 	picture })
 {
 	return (
-		<Card>
+		<figure
+			sx={{
+				fontSize: "body",
+				textAlign: "center",
+				width: 260,
+				m: 0
+			}}
+		>
 			<Image
-				variant="avatar"
 				src={picture}
-				sx={{ mb: ".5rem" }}
+				sx={{
+					width: "100%",
+					mb: "sm"
+				}}
 			/>
-			<Heading variant="name">
-				{name}
-			</Heading>
-			<Heading variant="subheading">
-				{role}
-			</Heading>
-		</Card>
+			<figcaption>
+				<Box sx={{ fontWeight: "bold" }}>
+					{name}
+				</Box>
+				<Box>
+					{role}
+				</Box>
+			</figcaption>
+		</figure>
 	);
 }
 
@@ -41,11 +53,13 @@ export default function TeamList()
 	`);
 
 	return (
-		<Box
+		<Flex
 			sx={{
-				mt: "2rem",
-				display: "flex",
-				flexWrap: "wrap"
+				mb: "xl",
+				flexWrap: "wrap",
+				columnGap: "lg",
+				rowGap: "md",
+				justifyContent: "center",
 			}}
 		>
 			{nodes.map(({ fullName, role, imageUrl }) => (
@@ -56,6 +70,6 @@ export default function TeamList()
 					picture={imageUrl}
 				/>
 			))}
-		</Box>
+		</Flex>
 	);
 }

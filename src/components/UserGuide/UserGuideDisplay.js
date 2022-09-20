@@ -1,6 +1,6 @@
 import React from "react";
 import { navigate } from "gatsby";
-import { Container } from "theme-ui";
+import { Container, Grid } from "theme-ui";
 import AppList from "./AppList";
 import UserGuide from "./UserGuide";
 import UserGuideList from "./UserGuideList";
@@ -13,31 +13,42 @@ export default function UserGuideDisplay({
 	const { title, app, body } = guide;
 	const apps = Object.keys(guideIndex);
 
-	const handleAppClick = ({ target: { textContent: app } }) => {
-		navigate(userGuidePath(app, Object.values(guideIndex[app])[0].slug));
-	};
+	const handleAppClick = ({ target: { textContent: appName } }) => {
+		const app = guideIndex[appName];
 
-	const handleGuideClick = (title) => navigate(userGuidePath(app, guideIndex[app][title].slug));
+		if (app) {
+			navigate(userGuidePath(appName, Object.values(app)[0].slug));
+		}
+	};
 
 	return (
 		<Container
-			sx={{ mt: 5 }}
+			sx={{
+				mt: "lg",
+				p: 0
+			}}
 		>
 			<AppList
 				apps={apps}
 				selectedApp={app}
 				onClick={handleAppClick}
 			/>
-			<UserGuideList
-				titles={Object.keys(guideIndex[app])}
-				selectedTitle={title}
-				onClick={handleGuideClick}
-			/>
-			<UserGuide
-				title={title}
-				app={app}
-				body={body}
-			/>
+			<Grid
+				sx={{
+					gridAutoFlow: "column",
+					gap: "lg"
+				}}
+			>
+				<UserGuideList
+					guides={guideIndex[app]}
+					selectedTitle={title}
+				/>
+				<UserGuide
+					title={title}
+					app={app}
+					body={body}
+				/>
+			</Grid>
 		</Container>
 	);
 }

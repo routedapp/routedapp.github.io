@@ -4,53 +4,99 @@ title: Page
 
 import { Box, Button, Heading, Image } from "theme-ui";
 import { Feature, Description } from "@/components/Feature";
-import AmbulanceImage from "@/images/ambulance.png";
-import EMTsImage from "@/images/for-emts.png";
+import HeaderImage from "@/components/HeaderImage";
+import BlockRow from "@/components/BlockRow";
+import BlockCallout from "@/components/BlockCallout";
+import BodyText from "@/components/BodyText";
+import TextBanner from "@/components/TextBanner";
+import hand from "@/images/header-hand.jpg";
+import productEMT from "@/images/product-emt.jpg";
 import HospitalsImage from "@/images/for-hospitals.png";
+import speed from "@/images/icon-speed-dark-gradient.png";
+import location from "@/images/icon-location-dark-gradient.png";
+import WaitTimes from "@/images/text-wait-times.svg";
+import Ambulance from "@/images/text-ambulance.svg";
 
-# Welcome to RoutED
+
+<HeaderImage
+	src={hand}
+	height={640}
+>
+	<Box
+		sx={{
+			fontSize: "3.25rem",
+			fontWeight: "bold",
+			lineHeight: 1.2,
+			left: "md",
+			bottom: "md",
+			width: "60%",
+			p: "md",
+			bg: "white",
+			position: "absolute",
+			"& strong": {
+				color: "secondary"
+			}
+		}}
+	>
+		Directing patients to the <strong>most available</strong> care.
+	</Box>
+</HeaderImage>
+
+
+# Problem
+
+<p sx={{ fontWeight: "bold", fontSize: "banner" }}>
+	EMT and ER wait times have increased significantly over the years — compromising the care and lives of patients.
+</p>
+
+
+<BlockRow sx={{ mt: "xl" }}>
+	<BlockCallout icon={speed}>
+		<WaitTimes sx={{ width: "100%" }} />
+	</BlockCallout>
+	<BlockCallout icon={location}>
+		<Ambulance sx={{ width: "100%" }} />
+	</BlockCallout>
+</BlockRow>
+
+
+<BodyText
+	name="mission"
+	Container={TextBanner}
+	sx={{
+		mt: "xl",
+		mb: 0
+	}}
+/>
+
 
 <Feature>
-	<Description>
-		<Heading>
-			Directing patients to the most available care.
-		</Heading>
-		<Box sx={{ fontSize: "1.25rem" }}>
-			Lorem ipsum
-		</Box>
-	</Description>
-	<Image src={AmbulanceImage} />
-</Feature>
-
-<Feature>
-	<Description>
-		<Heading>
+	<Description sx={{ alignItems: "self-end", textAlign: "right", pl: "lg" }}>
+		<Heading variant="headingFeature">
 			For EMTs
 		</Heading>
-		<Box sx={{ fontSize: "1.25rem" }}>
+		<Box>
 			Know what emergency departments have open beds.
 		</Box>
 		<Button
-			sx={{ mt: 16 }}
 			onClick={() => window.location.href = "user-guides"}
 		>
 			View EMT User Guide
 		</Button>
 	</Description>
-	<Image src={EMTsImage} />
+	<Image src={productEMT} />
 </Feature>
 
 <Feature>
 	<Image src={HospitalsImage} />
-	<Description>
-		<Heading>
+	<Description sx={{ pr: "lg" }}>
+		<Heading variant="headingFeature">
 			For Hospitals
 		</Heading>
-		<Box sx={{ fontSize: "1.25rem" }}>
+		<Box>
 			Prepare for incoming patients with digital ringdowns.
 		</Box>
 		<Button
-			sx={{ mt: 16 }}
 			onClick={() => window.location.href = "user-guides"}
 		>
 			View Hospital User Guide

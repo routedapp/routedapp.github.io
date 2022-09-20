@@ -16,11 +16,15 @@ const styles = {
 		fontSize: "3vmin"
 	},
 	h1: {
-		fontSize: "3em",		// theme size 7
-		fontWeight: 500
+		fontSize: "3em",
+		fontWeight: 500,
+		lineHeight: 1.2,
+		my: "3rem",
+		border: "none",
+		display: "block"
 	},
 	h3: {
-		fontSize: "1.75em",	// theme size 5
+		fontSize: "1.75em",
 		fontWeight: 300
 	},
 	a: {

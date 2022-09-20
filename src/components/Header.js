@@ -12,7 +12,9 @@ export default function Header()
 			}}
 		>
 			<Flex as="nav" sx={{ justifyContent: "space-between" }}>
-				<Link to="/">
+				<Link to="/"
+					title="Home"
+				>
 					<Logo />
 				</Link>
 				<Flex sx={{ gap: "md" }} >

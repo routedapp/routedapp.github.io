@@ -53,6 +53,7 @@ export default function Footer({
 					}}
 				>
 					<Link to="/"
+						title="Home"
 						sx={{
 							position: "absolute",
 							left: "2px",

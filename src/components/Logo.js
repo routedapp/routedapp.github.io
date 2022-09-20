@@ -6,6 +6,7 @@ export default function Logo({
 {
 	return (
 		<LogoImage
+			alt="Routed logo"
 			style={{
 				...style,
 				height: "1.5rem"

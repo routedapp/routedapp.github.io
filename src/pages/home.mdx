@@ -2,6 +2,7 @@
 title: Page
 ---
 
+import { navigate } from "gatsby";
 import { Box, Button, Heading, Image } from "theme-ui";
 import { Feature, Description } from "@/components/Feature";
 import HeaderImage from "@/components/HeaderImage";
@@ -78,9 +79,7 @@ import Ambulance from "@/images/text-ambulance.svg";
 		<Box>
 			Know what emergency departments have open beds.
 		</Box>
-		<Button
-			onClick={() => window.location.href = "user-guides"}
-		>
+		<Button onClick={() => navigate("/user-guides")}>
 			View EMT User Guide
 		</Button>
 	</Description>
@@ -96,9 +95,7 @@ import Ambulance from "@/images/text-ambulance.svg";
 		<Box>
 			Prepare for incoming patients with digital ringdowns.
 		</Box>
-		<Button
-			onClick={() => window.location.href = "user-guides"}
-		>
+		<Button onClick={() => navigate("/user-guides")}>
 			View Hospital User Guide
 		</Button>
 	</Description>

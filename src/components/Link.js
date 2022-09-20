@@ -22,6 +22,7 @@ export default function Link({ sx, ...props })
 				// set a class on active links so we can disable any hover effect
 			"&.active, &.active:hover": {
 				color: "highlight",
+				fontWeight: "bold",
 				cursor: "default"
 			},
 			...sx

@@ -14,6 +14,8 @@ import productEMT from "@/images/product-emt.jpg";
 import HospitalsImage from "@/images/for-hospitals.png";
 import speed from "@/images/icon-speed-dark-gradient.png";
 import location from "@/images/icon-location-dark-gradient.png";
+import WaitTimes from "@/images/text-wait-times.svg";
+import Ambulance from "@/images/text-ambulance.svg";
 
 
 <HeaderImage
@@ -50,25 +52,10 @@ import location from "@/images/icon-location-dark-gradient.png";
 
 <BlockRow sx={{ mt: "xl" }}>
 	<BlockCallout icon={speed}>
-		<Box
-			sx={{
-				fontSize: "banner",
-				fontWeight: "bold",
-				mb: "md"
-		}}>
-			ER wait times in SF range from 2 to 4.5 hours
-		</Box>
+		<WaitTimes sx={{ width: "100%" }} />
 	</BlockCallout>
 	<BlockCallout icon={location}>
-		<Box
-			sx={{
-				// fontSize: "banner",
-				fontWeight: "bold",
-				mb: "md"
-		}}>
-			<p>Ambulance unit and staff that are delayed in the ED are effectively out of service, decreasing advanced life support coverage in the community.</p>
-			<p>California Hospital Association, 2014</p>
-		</Box>
+		<Ambulance sx={{ width: "100%" }} />
 	</BlockCallout>
 </BlockRow>
 

@@ -21,8 +21,6 @@ export default function UserGuideDisplay({
 		}
 	};
 
-	const handleGuideClick = (title) => navigate(userGuidePath(app, guideIndex[app][title].slug));
-
 	return (
 		<Container
 			sx={{
@@ -42,9 +40,8 @@ export default function UserGuideDisplay({
 				}}
 			>
 				<UserGuideList
-					titles={Object.keys(guideIndex[app])}
+					guides={guideIndex[app]}
 					selectedTitle={title}
-					onClick={handleGuideClick}
 				/>
 				<UserGuide
 					title={title}

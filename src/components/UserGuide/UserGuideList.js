@@ -1,24 +1,13 @@
 /** @jsxImportSource theme-ui */
 import React from "react";
 import { Box } from "theme-ui";
-
-const selected = {
-	fontWeight: "bold",
-	color: "highlight",
-	cursor: "default"
-};
-const unselected = {
-	cursor: "pointer",
-	"&:hover, &:active": {
-		color: "highlight"
-	},
-};
+import Link from "@/components/Link";
+import { userGuidePath } from "@/components/UserGuide/userGuidePath";
 
 export default function UserGuideList({
-	titles,
-	selectedTitle,
-	onClick
-}) {
+	guides,
+	selectedTitle })
+{
 	return (
 		<Box as="nav"
 			sx={{
@@ -32,7 +21,7 @@ export default function UserGuideList({
 					m: 0
 				}}
 			>
-				{titles.map(title => {
+				{Object.values(guides).map(({ app, title, slug }) => {
 					return (
 						<li
 							key={title}
@@ -41,12 +30,13 @@ export default function UserGuideList({
 								mb: "sm"
 							}}
 						>
-							<span
-								sx={title === selectedTitle ? selected : unselected}
-								onClick={() => onClick(title)}
+							<Link
+								to={userGuidePath(app, slug)}
+								className={(title === selectedTitle ? "active" : "")}
+								sx={{ fontSize: "1.125rem" }}
 							>
 								{title}
-							</span>
+							</Link>
 						</li>
 					);
 				})}

@@ -49,7 +49,7 @@ export default function UserGuide({
 	const { theme } = useThemeUI();
 
 	return (
-		<Box>
+		<Box sx={{ mb: "lg" }}>
 			<Heading
 				sx={{
 					fontSize: "banner",

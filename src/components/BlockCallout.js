@@ -16,7 +16,8 @@ export default function BlockCallout({
 				textAlign: "center",
 				flexDirection: "column",
 				alignItems: "center",
-				display: "inline-block"
+				display: "inline-block",
+				overflow: "hidden"
 			}}
 		>
 			<Box
@@ -24,7 +25,14 @@ export default function BlockCallout({
 					py: "md"
 				}}
 			>
-				<Image src={icon} sx={{ width: 150 }}/>
+				<Image
+					src={icon}
+					sx={{
+						width: "37.5%",
+						maxWidth: 150,
+						maxHeight: 150
+					}}
+				/>
 			</Box>
 			{children}
 		</Flex>

@@ -9,7 +9,9 @@ export default {
 	siteMetadata: {
 		title: "Routed",
 		titleTemplate: `%s · Routed · ${description}`,
-		description
+		description,
+		siteUrl: "https://routedapp.org",
+		image: "/routed-logomark.png",
 	},
 	pathPrefix: "",
 	plugins: [

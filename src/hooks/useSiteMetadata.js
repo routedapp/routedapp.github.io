@@ -9,6 +9,8 @@ export function useSiteMetadata()
 					title
 					titleTemplate
 					description
+					siteUrl
+					image
 				}
 			}
 		}

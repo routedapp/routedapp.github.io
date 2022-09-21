@@ -43,16 +43,16 @@ function createMeta(
 }
 
 export default function Seo({
-	children,
-	frontmatter })
+	page,
+	children })
 {
 	const metadata = useSiteMetadata();
 	const { title: siteTitle, titleTemplate } = metadata;
-	const { title = siteTitle } = frontmatter;
+	const { title = siteTitle } = page;
 	const seo = {
 		siteTitle,
 		...metadata,
-		...frontmatter,
+		...page,
 	};
 
 	return (

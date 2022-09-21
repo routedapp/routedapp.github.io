@@ -11,7 +11,7 @@ export default function Layout({ children, pageContext })
 
 	return (
 		<>
-			<Seo frontmatter={pageContext.frontmatter} />
+			<Seo page={pageContext.frontmatter} />
 			<Header
 				siteTitle={title}
 				siteDescription={description}

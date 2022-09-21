@@ -1,7 +1,7 @@
 import React from "react";
 import { BaseStyles, Box } from "theme-ui";
-import { Helmet } from "react-helmet";
 import BodyText from "@/components/BodyText";
+import Seo from "@/components/Seo";
 import Logo from "@/images/logomark.png";
 
 const textColor = "black";
@@ -71,7 +71,7 @@ export default function Teaser()
 {
 	return (
 		<Styles>
-			<Helmet title="Routed · Coming Soon" />
+			<Seo page={{ title: "Coming Soon" }}/>
 			<header />
 			<BodyText name="teaser" Container="main" />
 		</Styles>

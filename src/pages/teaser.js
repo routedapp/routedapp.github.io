@@ -67,11 +67,14 @@ function Styles(
 	);
 }
 
-export default function Teaser()
+export default function Teaser({ uri })
 {
 	return (
 		<Styles>
-			<Seo page={{ title: "Coming Soon" }}/>
+			<Seo
+				uri={uri}
+				page={{ title: "Coming Soon" }}
+			/>
 			<header />
 			<BodyText name="teaser" Container="main" />
 		</Styles>

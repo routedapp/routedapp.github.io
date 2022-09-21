@@ -5,13 +5,20 @@ import Seo from "./Seo";
 import Header from "./Header";
 import Footer from "./Footer";
 
-export default function Layout({ children, pageContext })
+export default function Layout({
+	uri,
+	pageContext,
+	children })
 {
+
 	const { description, title } = useSiteMetadata();
 
 	return (
 		<>
-			<Seo page={pageContext.frontmatter} />
+			<Seo
+				uri={uri}
+				page={pageContext.frontmatter}
+			/>
 			<Header
 				siteTitle={title}
 				siteDescription={description}

@@ -9,7 +9,7 @@ const metatags = [
 	["image"],
 	["og:title", v("siteTitle")],
 	["og:type", "website"],
-	["og:url", v("siteUrl")],
+	["og:url", ({ uri, siteUrl }) => `${siteUrl}${uri || ""}`],
 	["og:image", v("image")],
 	["og:description", v("description")],
 	["twitter:card", "summary_large_image"],
@@ -43,6 +43,7 @@ function createMeta(
 }
 
 export default function Seo({
+	uri,
 	page,
 	children })
 {
@@ -51,6 +52,7 @@ export default function Seo({
 	const { title = siteTitle } = page;
 	const seo = {
 		siteTitle,
+		uri,
 		...metadata,
 		...page,
 	};

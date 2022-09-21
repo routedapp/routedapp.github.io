@@ -10,17 +10,18 @@ import BlockRow from "@/components/BlockRow";
 import BlockCallout from "@/components/BlockCallout";
 import BodyText from "@/components/BodyText";
 import TextBanner from "@/components/TextBanner";
-import hand from "@/images/header-hand.jpg";
-import productEMT from "@/images/product-emt.jpg";
-import HospitalsImage from "@/images/for-hospitals.png";
-import speed from "@/images/icon-speed-dark-gradient.png";
-import location from "@/images/icon-location-dark-gradient.png";
-import WaitTimes from "@/images/text-wait-times.svg";
-import Ambulance from "@/images/text-ambulance.svg";
+
+import handImage from "@/images/header-hand.jpg";
+import productEMTImage from "@/images/product-emt.jpg";
+import hospitalsImage from "@/images/for-hospitals.png";
+import waitTimesText from "@/images/text-wait-times.svg";
+import ambulanceText from "@/images/text-ambulance.svg";
+import speedIcon from "@/images/icon-speed-dark-gradient.png";
+import locationIcon from "@/images/icon-location-dark-gradient.png";
 
 
 <HeaderImage
-	src={hand}
+	src={handImage}
 	height={640}
 >
 	<Box
@@ -52,11 +53,11 @@ import Ambulance from "@/images/text-ambulance.svg";
 
 
 <BlockRow sx={{ mt: "xl" }}>
-	<BlockCallout icon={speed}>
-		<WaitTimes sx={{ width: "100%" }} />
+	<BlockCallout icon={speedIcon}>
+		<Image src={waitTimesText} sx={{ width: "100%" }} />
 	</BlockCallout>
-	<BlockCallout icon={location}>
-		<Ambulance sx={{ width: "100%" }} />
+	<BlockCallout icon={locationIcon}>
+		<Image src={ambulanceText} sx={{ width: "100%" }} />
 	</BlockCallout>
 </BlockRow>
 
@@ -79,15 +80,15 @@ import Ambulance from "@/images/text-ambulance.svg";
 		<Box>
 			Know what emergency departments have open beds.
 		</Box>
-		<Button onClick={() => navigate("/user-guides")}>
+		<Button onClick={() => navigate("/user-guides/ems")}>
 			View EMT User Guide
 		</Button>
 	</Description>
-	<Image src={productEMT} />
+	<Image src={productEMTImage} />
 </Feature>
 
 <Feature>
-	<Image src={HospitalsImage} />
+	<Image src={hospitalsImage} />
 	<Description sx={{ pr: "lg" }}>
 		<Heading variant="headingFeature">
 			For Hospitals
@@ -95,7 +96,7 @@ import Ambulance from "@/images/text-ambulance.svg";
 		<Box>
 			Prepare for incoming patients with digital ringdowns.
 		</Box>
-		<Button onClick={() => navigate("/user-guides")}>
+		<Button onClick={() => navigate("/user-guides/hospital")}>
 			View Hospital User Guide
 		</Button>
 	</Description>

@@ -1,11 +1,13 @@
 import React from "react";
-import LogoImage from "@/images/logomark.svg";
+import { Image } from "theme-ui";
+import logoImage from "@/images/logomark.svg";
 
 export default function Logo({
 	style })
 {
 	return (
-		<LogoImage
+		<Image
+			src={logoImage}
 			alt="Routed logo"
 			style={{
 				...style,

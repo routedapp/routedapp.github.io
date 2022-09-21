@@ -8,7 +8,7 @@ const image = ({ image, siteUrl }) => image && `${siteUrl}${image}`;
 const metatags = [
 	["description"],
 	["image", image],
-	["og:title", v("siteTitle")],
+	["og:title", ({ title, siteTitle }) => `${title} · ${siteTitle}`],
 	["og:type", "website"],
 	["og:url", ({ uri, siteUrl }) => `${siteUrl}${uri || ""}`],
 	["og:image", image],

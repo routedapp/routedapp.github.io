@@ -42,11 +42,13 @@ export const createPages = async ({ graphql, actions: { createPage } }) => {
 
 		return result;
 	}, { EMS: {}, Hospital: {} });
-	const [firstGuide] = Object.values(guideIndex.EMS);
+	const firstGuides = Object.values(guideIndex)
+		.map((guides) => Object.values(guides)[0])
 
-	guides.forEach(guide => {
-		const path = userGuidePath(guide.app, guide.slug);
-
+	function createGuidePage(
+		path,
+		guide)
+	{
 		createPage({
 			path,
 			component: guidePageComponentPath,
@@ -55,14 +57,15 @@ export const createPages = async ({ graphql, actions: { createPage } }) => {
 				guideIndex
 			}
 		});
-	});
+	}
 
-	createPage({
-		path: home,
-		component: guidePageComponentPath,
-		context: {
-			guide: firstGuide,
-			guideIndex
-		}
+		// create pages at /user-guides, /user-guides/[app], and then one for every
+		// /user-guides/[app]/[guide]
+	createGuidePage(home, firstGuides[0]);
+	firstGuides.forEach(guide => {
+		createGuidePage(userGuidePath(guide.app), guide);
+	});
+	guides.forEach(guide => {
+		createGuidePage(userGuidePath(guide.app, guide.slug), guide);
 	});
 };

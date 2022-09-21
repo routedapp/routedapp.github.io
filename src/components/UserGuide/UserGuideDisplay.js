@@ -6,6 +6,7 @@ import UserGuide from "./UserGuide";
 import UserGuideList from "./UserGuideList";
 import { userGuidePath } from "./userGuidePath";
 
+	// the subpage for each guide is generated in createPages() in gatsby-node.ts
 export default function UserGuideDisplay({
 	guide,
 	guideIndex })

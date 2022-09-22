@@ -24,7 +24,7 @@ const faviconTags = [
 	<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#425cc7" />,
 	<meta name="msapplication-TileColor" content="#425cc7" />,
 	<meta name="theme-color" content="#ffffff" />
-];
+].map((tag, i) => React.cloneElement(tag, { key: `favicon${i}` }));
 
 function createMeta(
 	[name, content],

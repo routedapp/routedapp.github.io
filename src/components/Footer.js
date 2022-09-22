@@ -1,6 +1,6 @@
 import React from "react";
 import {
-	Themed,
+	Heading,
 	Flex,
 	Text,
 	Link as Anchor,
@@ -8,6 +8,8 @@ import {
 } from "theme-ui";
 import BaseLink from "./Link";
 import Logo from "./Logo";
+
+const smaller = { fontSize: 3 };
 
 const Link = ({ sx, ...props }) => (
 		// wrap the GatsbyLink in a div so that the anchor won't be stretched to
@@ -21,8 +23,8 @@ const Link = ({ sx, ...props }) => (
 				// to show the current page
 			activeClassName=""
 			sx={{
+				...smaller,
 				fontWeight: "body",
-				fontSize: 3,
 				m: 0,
 				mb: "xs",
 				"&:hover": {
@@ -70,7 +72,7 @@ export default function Footer({
 						mr: "md",
 					}}
 				>
-					<Themed.h5>Directory</Themed.h5>
+					<Heading sx={smaller}>Directory</Heading>
 					<Link to="/our-story/">Our Story</Link>
 					<Link to="/faq/">FAQ</Link>
 					<Link to="/support/">Support</Link>
@@ -81,10 +83,10 @@ export default function Footer({
 						flexDirection: "column"
 					}}
 				>
-					<Themed.h5>Contact</Themed.h5>
+					<Heading sx={smaller}>Contact</Heading>
 					<Anchor
 						href="mailto:support@routed.freshdesk.com"
-						sx={{ fontSize: 3 }}
+						sx={smaller}
 					>
 						support@routed.freshdesk.com
 					</Anchor>

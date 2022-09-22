@@ -27,6 +27,7 @@ export default function BlockCallout({
 			>
 				<Image
 					src={icon}
+					alt=""
 					sx={{
 						width: "37.5%",
 						maxWidth: 150,

@@ -48,16 +48,27 @@ import locationIcon from "@/images/icon-location-dark-gradient.png";
 # Problem
 
 <p sx={{ fontWeight: "bold", fontSize: "banner" }}>
-	EMT and ER wait times have increased significantly over the years — compromising the care and lives of patients.
+	EMT and ER wait times have increased significantly over the years —
+	compromising the care and lives of patients.
 </p>
 
 
 <BlockRow sx={{ mt: "xl" }}>
 	<BlockCallout icon={speedIcon}>
-		<Image src={waitTimesText} sx={{ width: "100%" }} />
+		<Image
+			src={waitTimesText}
+			sx={{ width: "100%" }}
+			alt="ER wait times in SF range from 2 to 4.5 hours. --Hospital Stats"
+		/>
 	</BlockCallout>
 	<BlockCallout icon={locationIcon}>
-		<Image src={ambulanceText} sx={{ width: "100%" }} />
+		<Image
+			src={ambulanceText}
+			sx={{ width: "100%" }}
+			alt="'Ambulance unit and staff that are delayed in the ED are effectively
+				out of service, decreasing advanced life support coverage in the community.'
+				--California Hospital Association, 2014"
+		/>
 	</BlockCallout>
 </BlockRow>
 
@@ -84,11 +95,17 @@ import locationIcon from "@/images/icon-location-dark-gradient.png";
 			View EMT User Guide
 		</Button>
 	</Description>
-	<Image src={productEMTImage} />
+	<Image
+		src={productEMTImage}
+		alt="EMT product screenshot"
+	/>
 </Feature>
 
 <Feature>
-	<Image src={hospitalsImage} />
+	<Image
+		src={hospitalsImage}
+		alt="Hospital product screenshot"
+	/>
 	<Description sx={{ pr: "lg" }}>
 		<Heading variant="headingFeature">
 			For Hospitals

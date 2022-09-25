@@ -1,5 +1,4 @@
 import React from "react";
-import { Helmet } from "react-helmet";
 import { useSiteMetadata } from "@/hooks/useSiteMetadata";
 
 const v = (key) => ({ [key]: value }) => value;
@@ -9,10 +8,10 @@ const metatags = [
 	["description"],
 	["image", image],
 	["og:title", ({ title, siteTitle }) => `${title} · ${siteTitle}`],
-	["og:type", "website"],
-	["og:url", ({ uri, siteUrl }) => `${siteUrl}${uri || ""}`],
+	["og:url", ({ pathname, siteUrl }) => `${siteUrl}${pathname || ""}`],
 	["og:image", image],
 	["og:description", v("description")],
+	["og:type", "website"],
 	["twitter:card", "summary_large_image"],
 ];
 
@@ -53,30 +52,29 @@ function createMeta(
 	return null;
 }
 
-export default function Seo({
-	uri,
-	page,
+export default function Head({
+	title,
+	location: { pathname },
 	children })
 {
 	const metadata = useSiteMetadata();
-	const { title: siteTitle, titleTemplate } = metadata;
-	const { title = siteTitle } = page;
+	const { title: siteTitle, titleTemplate = "%s" } = metadata;
+	const pageTitle = title || siteTitle;
 	const seo = {
-		siteTitle,
-		uri,
 		...metadata,
-		...page,
+		siteTitle,
+		pathname,
+		title: pageTitle,
 	};
 
 	return (
-		<Helmet
-			htmlAttributes={{ lang: "en" }}
-			title={title}
-			titleTemplate={titleTemplate}
-		>
+		<>
+			<title>{titleTemplate.replace("%s", pageTitle)}</title>
 			{metatags.map((tag) => createMeta(tag, seo))}
 			{faviconTags}
 			{children}
-		</Helmet>
+		</>
 	);
 }
+
+export const head = (title) => (props) => <Head title={title} {...props} />;

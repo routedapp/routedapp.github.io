@@ -1,8 +1,10 @@
 import React from "react";
 import { BaseStyles, Box } from "theme-ui";
+import { head } from "@/components/Head";
 import BodyText from "@/components/BodyText";
-import Seo from "@/components/Seo";
-import Logo from "@/images/logomark.png";
+import logo from "@/images/logomark.png";
+
+export const Head = head("Coming Soon");
 
 const textColor = "black";
 	// since we can't seem to easily apply a new font-size to html or body from
@@ -39,7 +41,7 @@ const styles = {
 	header: {
 		height: "8em",
 		borderTop: "1em solid black",
-		backgroundImage: `url(${Logo})`,
+		backgroundImage: `url(${logo})`,
 		backgroundPosition: "center 2em",
 		backgroundSize: "10em",
 		backgroundRepeat: "no-repeat"
@@ -67,14 +69,10 @@ function Styles(
 	);
 }
 
-export default function Teaser({ uri })
+export default function Teaser()
 {
 	return (
 		<Styles>
-			<Seo
-				uri={uri}
-				page={{ title: "Coming Soon" }}
-			/>
 			<header />
 			<BodyText name="teaser" Container="main" />
 		</Styles>

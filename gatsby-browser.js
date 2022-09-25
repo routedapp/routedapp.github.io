@@ -2,6 +2,8 @@ import "@fontsource/public-sans/variable.css";
 import "@fontsource/public-sans/variable-italic.css";
 import { home } from "@/components/UserGuide/userGuidePath";
 
+export { wrapPageElement } from "@/components/Layout";
+
 export const shouldUpdateScroll = ({
   prevRouterProps,
   routerProps: { location: { pathname } },

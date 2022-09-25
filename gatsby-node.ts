@@ -29,7 +29,7 @@ const userGuidesQuery = `
 		}
 	}
 `;
-const guidePageComponentPath = path.resolve("src/components/UserGuide/UserGuidePage.js");
+const guidePageComponentPath = path.resolve("src/templates/user-guides.js");
 
 export const createPages = async ({ graphql, actions: { createPage } }) => {
 	const result = await graphql(userGuidesQuery);

@@ -1,4 +1,3 @@
-import path from "path";
 import * as dotenv from "dotenv";
 
 dotenv.config();
@@ -18,7 +17,6 @@ export default {
 		"gatsby-plugin-theme-ui",
 		"gatsby-plugin-styled-components",
 		"gatsby-plugin-image",
-		"gatsby-plugin-react-helmet",
 		{
 			resolve: "@lekoarts/gatsby-theme-styleguide",
 			options: {
@@ -32,15 +30,6 @@ export default {
 				accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
 				host: process.env.CONTENTFUL_HOST || "cdn.contentful.com"
 			},
-		},
-		{
-			resolve: "gatsby-plugin-mdx",
-			options: {
-				extensions: [".md", ".mdx"],
-				defaultLayouts: {
-					default: path.resolve("./src/components/Layout.js")
-				}
-			}
 		},
 		{
 			resolve: "gatsby-plugin-alias-imports",
@@ -70,6 +59,8 @@ export default {
 			resolve: "gatsby-plugin-react-svg",
 			options: {
 				rule: {
+						// SVG files ending in .inline.svg will be imported and inlined as
+						// components.  the rest can be used as image sources.
 					include: /.+\.inline\.svg$/
 				}
 			}

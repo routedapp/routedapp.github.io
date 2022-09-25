@@ -1,24 +1,16 @@
 import React from "react";
 import { Container } from "theme-ui";
 import { useSiteMetadata } from "@/hooks/useSiteMetadata";
-import Seo from "./Seo";
 import Header from "./Header";
 import Footer from "./Footer";
 
 export default function Layout({
-	uri,
-	pageContext,
 	children })
 {
-
 	const { description, title } = useSiteMetadata();
 
 	return (
 		<>
-			<Seo
-				uri={uri}
-				page={pageContext.frontmatter}
-			/>
 			<Header
 				siteTitle={title}
 				siteDescription={description}
@@ -33,3 +25,10 @@ export default function Layout({
 		</>
 	);
 }
+
+export const wrapPageElement = ({ element, props }) => {
+		// the teaser page doesn't use the standard layout, so don't wrap it
+	return props.pageResources.component.default.name === "Teaser"
+		? element
+		: <Layout {...props}>{element}</Layout>;
+};

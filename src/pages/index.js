@@ -1,4 +1,2 @@
-import Page from "./teaser";
-//import Page from "./home.mdx";
-
-export default Page;
+export { Head, default } from "./teaser";
+//export { Head, default } from "./home";

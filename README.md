@@ -9,8 +9,7 @@
 
 The [routedapp.org](https://routedapp.github.io/) website is built on several platforms:
 
-- [Gatsby](http://gatsbyjs.org/): builds a static version of the site from the React and Markdown source.
-- [MDX](https://mdxjs.com/): used to combine markdown-formatted text with React components on the site's pages.
+- [Gatsby](http://gatsbyjs.org/): builds a static version of the site.
 - [Contentful](https://www.contentful.com/): a headless CMS that makes it easy to edit and add content that's imported into the Gatsby site.
 - [Theme-UI](https://theme-ui.com): a library to specify theme tokens and values that are used to style the site.
 

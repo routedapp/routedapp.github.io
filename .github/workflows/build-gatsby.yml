@@ -7,6 +7,7 @@ on:
   push:
     branches:
       - main
+      - 'jdunning/**'
 
 concurrency:
   group: ${{ github.ref }}
@@ -42,7 +43,8 @@ jobs:
       - name: Install Packages
         # use --force, because theme-ui uses @mdx-js v1, which hasn't been
         # updated for React 18 yet
-        run: npm ci --ignore-scripts --prefer-offline --no-audit --force
+        run: yarn
+#        run: npm ci --ignore-scripts --prefer-offline --no-audit --force
 
       - name: Build Gatsby
         env:

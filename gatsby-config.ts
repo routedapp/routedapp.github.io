@@ -17,6 +17,7 @@ export default {
 		"gatsby-plugin-theme-ui",
 		"gatsby-plugin-styled-components",
 		"gatsby-plugin-image",
+		"gatsby-transformer-sharp",
 		{
 			resolve: "@lekoarts/gatsby-theme-styleguide",
 			options: {

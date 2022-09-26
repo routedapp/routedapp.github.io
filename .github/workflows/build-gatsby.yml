@@ -7,6 +7,7 @@ on:
   push:
     branches:
       - main
+      - 'jdunning/**'
 
 concurrency:
   group: ${{ github.ref }}
@@ -41,8 +42,9 @@ jobs:
 
       - name: Install Packages
         # use --force, because theme-ui uses @mdx-js v1, which hasn't been
-        # updated for React 18 yet
-        run: npm ci --ignore-scripts --prefer-offline --no-audit --force
+        # updated for React 18 yet.  don't include --ignore-scripts, as the
+        # sharp plugin seems to need its install scripts to run.
+        run: npm ci --prefer-offline --no-audit --force
 
       - name: Build Gatsby
         env:

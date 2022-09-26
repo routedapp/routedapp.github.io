@@ -44,8 +44,9 @@ jobs:
         # use --force, because theme-ui uses @mdx-js v1, which hasn't been
         # updated for React 18 yet
 #        run: yarn
+        run: npm ci --prefer-offline --no-audit --force
 #        run: npm ci --ignore-scripts --prefer-offline --no-audit --force
-        run: npm i --ignore-scripts --prefer-offline --no-audit --force
+#        run: npm i --ignore-scripts --prefer-offline --no-audit --force
 
       - name: Build Gatsby
         env:

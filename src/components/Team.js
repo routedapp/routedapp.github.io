@@ -1,7 +1,7 @@
 /** @jsxImportSource theme-ui */
 import React from "react";
 import { graphql, useStaticQuery } from "gatsby";
-import { Box, Flex, Image } from "theme-ui";
+import { Box, Flex } from "theme-ui";
 
 function TeamMember({
 	name,
@@ -17,11 +17,17 @@ function TeamMember({
 				m: 0
 			}}
 		>
-			<Image
-				src={picture}
+			<Box
+				role="img"
+				aria-label={`Photo of ${name}`}
 				sx={{
 					width: "100%",
-					mb: "sm"
+					height: 0,
+					pb: "100%",
+					mb: "sm",
+					backgroundImage: `url(${picture})`,
+					backgroundSize: "cover",
+					backgroundPosition: "center",
 				}}
 			/>
 			<figcaption>

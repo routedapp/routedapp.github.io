@@ -1,6 +1,6 @@
 import React from "react";
 import { navigate } from "gatsby";
-import { Box, Button, Heading, Image, Text, Themed } from "theme-ui";
+import { Box, Button, Heading, Image, Text } from "theme-ui";
 import { head } from "@/components/Head";
 import { Feature, Description } from "@/components/Feature";
 import HeaderImage from "@/components/HeaderImage";
@@ -47,12 +47,7 @@ export default function Home()
 				</Box>
 			</HeaderImage>
 
-{/* TODO: use BodyText for this */}
-			<Themed.h1>Problem</Themed.h1>
-			<Themed.p sx={{ fontWeight: "bold", fontSize: "banner" }}>
-				EMT and ER wait times have increased significantly over the years —
-				compromising the care and lives of patients.
-			</Themed.p>
+			<BodyText name="problem" sx={{ "& > p": { fontSize: "banner", m: 0 } }} />
 
 			<BlockRow sx={{ mt: "xl" }}>
 				<BlockCallout icon={speedIcon}>
@@ -119,17 +114,15 @@ export default function Home()
 			</Feature>
 
 			<TextBanner>
-				<p>Routed helps emergency medical personnel offer better patient care.</p>
+				<BodyText name="helpsEMS" Container={Text} />
 			</TextBanner>
 
 			<BlockRow>
 				<Box />
-				<Text>
-					Routed brings the communication pipeline between EMTs and emergency staff
-					into the 21st century, providing in-bound transports with access to optimal
-					care options and hospitals with better patient data to prepare them ahead
-					of arrival.
-				</Text>
+				<BodyText
+					name="commsPipeline"
+					sx={{ "&, & > p": { m: 0 } }}
+				/>
 			</BlockRow>
 		</>
 	);

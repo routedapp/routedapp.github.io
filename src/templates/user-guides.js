@@ -1,8 +1,8 @@
 import React from "react";
-import { Themed } from "theme-ui";
 import { default as PageHead } from "@/components/Head";
 import UserGuideDisplay from "@/components/UserGuide/UserGuideDisplay";
 import HeaderImage from "@/components/HeaderImage";
+import BodyText from "@/components/BodyText";
 import syringeImage from "@/images/header-syringe.jpg";
 
 export const Head = (props) => {
@@ -23,9 +23,7 @@ export default function UserGuides({ pageContext: { guide, guideIndex } }) {
 		<>
 			<HeaderImage src={syringeImage} />
 
-			<Themed.h1>User Guides</Themed.h1>
-			<Themed.h2>Follow the step-by-step instructions below to get started with your
-				Routed account.</Themed.h2>
+			<BodyText name="userGuides" sx={{ "& > p": { fontSize: "banner", m: 0 } }} />
 
 			<UserGuideDisplay
 				guide={guide}

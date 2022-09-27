@@ -1,5 +1,5 @@
+/** @jsxImportSource theme-ui */
 import React from "react";
-import { Themed } from "theme-ui";
 import { head } from "@/components/Head";
 import FAQList from "@/components/FAQList";
 import Glossary from "@/components/Glossary";
@@ -14,11 +14,11 @@ export default function FAQ() {
 		<>
 			<HeaderImage src={ambulanceImage} />
 
-			<Themed.h1>Frequently Asked Questions</Themed.h1>
+			<h1>Frequently Asked Questions</h1>
 
 			<FAQList />
 
-			<Themed.h1>Glossary of Terms</Themed.h1>
+			<h1>Glossary of Terms</h1>
 
 			<Glossary />
 		</>

@@ -51,15 +51,15 @@ const colors = {
 	...baseColors,
 };
 
-const spaceUnit = 1.25;
+const spaceUnit = 1;
 const space = [
 	["none", 0],		// 0
-	["xs", .5],			// 10px
-	["sm", 1],			// 20px
-	["md", 2],			// 40px
-	["lg", 4],			// 80px
-	["xl", 6],			// 120px
-	["xxl", 12],		// 240px
+	["xs", .5],			// 8px
+	["sm", 1],			// 16px
+	["md", 2],			// 32px
+	["lg", 4],			// 64px
+	["xl", 6],			// 96px
+	["xxl", 12],		// 192px
 ]
 	.reduce((result, [key, value]) => {
 		const cssValue = `${value * spaceUnit}rem`;

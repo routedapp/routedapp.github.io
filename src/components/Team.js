@@ -28,6 +28,7 @@ function TeamMember({
 					backgroundImage: `url(${picture})`,
 					backgroundSize: "cover",
 					backgroundPosition: "center",
+					filter: "grayscale(1)"
 				}}
 			/>
 			<figcaption>

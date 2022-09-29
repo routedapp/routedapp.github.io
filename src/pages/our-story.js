@@ -25,7 +25,7 @@ export default function OurStory()
 			<BodyText name="ourStory" />
 
 			<BlockRow>
-				<Image src={footImage} />
+				<Image src={footImage} sx={{ width: "100%" }} />
 				<BlockCallout icon={healthIcon}>
 					<Box
 						sx={{
@@ -35,18 +35,22 @@ export default function OurStory()
 						}}>
 						Curious how Routed could help your city?
 					</Box>
-					<Button onClick={() => navigate("/contact")}>Contact Us</Button>
+					<Button onClick={() => navigate("mailto:contact@routedapp.org")}>Contact Us</Button>
 				</BlockCallout>
 			</BlockRow>
 
-			<BodyText name="meetTheTeam" Container={TextBanner} />
+			<BodyText
+				name="meetTheTeam"
+				Container={TextBanner}
+				sx={{ mb: "xl" }}
+			/>
 
 			<Team />
 
 			<Callout
 				heading="Interested in volunteering? Join our Code for America meetup on Wednesdays at 6:30pm PT"
 				cta="Learn More"
-				ctaLink="/volunteer"
+				ctaLink="https://www.meetup.com/code-for-san-francisco/"
 			/>
 		</>
 	);

@@ -1,5 +1,6 @@
 import React from "react";
 import {
+	Box,
 	Heading,
 	Flex,
 	Text,
@@ -40,13 +41,18 @@ export default function Footer({
 	siteDescription })
 {
 	return (
-		<Container as="footer"
+		<Box as="footer"
 			sx={{
+				width: "100%",
 				bg: "muted",
-				p: 4,
 			}}
 		>
-			<Flex as="nav">
+			<Container as="nav"
+				sx={{
+					py: "xl",
+					display: "flex"
+				}}
+			>
 				<Flex
 					sx={{
 						position: "relative",
@@ -85,13 +91,13 @@ export default function Footer({
 				>
 					<Heading sx={smaller}>Contact</Heading>
 					<Anchor
-						href="mailto:support@routed.freshdesk.com"
+						href="mailto:contact@routedapp.org"
 						sx={smaller}
 					>
-						support@routed.freshdesk.com
+						contact@routedapp.org
 					</Anchor>
 				</Flex>
-			</Flex>
-		</Container>
+			</Container>
+		</Box>
 	);
 }

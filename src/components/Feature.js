@@ -1,7 +1,9 @@
 import React from "react";
 import { Flex, Grid } from "theme-ui";
 
-export function Description({ sx, children })
+export function Description({
+	sx,
+	children })
 {
 	return <Flex
 		sx={{
@@ -16,7 +18,9 @@ export function Description({ sx, children })
 	</Flex>;
 }
 
-export function Feature({ children })
+export function Feature({
+	sx,
+	children })
 {
 	return (
 		<Grid
@@ -26,6 +30,7 @@ export function Feature({ children })
 				gridAutoFlow: "column",
 				gridAutoColumns: "1fr",
 				alignItems: "center",
+				...sx
 			}}
 		>
 			{children}

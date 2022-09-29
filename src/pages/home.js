@@ -10,8 +10,8 @@ import BodyText from "@/components/BodyText";
 import TextBanner from "@/components/TextBanner";
 
 import handImage from "@/images/header-hand.jpg";
-import productEMTImage from "@/images/product-emt.jpg";
-import hospitalsImage from "@/images/for-hospitals.png";
+import productEMTImage from "@/images/product-emt.png";
+import productHospitalImage from "@/images/product-hospital.png";
 import waitTimesText from "@/images/text-wait-times.svg";
 import ambulanceText from "@/images/text-ambulance.svg";
 import speedIcon from "@/images/icon-speed-dark-gradient.png";
@@ -47,20 +47,34 @@ export default function Home()
 				</Box>
 			</HeaderImage>
 
-			<BodyText name="problem" sx={{ "& > p": { fontSize: "banner", m: 0 } }} />
+			<BodyText
+				name="problem"
+				sx={{
+					"& > p": {
+						fontSize: "banner",
+						m: 0
+					}
+				}}
+			/>
 
 			<BlockRow sx={{ mt: "xl" }}>
 				<BlockCallout icon={speedIcon}>
 					<Image
 						src={waitTimesText}
-						sx={{ width: "100%" }}
+						sx={{
+							width: "80%",
+							mt: "3%"
+						}}
 						alt="ER wait times in SF range from 2 to 4.5 hours. --Hospital Stats"
 					/>
 				</BlockCallout>
 				<BlockCallout icon={locationIcon}>
 					<Image
 						src={ambulanceText}
-						sx={{ width: "100%" }}
+						sx={{
+							width: "100%",
+							mt: "3%"
+						}}
 						alt="'Ambulance unit and staff that are delayed in the ED are effectively
 							out of service, decreasing advanced life support coverage in the community.'
 							--California Hospital Association, 2014"
@@ -78,7 +92,14 @@ export default function Home()
 			/>
 
 			<Feature>
-				<Description sx={{ alignItems: "self-end", textAlign: "right", pl: "lg" }}>
+				<Description
+					sx={{
+						alignItems: "self-end",
+						textAlign: "right",
+						pl: "lg",
+						pb: "xl"
+					}}
+				>
 					<Heading variant="headingFeature">
 						For EMTs
 					</Heading>
@@ -95,12 +116,20 @@ export default function Home()
 				/>
 			</Feature>
 
-			<Feature>
+			{/* add a negative top margin to overlap the two Feature rows.  add padding
+					to the Descriptions to keep the text centered vertically on the
+					available white space. */}
+			<Feature sx={{ mt: "-xl" }}>
 				<Image
-					src={hospitalsImage}
+					src={productHospitalImage}
 					alt="Hospital product screenshot"
 				/>
-				<Description sx={{ pr: "lg" }}>
+				<Description
+					sx={{
+						pt: "xl",
+						pr: "lg"
+					}}
+				>
 					<Heading variant="headingFeature">
 						For Hospitals
 					</Heading>

@@ -22,7 +22,8 @@ export default function BlockCallout({
 		>
 			<Box
 				sx={{
-					py: "md"
+					pt: "lg",
+					pb: "md"
 				}}
 			>
 				<Image

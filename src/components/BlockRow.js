@@ -10,6 +10,7 @@ export default function BlockRow({
 			sx={{
 				gridAutoFlow: "column",
 				gridAutoColumns: "1fr",
+				alignItems: "center",
 				gap: "lg",
 				mb: "xl",
 				...sx

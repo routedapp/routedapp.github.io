@@ -1,6 +1,6 @@
 import React from "react";
 import { navigate } from "gatsby";
-import { Box, Button, Heading, Image, Text } from "theme-ui";
+import { Box, Button, Flex, Heading, Image, Text } from "theme-ui";
 import { head } from "@/components/Head";
 import { Feature, Description } from "@/components/Feature";
 import HeaderImage from "@/components/HeaderImage";
@@ -118,7 +118,16 @@ export default function Home()
 			</TextBanner>
 
 			<BlockRow>
-				<Box />
+				<Flex sx={{ gap: "md" }}>
+					<Image
+						src="https://images.ctfassets.net/8hguoq1zn55w/WQKYjYwEauIEyybKZadTb/e596b50476ac4c4606e17fdba29e0def/Ringdown_Form.gif?h=532"
+						alt="Ringdown form animation"
+					/>
+					<Image
+						src="https://images.ctfassets.net/8hguoq1zn55w/1ul5Q5YzH9Jff3DIEyByVR/eee81079b6698531ec9dcf3ba346816e/Incoming_Ringdown.gif?h=532"
+						alt="Incoming ringdown animation"
+					/>
+				</Flex>
 				<BodyText
 					name="commsPipeline"
 					sx={{ "&, & > p": { m: 0 } }}

@@ -65,7 +65,7 @@ export default function Footer({
 						sx={{
 							position: "absolute",
 							left: "2px",
-							top: "-md"
+							top: "-2.5rem"
 						}}
 					>
 						<Logo />

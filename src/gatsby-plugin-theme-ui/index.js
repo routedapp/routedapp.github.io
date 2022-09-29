@@ -129,7 +129,7 @@ const sizes = {
 const radii = {
 	default: "0.25rem",
 	sm: "0.2rem",
-	lg: "0.3rem",
+	lg: "0.5rem",
 	pill: "50rem",
 };
 

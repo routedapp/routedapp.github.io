@@ -27,17 +27,22 @@ const options = {
 
 const guideStyles = {
 	ol: {
+		paddingInlineStart: 0,
+		counterReset: "step",
 		display: "flex",
 		flexFlow: "row wrap",
-		paddingInlineStart: 0
+		justifyContent: "stretch",
 	},
 	li: {
 		listStyleType: "none",
 		marginBlockStart: 0,
 		marginBlockEnd: 0,
 		mr: "md",
-		mb: "md",
-		width: ScreenshotWidth
+		mb: "lg",
+		width: ScreenshotWidth,
+		counterIncrement: "step",
+		display: "flex",
+		flexDirection: "column",
 	},
 	"li > .gatsby-image-wrapper": {
 		boxShadow: "0px 10px 20px 2px rgba(0, 0, 0, 0.1)",
@@ -48,12 +53,14 @@ const guideStyles = {
 	"li > p::before": {
 		fontSize: "body",
 		fontWeight: "bold",
-		content: "counter(list-item) '.'",
+		content: "counter(step) '.'",
 		mb: "xs",
 		display: "block"
 	},
 	"li > p": {
 		bg: "muted",
+		marginBlockStart: 0,
+		marginBlockEnd: 0,
 		p: "md",
 		mt: "md",
 		fontSize: "1.125rem",
@@ -61,6 +68,7 @@ const guideStyles = {
 		borderImageSlice: 1,
 		borderWidth: "0 0 5px 0",
 		borderImageSource: "linear-gradient(138.16deg, #425cc6 18.75%, #00adbb 61.85%, #99e6d8 94.61%)",
+		flexGrow: 1,
 	}
 };
 

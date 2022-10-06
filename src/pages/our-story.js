@@ -22,7 +22,16 @@ export default function OurStory()
 		<>
 			<HeaderImage src={goldenGateImage} />
 
-			<BodyText name="ourStory" />
+			<BodyText
+				name="ourStory"
+				sx={{
+					blockquote: {
+						m: 0,
+						columns: "2 25rem",
+						columnGap: "lg"
+					}
+				}}
+			/>
 
 			<BlockRow sx={{ mt: "lg" }}>
 				<Image src={footImage} sx={{ width: "100%" }} />

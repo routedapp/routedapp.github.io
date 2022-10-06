@@ -63,7 +63,7 @@ const guideStyles = {
 		marginBlockEnd: 0,
 		p: "md",
 		mt: "md",
-		fontSize: "1.125rem",
+		fontSize: "1.5rem",
 		borderStyle: "solid",
 		borderImageSlice: 1,
 		borderWidth: "0 0 5px 0",

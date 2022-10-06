@@ -13,7 +13,7 @@ export default function HeaderImage({
 				backgroundImage: `url(${src})`,
 				backgroundSize: "cover",
 				backgroundPosition: "center",
-				mb: "xl",
+				mb: "lg",
 				position: "relative",
 			}}
 		>

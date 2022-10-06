@@ -23,10 +23,7 @@ export default function Home()
 {
 	return (
 		<>
-			<HeaderImage
-				src={handImage}
-				height={640}
-			>
+			<HeaderImage src={handImage}>
 				<Box
 					sx={{
 						fontSize: "3.25rem",
@@ -47,17 +44,9 @@ export default function Home()
 				</Box>
 			</HeaderImage>
 
-			<BodyText
-				name="problem"
-				sx={{
-					"& > p": {
-						fontSize: "banner",
-						m: 0
-					}
-				}}
-			/>
+			<BodyText name="problem" />
 
-			<BlockRow sx={{ mt: "xl" }}>
+			<BlockRow sx={{ mt: "lg" }}>
 				<BlockCallout icon={speedIcon}>
 					<Image
 						src={waitTimesText}

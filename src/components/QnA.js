@@ -7,6 +7,7 @@ export const QnAList = (props) => (
 		sx={{
 			p: 0,
 			m: 0,
+			mt: "md",
 			mb: "xl"
 		}}
 	/>

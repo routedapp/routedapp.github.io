@@ -51,15 +51,15 @@ const colors = {
 	...baseColors,
 };
 
-const spaceUnit = 1;
+const spaceUnit = 1.5;
 const space = [
 	["none", 0],		// 0
-	["xs", .5],			// 8px
-	["sm", 1],			// 16px
-	["md", 2],			// 32px
-	["lg", 4],			// 64px
-	["xl", 6],			// 96px
-	["xxl", 12],		// 192px
+	["xs", .5],			// 9px
+	["sm", 1],			// 18px
+	["md", 2],			// 36px
+	["lg", 3],			// 54px
+	["xl", 5],			// 90px
+	["xxl", 8],		// 144px
 ]
 	.reduce((result, [key, value]) => {
 		const cssValue = `${value * spaceUnit}rem`;
@@ -109,7 +109,7 @@ const fontSizes = [
 	"6rem",
 ];
 fontSizes.lead = fontSizes[3];
-fontSizes.body = fontSizes[5];
+fontSizes.body = fontSizes[6];
 fontSizes.banner = "2.5rem";
 
 const lineHeights = {
@@ -123,7 +123,7 @@ const sizes = {
 	md: 720,
 	lg: 960,
 	xl: 1140,
-	container: 1440,
+	container: 1200,
 };
 
 const radii = {
@@ -221,7 +221,7 @@ const styles = makeStyles({
 		fontFamily: "body",
 		lineHeight: "body",
 		fontWeight: "body",
-		fontSize: "16px",
+		fontSize: "12px",
 	},
 	a: {
 		color: "primary",
@@ -238,11 +238,10 @@ const styles = makeStyles({
 	},
 	h1: {
 		...heading,
-		fontSize: "body",
-		fontWeight: "normal",
+		fontSize: "banner",
+		fontWeight: "bold",
 		lineHeight: 1.75,
-		mt: "-.5em",
-		mb: "md",
+		mb: "sm",
 		borderStyle: "solid",
 		borderImageSlice: 1,
 		borderWidth: "0 0 5px 0",

@@ -22,7 +22,7 @@ export default function BlockCallout({
 		>
 			<Box
 				sx={{
-					pt: "lg",
+					pt: "md",
 					pb: "md"
 				}}
 			>

@@ -16,7 +16,6 @@ export default function UserGuideList({
 		>
 			<ul
 				sx={{
-					fontSize: "1.125rem",
 					p: 0,
 					m: 0
 				}}
@@ -33,7 +32,7 @@ export default function UserGuideList({
 							<Link
 								to={userGuidePath(app, slug)}
 								className={(title === selectedTitle ? "active" : "")}
-								sx={{ fontSize: "1.125rem" }}
+								sx={{ fontSize: "1.5rem" }}
 							>
 								{title}
 							</Link>

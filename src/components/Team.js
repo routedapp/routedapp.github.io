@@ -13,7 +13,7 @@ function TeamMember({
 			sx={{
 				fontSize: "body",
 				textAlign: "center",
-				width: 260,
+				width: 230,
 				m: 0
 			}}
 		>

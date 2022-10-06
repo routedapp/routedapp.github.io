@@ -39,7 +39,7 @@ export default function UserGuideDisplay({
 					gridAutoFlow: "column",
 						// use a fixed width for the guide list in the left column so it
 						// doesn't shift when the longest guide name changes
-					gridTemplateColumns: "16rem 1fr",
+					gridTemplateColumns: "20rem 1fr",
 					gap: "lg"
 				}}
 			>

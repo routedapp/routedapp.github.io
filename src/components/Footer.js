@@ -10,7 +10,7 @@ import {
 import BaseLink from "./Link";
 import Logo from "./Logo";
 
-const smaller = { fontSize: 3 };
+const smaller = { fontSize: 4 };
 
 const Link = ({ sx, ...props }) => (
 		// wrap the GatsbyLink in a div so that the anchor won't be stretched to

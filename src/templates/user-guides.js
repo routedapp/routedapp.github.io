@@ -23,7 +23,7 @@ export default function UserGuides({ pageContext: { guide, guideIndex } }) {
 		<>
 			<HeaderImage src={syringeImage} />
 
-			<BodyText name="userGuides" sx={{ "& > p": { fontSize: "banner", m: 0 } }} />
+			<BodyText name="userGuides" />
 
 			<UserGuideDisplay
 				guide={guide}

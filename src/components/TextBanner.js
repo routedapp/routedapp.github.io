@@ -1,12 +1,13 @@
 import React from "react";
-import { Box, css, useThemeUI } from "theme-ui";
+import { Box } from "theme-ui";
 
 	// define styles for the rich text in the BodyText content
 const styles = {
 	h1: {
 		fontSize: "body",
 		fontWeight: "normal",
-		mb: "sm"
+		mb: "sm",
+		border: "none",
 	},
 	p: {
 		fontSize: "banner",
@@ -20,11 +21,8 @@ export default function TextBanner({
 	sx,
 	children })
 {
-	const { theme } = useThemeUI();
-
 	return (
 		<Box
-			css={css(styles)(theme)}
 			sx={{
 				textAlign: "center",
 				color: "white",
@@ -33,6 +31,7 @@ export default function TextBanner({
 				py: "xl",
 				mx: "-lg",
 				mb: "xl",
+				...styles,
 				...sx
 			}}
 		>

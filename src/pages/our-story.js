@@ -24,7 +24,7 @@ export default function OurStory()
 
 			<BodyText name="ourStory" />
 
-			<BlockRow>
+			<BlockRow sx={{ mt: "lg" }}>
 				<Image src={footImage} sx={{ width: "100%" }} />
 				<BlockCallout icon={healthIcon}>
 					<Box

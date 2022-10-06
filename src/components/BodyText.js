@@ -1,7 +1,7 @@
 import React from "react";
 import { graphql, useStaticQuery } from "gatsby";
 import { renderRichText } from "gatsby-source-contentful/rich-text";
-import { BaseStyles } from "theme-ui";
+import { BaseStyles, Box } from "theme-ui";
 
 const query = graphql`
 	{
@@ -19,7 +19,7 @@ const query = graphql`
 export default function BodyText({
 	name,
 	sx,
-	Container = BaseStyles })
+	Container = Box })
 {
 	const { allContentfulBodyText: { nodes } } = useStaticQuery(query);
 		// because Gatsby static queries can't take variables, we have to get all of
@@ -31,10 +31,20 @@ export default function BodyText({
 	}
 
 	return (
-			// by default, wrap the rich text with BaseStyles so the theme styles are
-			// applied to the unstyled tags, but let the caller pass another container
-		<Container sx={{ mb: "lg", ...sx }}>
-			{renderRichText(node.text)}
-		</Container>
+			// by default, wrap the container of the rich text with BaseStyles so the
+			// theme styles are applied to the unstyled tags, but let the caller pass
+			// a different container to sit in between
+		<BaseStyles>
+			<Container
+				sx={{
+					"& > p:last-of-type": {
+						m: 0
+					},
+					...sx
+				}}
+			>
+				{renderRichText(node.text)}
+			</Container>
+		</BaseStyles>
 	);
 }

@@ -14,7 +14,7 @@ export default function Callout({
 				color: "white",
 				px: "xxl",
 				py: "lg",
-				mx: "-lg",
+				mx: "neg-lg",
 				my: 0,
 				flexDirection: "column",
 				gap: "md",

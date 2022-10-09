@@ -9,7 +9,7 @@ export function Description({
 		sx={{
 			fontSize: "banner",
 			flexDirection: "column",
-			alignItems: "self-start",
+			alignItems: ["center", "self-start"],
 			gap: "md",
 			...sx
 		}}
@@ -25,9 +25,9 @@ export function Feature({
 	return (
 		<Grid
 			sx={{
-				mx: "-lg",
-				gap: "lg",
-				gridAutoFlow: "column",
+				mx: "neg-lg",
+				gap: [0, "lg"],
+				gridAutoFlow: ["row", "column"],
 				gridAutoColumns: "1fr",
 				alignItems: "center",
 				...sx

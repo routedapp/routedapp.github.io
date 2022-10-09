@@ -17,7 +17,13 @@ export default function Header()
 				>
 					<Logo sx={{ height: "2.25rem" }} />
 				</Link>
-				<Flex sx={{ gap: "md", alignItems: "center" }} >
+				<Flex
+					sx={{
+						gap: "md",
+						alignItems: "center",
+						display: ["none", "flex"]
+					}}
+				>
 					<Link to="/our-story/">Our Story</Link>
 					<Link to="/faq/">FAQ</Link>
 					<Link to="/support/">Support</Link>

@@ -29,7 +29,7 @@ export default function TextBanner({
 				bg: "primary",
 				px: "xxl",
 				py: "xl",
-				mx: "-lg",
+				mx: "neg-lg",
 				mb: "xl",
 				...styles,
 				...sx

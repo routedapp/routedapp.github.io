@@ -51,7 +51,6 @@ export default function OurStory()
 			<BodyText
 				name="meetTheTeam"
 				Container={TextBanner}
-				sx={{ mb: "xl" }}
 			/>
 
 			<Team />

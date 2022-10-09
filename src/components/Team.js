@@ -11,9 +11,9 @@ function TeamMember({
 	return (
 		<figure
 			sx={{
-				fontSize: "body",
+				fontSize: [4, "body"],
 				textAlign: "center",
-				width: 230,
+				width: [150, 230],
 				m: 0
 			}}
 		>
@@ -64,7 +64,7 @@ export default function TeamList()
 			sx={{
 				mb: "xl",
 				flexWrap: "wrap",
-				columnGap: "lg",
+				columnGap: ["md", "lg"],
 				rowGap: "md",
 				justifyContent: "center",
 			}}

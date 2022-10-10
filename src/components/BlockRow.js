@@ -8,7 +8,7 @@ export default function BlockRow({
 	return (
 		<Grid
 			sx={{
-				gridAutoFlow: "column",
+				gridAutoFlow: ["row", "column"],
 				gridAutoColumns: "1fr",
 				alignItems: "center",
 				gap: "lg",

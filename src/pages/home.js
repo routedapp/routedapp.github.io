@@ -23,18 +23,24 @@ export default function Home()
 {
 	return (
 		<>
-			<HeaderImage src={handImage}>
+			<HeaderImage
+				src={handImage}
+				height={[230, 320]}
+				sx={{
+					p: "md",
+					display: "flex",
+					flexFlow: "column no-wrap",
+					alignItems: "flex-end",
+				}}
+			>
 				<Box
 					sx={{
-						fontSize: "3.25rem",
+						fontSize: ["2.5rem", "3.25rem"],
 						fontWeight: "bold",
 						lineHeight: 1.2,
-						left: "md",
-						bottom: "md",
-						width: "60%",
+						width: ["100%", "60%"],
 						p: "md",
 						bg: "white",
-						position: "absolute",
 						"& strong": {
 							color: "secondary"
 						}
@@ -52,7 +58,7 @@ export default function Home()
 						src={waitTimesText}
 						sx={{
 							width: "80%",
-							mt: "3%"
+							mt: [0, "3%"]
 						}}
 						alt="ER wait times in SF range from 2 to 4.5 hours. --Hospital Stats"
 					/>
@@ -80,13 +86,14 @@ export default function Home()
 				}}
 			/>
 
-			<Feature>
+			<Feature sx={{ mt: ["xl", 0] }}>
 				<Description
 					sx={{
-						alignItems: "self-end",
-						textAlign: "right",
+						alignItems: ["center", "self-end"],
+						textAlign: ["center", "right"],
+						pr: ["lg", 0],
+						pb: "xl",
 						pl: "lg",
-						pb: "xl"
 					}}
 				>
 					<Heading variant="headingFeature">
@@ -108,15 +115,25 @@ export default function Home()
 			{/* add a negative top margin to overlap the two Feature rows.  add padding
 					to the Descriptions to keep the text centered vertically on the
 					available white space. */}
-			<Feature sx={{ mt: "-xl" }}>
+			<Feature
+				sx={{
+					mt: [0, "neg-xl"],
+					gridTemplateAreas: ['"desc" "image"', '"image desc"']
+				}}
+			>
 				<Image
 					src={productHospitalImage}
 					alt="Hospital product screenshot"
+					sx={{ gridArea: "image" }}
 				/>
 				<Description
 					sx={{
+						textAlign: ["center", "left"],
 						pt: "xl",
-						pr: "lg"
+						pr: "lg",
+						pb: ["xl", 0],
+						pl: ["lg", 0],
+						gridArea: "desc"
 					}}
 				>
 					<Heading variant="headingFeature">

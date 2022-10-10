@@ -36,10 +36,11 @@ export default function UserGuideDisplay({
 			/>
 			<Grid
 				sx={{
-					gridAutoFlow: "column",
+					gridAutoFlow: ["row", "column"],
 						// use a fixed width for the guide list in the left column so it
-						// doesn't shift when the longest guide name changes
-					gridTemplateColumns: "20rem 1fr",
+						// doesn't shift when the longest guide name changes.  use auto on
+						// mobile when it switches to a row layout.
+					gridTemplateColumns: ["auto", "20rem 1fr"],
 					gap: "lg"
 				}}
 			>

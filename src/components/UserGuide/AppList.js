@@ -43,8 +43,8 @@ export default function AppList({
 	return (
 		<Flex
 			sx={{
-				pb: "sm",
-				mb: "lg",
+				pb: ["md", "sm"],
+				mb: ["md", "lg"],
 				gap: "sm",
 				borderBottom: "1px solid",
 				borderBottomColor: "primary50"

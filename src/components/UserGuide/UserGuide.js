@@ -31,14 +31,14 @@ const guideStyles = {
 		counterReset: "step",
 		display: "flex",
 		flexFlow: "row wrap",
-		justifyContent: "stretch",
+		justifyContent: ["space-evenly", "normal"],
+		columnGap: "md",
+		rowGap: "lg",
 	},
 	li: {
 		listStyleType: "none",
 		marginBlockStart: 0,
 		marginBlockEnd: 0,
-		mr: "md",
-		mb: "lg",
 		width: ScreenshotWidth,
 		counterIncrement: "step",
 		display: "flex",
@@ -81,7 +81,7 @@ export default function UserGuide({
 			<Heading
 				sx={{
 					fontSize: "banner",
-					mb: "md"
+					mb: ["lg", "md"]
 				}}
 			>
 				{title}

@@ -17,7 +17,9 @@ export default function UserGuideList({
 			<ul
 				sx={{
 					p: 0,
-					m: 0
+					m: 0,
+					top: "md",
+					position: ["relative", "sticky"]
 				}}
 			>
 				{Object.values(guides).map(({ app, title, slug }) => {
@@ -26,13 +28,13 @@ export default function UserGuideList({
 							key={title}
 							sx={{
 								listStyle: "none",
-								mb: "sm"
+								mb: ["md", "sm"]
 							}}
 						>
 							<Link
 								to={userGuidePath(app, slug)}
 								className={(title === selectedTitle ? "active" : "")}
-								sx={{ fontSize: "1.5rem" }}
+								sx={{ fontSize: ["2rem", "1.5rem"] }}
 							>
 								{title}
 							</Link>

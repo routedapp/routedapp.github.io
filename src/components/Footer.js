@@ -11,6 +11,10 @@ import BaseLink from "./Link";
 import Logo from "./Logo";
 
 const smaller = { fontSize: 4 };
+const smallerHeading = {
+	...smaller,
+	mb: [0, "xs"]
+};
 
 const Link = ({ sx, ...props }) => (
 		// wrap the GatsbyLink in a div so that the anchor won't be stretched to
@@ -50,7 +54,9 @@ export default function Footer({
 			<Container as="nav"
 				sx={{
 					py: "xl",
-					display: "flex"
+					display: "flex",
+					flexDirection: ["column", "row"],
+					gap: "lg",
 				}}
 			>
 				<Flex
@@ -68,17 +74,17 @@ export default function Footer({
 							top: "-2.5rem"
 						}}
 					>
-						<Logo />
+						<Logo sx={{ height: ["1.75rem", "1.5rem"] }}/>
 					</Link>
-					<Text>{siteDescription}</Text>
+					<Text sx={{ fontSize: [4, "body"] }}>{siteDescription}</Text>
 				</Flex>
 				<Flex
 					sx={{
 						flexDirection: "column",
-						mr: "md",
+						gap: ["md", 0],
 					}}
 				>
-					<Heading sx={smaller}>Directory</Heading>
+					<Heading sx={smallerHeading}>Directory</Heading>
 					<Link to="/our-story/">Our Story</Link>
 					<Link to="/faq/">FAQ</Link>
 					<Link to="/support/">Support</Link>
@@ -86,10 +92,11 @@ export default function Footer({
 				</Flex>
 				<Flex
 					sx={{
-						flexDirection: "column"
+						flexDirection: "column",
+						gap: ["md", 0],
 					}}
 				>
-					<Heading sx={smaller}>Contact</Heading>
+					<Heading sx={smallerHeading}>Contact</Heading>
 					<Anchor
 						href="mailto:contact@routedapp.org"
 						sx={smaller}

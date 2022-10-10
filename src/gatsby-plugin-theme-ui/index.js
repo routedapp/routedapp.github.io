@@ -51,27 +51,35 @@ const colors = {
 	...baseColors,
 };
 
-const spaceUnit = 1.5;
-const space = [
-	["none", 0],		// 0
-	["xs", .5],			// 9px
-	["sm", 1],			// 18px
-	["md", 2],			// 36px
-	["lg", 3],			// 54px
-	["xl", 5],			// 90px
-	["xxl", 8],		// 144px
-]
-	.reduce((result, [key, value]) => {
-		const cssValue = `${value * spaceUnit}rem`;
+const vars = {};
 
-		result[key] = cssValue;
-		result["-" + key] = "-" + cssValue;
-		result[value] = cssValue;
+const baseFontSize = ["10px", "12px"];
+const remUnits = 1.5;
+const space = [
+	["none", 	[0, 	0]],		// 0				0
+	["xs", 		[.25, .5]],		// 3.75px		9px
+	["sm", 		[.5, 	1]],		// 7.5px		18px
+	["md", 		[1, 	2]],		// 15px			36px
+	["lg", 		[2, 	3]],		// 30px			54px
+	["xl", 		[3, 	5]],		// 45px			90px
+	["xxl",		[4, 	8]],		// 60px			144px
+]
+	.reduce((result, [key, values]) => {
+		const negKey = `neg-${key}`;
+		const varName = `--${key}`;
+		const negVarName = `--${negKey}`;
+		const cssValues = values.map((value) => `${value * remUnits}rem`);
+		const negativeCSSValues = cssValues.map((value) => `-${value}`);
+
+		vars[varName] = cssValues;
+		vars[negVarName] = negativeCSSValues;
+		result[key] = `var(${varName})`;
+		result[negKey] = `var(${negVarName})`;
 
 		return result;
 	}, {});
 
-const breakpoints = ["576px", "768px", "992px", "1200px"];
+const breakpoints = ["780px"];
 
 const fonts = {
 	body: "'Public SansVariable', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'",
@@ -99,7 +107,7 @@ const fontSizes = [
 	"0.75rem", // "80%",
 	"0.875rem",
 	"1rem",
-	"1.125rem",
+	"1.25rem",
 	"1.5rem",
 	"1.75rem",
 	"2rem",
@@ -109,6 +117,7 @@ const fontSizes = [
 	"6rem",
 ];
 fontSizes.lead = fontSizes[3];
+//fontSizes.body = [fontSizes[4], fontSizes[6]];
 fontSizes.body = fontSizes[6];
 fontSizes.banner = "2.5rem";
 
@@ -221,7 +230,8 @@ const styles = makeStyles({
 		fontFamily: "body",
 		lineHeight: "body",
 		fontWeight: "body",
-		fontSize: "12px",
+		fontSize: baseFontSize,
+		...vars,
 	},
 	a: {
 		color: "primary",
@@ -241,7 +251,7 @@ const styles = makeStyles({
 		fontSize: "banner",
 		fontWeight: "bold",
 		lineHeight: 1.75,
-		mb: "sm",
+		mb: ["md", "sm"],
 		borderStyle: "solid",
 		borderImageSlice: 1,
 		borderWidth: "0 0 5px 0",

@@ -1,4 +1,7 @@
 import { makeStyles, makeTheme } from "@theme-ui/css/utils";
+ import { Variables } from "./Variables";
+
+const vars = new Variables();
 
 const baseColors = {
 	white: "#fff",
@@ -17,11 +20,7 @@ const baseColors = {
 	],
 	darkblue: "#00205c",
 	blue: "#425cc7",
-	indigo: "#6610f2",
-	purple: "#6f42c1",
-	pink: "#e83e8c",
 	red: "#dc3545",
-	orange: "#fd7e14",
 	yellow: "#ffc107",
 	green: "#28a745",
 	teal: "#00adbb",
@@ -51,8 +50,6 @@ const colors = {
 	...baseColors,
 };
 
-const vars = {};
-
 const baseFontSize = ["10px", "12px"];
 const remUnits = 1.5;
 const space = [
@@ -66,15 +63,11 @@ const space = [
 ]
 	.reduce((result, [key, values]) => {
 		const negKey = `neg-${key}`;
-		const varName = `--${key}`;
-		const negVarName = `--${negKey}`;
 		const cssValues = values.map((value) => `${value * remUnits}rem`);
 		const negativeCSSValues = cssValues.map((value) => `-${value}`);
 
-		vars[varName] = cssValues;
-		vars[negVarName] = negativeCSSValues;
-		result[key] = `var(${varName})`;
-		result[negKey] = `var(${negVarName})`;
+		result[key] = vars.add(key, cssValues);
+		result[negKey] = vars.add(negKey, negativeCSSValues);
 
 		return result;
 	}, {});
@@ -117,7 +110,6 @@ const fontSizes = [
 	"6rem",
 ];
 fontSizes.lead = fontSizes[3];
-//fontSizes.body = [fontSizes[4], fontSizes[6]];
 fontSizes.body = fontSizes[6];
 fontSizes.banner = "2.5rem";
 
@@ -231,7 +223,8 @@ const styles = makeStyles({
 		lineHeight: "body",
 		fontWeight: "body",
 		fontSize: baseFontSize,
-		...vars,
+		...vars.object(),
+//		...vars,
 	},
 	a: {
 		color: "primary",

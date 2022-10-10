@@ -53,58 +53,33 @@ const colors = {
 
 const vars = {};
 
-const spaceUnit = 1.5;
+const baseFontSize = ["10px", "12px"];
+const remUnits = 1.5;
 const space = [
-	["none", 	[0, 0]],			// 0
-	["xs", 		[.25, .5]],		// 9px
-	["sm", 		[.5, 1]],			// 18px
-	["md", 		[1, 2]],			// 36px
-	["lg", 		[2, 3]],		// 54px
-	["xl", 		[3, 5]],			// 90px
-	["xxl",		[4, 8]],			// 144px
+	["none", 	[0, 	0]],		// 0				0
+	["xs", 		[.25, .5]],		// 3.75px		9px
+	["sm", 		[.5, 	1]],		// 7.5px		18px
+	["md", 		[1, 	2]],		// 15px			36px
+	["lg", 		[2, 	3]],		// 30px			54px
+	["xl", 		[3, 	5]],		// 45px			90px
+	["xxl",		[4, 	8]],		// 60px			144px
 ]
-//const space = [
-//	["none", 0],		// 0
-//	["xs", .5],			// 9px
-//	["sm", 1],			// 18px
-//	["md", 2],			// 36px
-//	["lg", 3],			// 54px
-//	["xl", 5],			// 90px
-//	["xxl", 8],		// 144px
-//]
 	.reduce((result, [key, values]) => {
 		const negKey = `neg-${key}`;
 		const varName = `--${key}`;
 		const negVarName = `--${negKey}`;
-		const cssValues = values.map((value) => `${value * spaceUnit}rem`);
+		const cssValues = values.map((value) => `${value * remUnits}rem`);
 		const negativeCSSValues = cssValues.map((value) => `-${value}`);
-//		const cssValue = `${value * spaceUnit}rem`;
 
 		vars[varName] = cssValues;
 		vars[negVarName] = negativeCSSValues;
 		result[key] = `var(${varName})`;
 		result[negKey] = `var(${negVarName})`;
 
-//		result[key] = cssValues;
-//		result["-" + key] = negativeCSSValues;
-//		result[`neg-${key}`] = negativeCSSValues;
-//		result[key] = cssValue;
-//		result["-" + key] = "-" + cssValue;
-//		result[value] = cssValue;
-
 		return result;
 	}, {});
 
-const s = (...args) => {
-	if (args.length === 1) {
-		return space[args[0]];
-	} else {
-		return args.map((key, i) => space[key][i])
-	}
-}
-
-const breakpoints = ["780px", "1000px"];
-//const breakpoints = ["576px", "768px", "992px", "1200px"];
+const breakpoints = ["780px"];
 
 const fonts = {
 	body: "'Public SansVariable', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'",
@@ -255,7 +230,7 @@ const styles = makeStyles({
 		fontFamily: "body",
 		lineHeight: "body",
 		fontWeight: "body",
-		fontSize: ["10px", "12px"],
+		fontSize: baseFontSize,
 		...vars,
 	},
 	a: {
@@ -347,7 +322,6 @@ export default makeTheme({
 	breakpoints,
 	colors,
 	space,
-	s,
 	fonts,
 	fontSizes,
 	fontWeights,

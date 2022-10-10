@@ -56,7 +56,7 @@ export default function Footer({
 					py: "xl",
 					display: "flex",
 					flexDirection: ["column", "row"],
-					gap: ["lg", 0],
+					gap: "lg",
 				}}
 			>
 				<Flex
@@ -74,13 +74,12 @@ export default function Footer({
 							top: "-2.5rem"
 						}}
 					>
-						<Logo />
+						<Logo sx={{ height: ["1.75rem", "1.5rem"] }}/>
 					</Link>
 					<Text sx={{ fontSize: [4, "body"] }}>{siteDescription}</Text>
 				</Flex>
 				<Flex
 					sx={{
-						mr: [0, "md"],
 						flexDirection: "column",
 						gap: ["md", 0],
 					}}

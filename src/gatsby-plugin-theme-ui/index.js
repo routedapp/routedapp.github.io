@@ -1,7 +1,32 @@
 import { makeStyles, makeTheme } from "@theme-ui/css/utils";
- import { Variables } from "./Variables";
+import { Variables } from "./Variables";
+
+const BaseFontSize = ["10px", "11px", "12px"];
+const RemUnits = 1.5;
 
 const vars = new Variables();
+
+const breakpoints = ["768px", "1000px"];
+
+const space = [
+	["none", 	[0, 	0]],		// 0				0
+	["xs", 		[.25, .5]],		// 3.75px		9px
+	["sm", 		[.5, 	1]],		// 7.5px		18px
+	["md", 		[1, 	2]],		// 15px			36px
+	["lg", 		[2, 	3]],		// 30px			54px
+	["xl", 		[3, 	5]],		// 45px			90px
+	["xxl",		[4, 	8]],		// 60px			144px
+]
+	.reduce((result, [key, values]) => {
+		const negKey = `neg-${key}`;
+		const cssValues = values.map((value) => `${value * RemUnits}rem`);
+		const negativeCSSValues = cssValues.map((value) => `-${value}`);
+
+		result[key] = vars.add(key, cssValues);
+		result[negKey] = vars.add(negKey, negativeCSSValues);
+
+		return result;
+	}, {});
 
 const baseColors = {
 	white: "#fff",
@@ -49,30 +74,6 @@ const colors = {
 	textMuted: baseColors.gray[6],
 	...baseColors,
 };
-
-const baseFontSize = ["10px", "12px"];
-const remUnits = 1.5;
-const space = [
-	["none", 	[0, 	0]],		// 0				0
-	["xs", 		[.25, .5]],		// 3.75px		9px
-	["sm", 		[.5, 	1]],		// 7.5px		18px
-	["md", 		[1, 	2]],		// 15px			36px
-	["lg", 		[2, 	3]],		// 30px			54px
-	["xl", 		[3, 	5]],		// 45px			90px
-	["xxl",		[4, 	8]],		// 60px			144px
-]
-	.reduce((result, [key, values]) => {
-		const negKey = `neg-${key}`;
-		const cssValues = values.map((value) => `${value * remUnits}rem`);
-		const negativeCSSValues = cssValues.map((value) => `-${value}`);
-
-		result[key] = vars.add(key, cssValues);
-		result[negKey] = vars.add(negKey, negativeCSSValues);
-
-		return result;
-	}, {});
-
-const breakpoints = ["780px"];
 
 const fonts = {
 	body: "'Public SansVariable', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'",
@@ -222,9 +223,8 @@ const styles = makeStyles({
 		fontFamily: "body",
 		lineHeight: "body",
 		fontWeight: "body",
-		fontSize: baseFontSize,
+		fontSize: BaseFontSize,
 		...vars.object(),
-//		...vars,
 	},
 	a: {
 		color: "primary",

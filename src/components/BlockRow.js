@@ -9,8 +9,10 @@ export default function BlockRow({
 		<Grid
 			sx={{
 				gridAutoFlow: ["row", "column"],
-				gridAutoColumns: "1fr",
-				alignItems: "center",
+					// when the children are stacked on top of each other, limit their
+					// max-width to 400px so they're not huge after the layout change
+				gridAutoColumns: ["fit-content(40rem)", "1fr"],
+				justifyContent: "space-evenly",
 				gap: "lg",
 				mb: "xl",
 				...sx

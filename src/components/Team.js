@@ -13,7 +13,7 @@ function TeamMember({
 			sx={{
 				fontSize: [4, "body"],
 				textAlign: "center",
-				width: [150, 230],
+				width: ["15rem", "18rem", "19rem"],
 				m: 0
 			}}
 		>
@@ -64,7 +64,7 @@ export default function TeamList()
 			sx={{
 				mb: "xl",
 				flexWrap: "wrap",
-				columnGap: ["md", "lg"],
+				columnGap: ["md", "md", "lg"],
 				rowGap: "md",
 				justifyContent: "center",
 			}}

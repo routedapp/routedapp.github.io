@@ -13,7 +13,7 @@ import Logo from "./Logo";
 const smaller = { fontSize: 4 };
 const smallerHeading = {
 	...smaller,
-	mb: [0, "xs"]
+	mb: [0, "sm"]
 };
 
 const Link = ({ sx, ...props }) => (

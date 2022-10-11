@@ -8,7 +8,7 @@ const menuStyles = {
 	alignItems: "center",
 	display: ["none", "flex"],
 
-	".expanded > &": {
+	".expanded &": {
 		bg: "white",
 		width: "100%",
 		height: "100%",
@@ -81,11 +81,21 @@ export default function Header({
 
 	return (
 		<Container as="header"
-			sx={{ py: "md" }}
+			className={menuExpanded && "expanded"}
+			sx={{
+				py: "md",
+				"&.expanded": {
+					top: 0,
+					position: "sticky",
+					zIndex: 50,
+				}
+			}}
 		>
 			<Flex as="nav"
-				className={menuExpanded && "expanded"}
-				sx={{ justifyContent: "space-between" }}
+				sx={{
+					justifyContent: "space-between",
+					alignItems: "center",
+				}}
 			>
 				<Link to="/"
 					title="Home"

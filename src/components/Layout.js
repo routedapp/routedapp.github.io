@@ -5,6 +5,7 @@ import Header from "./Header";
 import Footer from "./Footer";
 
 export default function Layout({
+	location,
 	children })
 {
 	const { description, title } = useSiteMetadata();
@@ -12,8 +13,9 @@ export default function Layout({
 	return (
 		<>
 			<Header
-				siteTitle={title}
-				siteDescription={description}
+					// pass the current location to the Header so it can tell when the
+					// user has navigated to a different page
+				location={location}
 			/>
 			<Container as="main">
 				{children}

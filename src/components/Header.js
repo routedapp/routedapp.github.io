@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Box, Close, Container, Flex, MenuButton } from "theme-ui";
 import Link from "./Link";
 import Logo from "./Logo";
@@ -51,32 +51,37 @@ function MenuToggle({
 				}
 			}}
 		>
-			{menuExpanded ? <Close /> : <MenuButton />}
+			{menuExpanded
+				? <Close title="Close the navigation menu" />
+				: <MenuButton title="Open the navigation menu" />}
 		</Box>
 	);
 }
 
-export default function Header()
+export default function Header({
+	location: { pathname } })
 {
 	const [menuExpanded, setMenuExpanded] = useState(false);
+	const pathnameRef = useRef();
 
 	const handleMenuToggle = (event) => {
 		setMenuExpanded(!menuExpanded);
 		event.preventDefault();
 	};
 
-	const handleLinkClick = (event) => {
-			// close the menu only after a click on a link to navigate
-		if (event.target?.tagName === "A") {
+	useEffect(() => {
+		if (pathname !== pathnameRef.current) {
+				// the location has changed, either because the user clicked a link in
+				// the menu or they navigated through the browser history.  either way,
+				// we want to remember the new value and close the menu.
+			pathnameRef.current = pathname;
 			setMenuExpanded(false);
 		}
-	};
+	}, [pathname]);
 
 	return (
 		<Container as="header"
-			sx={{
-				py: "md",
-			}}
+			sx={{ py: "md" }}
 		>
 			<Flex as="nav"
 				className={menuExpanded && "expanded"}
@@ -92,10 +97,7 @@ export default function Header()
 					menuExpanded={menuExpanded}
 					onClick={handleMenuToggle}
 				/>
-				<Flex
-					onClick={handleLinkClick}
-					sx={menuStyles}
-				>
+				<Flex sx={menuStyles}>
 					{menuExpanded &&
 						<Link to="/home">Home</Link>
 					}

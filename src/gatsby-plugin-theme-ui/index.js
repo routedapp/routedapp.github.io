@@ -225,6 +225,10 @@ const styles = makeStyles({
 		fontWeight: "body",
 		fontSize: BaseFontSize,
 		...vars.object(),
+
+		"&.navmenu-expanded": {
+			overflow: "hidden"
+		}
 	},
 	a: {
 		color: "primary",

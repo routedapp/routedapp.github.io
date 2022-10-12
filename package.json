@@ -16,6 +16,7 @@
     "@contentful/rich-text-types": "^15.13.2",
     "@fontsource/public-sans": "^4.5.10",
     "@lekoarts/gatsby-theme-styleguide": "^3.0.1",
+    "@theme-ui/match-media": "^0.15.1",
     "@theme-ui/presets": "^0.14.7",
     "babel-plugin-styled-components": "^2.0.7",
     "dotenv": "^16.0.2",

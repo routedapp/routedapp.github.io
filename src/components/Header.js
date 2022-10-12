@@ -1,26 +1,29 @@
 import React, { useEffect, useRef, useState } from "react";
 import { Box, Close, Container, Flex, MenuButton } from "theme-ui";
+import { useBreakpointIndex } from "@theme-ui/match-media";
 import Link from "./Link";
 import Logo from "./Logo";
 
+const expandedClass = "navmenu-expanded";
 const menuStyles = {
 	gap: "md",
 	alignItems: "center",
 	display: ["none", "flex"],
 
-	".expanded &": {
+	[`.${expandedClass} &`]: {
 		bg: "white",
 		width: "100%",
 		height: "100%",
 		p: "xl",
 		pt: "xxl",
 		top: 0,
-		right: 0,
 		position: "fixed",
 		flexDirection: "column",
 		alignItems: "self-start",
 		gap: "xl",
 		display: "flex",
+			// make sure the menu can scroll vertically if the window is too short
+		overflowY: "auto",
 		zIndex: 100,
 
 		"& > a": {
@@ -63,6 +66,7 @@ export default function Header({
 {
 	const [menuExpanded, setMenuExpanded] = useState(false);
 	const pathnameRef = useRef();
+	const breakpoint = useBreakpointIndex();
 
 	const handleMenuToggle = (event) => {
 		setMenuExpanded(!menuExpanded);
@@ -70,26 +74,31 @@ export default function Header({
 	};
 
 	useEffect(() => {
-		if (pathname !== pathnameRef.current) {
+		if (menuExpanded) {
+				// add the navmenu-expanded class to the html element, to prevent the
+				// page from scrolling
+			document.documentElement.classList.add(expandedClass);
+		} else {
+			document.documentElement.classList.remove(expandedClass);
+		}
+	}, [menuExpanded]);
+
+
+	useEffect(() => {
+		if (pathname !== pathnameRef.current || (menuExpanded && breakpoint > 0)) {
 				// the location has changed, either because the user clicked a link in
-				// the menu or they navigated through the browser history.  either way,
-				// we want to remember the new value and close the menu.
+				// the menu or they navigated through the browser history.  or the menu
+				// is visible and the user made the window wide enough to show all the
+				// links.  whatever happened, we want to track the current location and
+				// close the menu.
 			pathnameRef.current = pathname;
 			setMenuExpanded(false);
 		}
-	}, [pathname]);
+	}, [pathname, menuExpanded, breakpoint]);
 
 	return (
 		<Container as="header"
-			className={menuExpanded && "expanded"}
-			sx={{
-				py: "md",
-				"&.expanded": {
-					top: 0,
-					position: "sticky",
-					zIndex: 50,
-				}
-			}}
+			sx={{ py: "md" }}
 		>
 			<Flex as="nav"
 				sx={{
@@ -109,6 +118,7 @@ export default function Header({
 				/>
 				<Flex sx={menuStyles}>
 					{menuExpanded &&
+							// add a link to the home page only when the menu is expanded
 						<Link to="/home">Home</Link>
 					}
 					<Link to="/our-story/">Our Story</Link>

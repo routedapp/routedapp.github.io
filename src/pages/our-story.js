@@ -38,9 +38,9 @@ export default function OurStory()
 				<BlockCallout icon={healthIcon}>
 					<Box
 						sx={{
-							fontSize: "banner",
+							fontSize: ["banner", "body", "banner"],
 							fontWeight: "bold",
-							mb: "md"
+							mb: ["md", "sm", "md"]
 						}}>
 						Curious how Routed could help your city?
 					</Box>

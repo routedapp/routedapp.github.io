@@ -98,7 +98,7 @@ fontWeights.normal = fontWeights.body;
 fontWeights.display = fontWeights.light;
 
 const fontSizes = [
-	"0.75rem", // "80%",
+	"0.75rem",
 	"0.875rem",
 	"1rem",
 	"1.25rem",
@@ -247,7 +247,7 @@ const styles = makeStyles({
 		...heading,
 		fontSize: "banner",
 		fontWeight: "bold",
-		pb: "sm",
+		pb: "xs",
 		mb: ["md", "sm"],
 		borderStyle: "solid",
 		borderImageSlice: 1,

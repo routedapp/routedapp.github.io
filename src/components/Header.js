@@ -66,6 +66,7 @@ export default function Header({
 {
 	const [menuExpanded, setMenuExpanded] = useState(false);
 	const pathnameRef = useRef();
+	const navRef = useRef();
 	const breakpoint = useBreakpointIndex();
 
 	const handleMenuToggle = (event) => {
@@ -73,11 +74,19 @@ export default function Header({
 		event.preventDefault();
 	};
 
+	const handleMenuKeyDown = (event) => {
+		if (menuExpanded && event.key === "Escape") {
+			setMenuExpanded(false);
+		}
+	};
+
 	useEffect(() => {
 		if (menuExpanded) {
 				// add the navmenu-expanded class to the html element, to prevent the
-				// page from scrolling
+				// page from scrolling.  focus the nav element so it can listen for
+				// key events.
 			document.documentElement.classList.add(expandedClass);
+			navRef.current?.focus();
 		} else {
 			document.documentElement.classList.remove(expandedClass);
 		}
@@ -101,14 +110,17 @@ export default function Header({
 			sx={{ py: "md" }}
 		>
 			<Flex as="nav"
+				ref={navRef}
+				tabIndex={0}
+				onKeyDown={handleMenuKeyDown}
 				sx={{
 					justifyContent: "space-between",
 					alignItems: "center",
+					outline: "none"
 				}}
 			>
 				<Link to="/"
 					title="Home"
-					onClick={handleMenuToggle}
 				>
 					<Logo sx={{ height: "2.25rem" }} />
 				</Link>

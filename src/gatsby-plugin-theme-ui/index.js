@@ -247,7 +247,7 @@ const styles = makeStyles({
 		...heading,
 		fontSize: "banner",
 		fontWeight: "bold",
-		lineHeight: 1.75,
+		pb: "sm",
 		mb: ["md", "sm"],
 		borderStyle: "solid",
 		borderImageSlice: 1,

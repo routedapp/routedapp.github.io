@@ -18,8 +18,9 @@ const Item = (props) => (
 		{...props}
 		sx={{
 			listStyle: "none",
+			hyphens: "auto",
 			margin: "-1px 0 0 0",
-			padding: "1rem 5rem 1rem 1rem",
+			padding: ["md", "sm"],
 			borderWidth: "1px",
 			borderStyle: "solid",
 			borderColor: "grayDark",
@@ -31,11 +32,12 @@ const Item = (props) => (
 
 export const Q = (props) => (
 		// eslint-disable-next-line jsx-a11y/heading-has-content
-	<h1
+	<h2
 		{...props}
 		sx={{
 			fontSize: "body",
-			m: "1rem",
+			m: 0,
+			mr: "lg",
 			p: 0
 		}}
 	/>
@@ -46,8 +48,11 @@ export const A = (props) => (
 		{...props}
 		sx={{
 			fontSize: "body",
-			m: "0 1rem 1rem",
-			p: 0
+			p: 0,
+
+			"& p:last-of-type": {
+				mb: 0,
+			}
 		}}
 	/>
 )

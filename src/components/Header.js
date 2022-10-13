@@ -131,7 +131,7 @@ export default function Header({
 				<Flex sx={menuStyles}>
 					{menuExpanded &&
 							// add a link to the home page only when the menu is expanded
-						<Link to="/home">Home</Link>
+						<Link to="/">Home</Link>
 					}
 					<Link to="/our-story/">Our Story</Link>
 					<Link to="/faq/">FAQ</Link>

@@ -50,20 +50,24 @@ const guideStyles = {
 		borderRadius: "lg",
 		mx: "auto"
 	},
-	"li > p::before": {
+	// put some top margin on all the paragraphs in the li, so we can use blank
+	// paras as kludgy spacers
+	"li > p": {
+		marginBlockStart: 0,
+		marginBlockEnd: 0,
+		mt: "md",
+		fontSize: "1.5rem",
+	},
+	"li > p:last-of-type::before": {
 		fontSize: "body",
 		fontWeight: "bold",
 		content: "counter(step) '.'",
 		mb: "xs",
 		display: "block"
 	},
-	"li > p": {
+	"li > p:last-of-type": {
 		bg: "muted",
-		marginBlockStart: 0,
-		marginBlockEnd: 0,
 		p: "md",
-		mt: "md",
-		fontSize: "1.5rem",
 		borderStyle: "solid",
 		borderImageSlice: 1,
 		borderWidth: "0 0 5px 0",

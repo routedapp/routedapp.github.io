@@ -49,7 +49,7 @@ export default function TeamList()
 		allContentfulTeamMember: { nodes }
 	} = useStaticQuery(graphql`
 		{
-			allContentfulTeamMember(sort: { fields: fullName, order: ASC }) {
+			allContentfulTeamMember(sort: {fullName: ASC}) {
 				nodes {
 					fullName
 					role

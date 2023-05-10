@@ -1,5 +1,5 @@
 import React from "react";
-import { Themed } from "theme-ui";
+import { Themed } from "@theme-ui/mdx";
 import { head } from "@/components/Head";
 import FAQList from "@/components/FAQList";
 //import Glossary from "@/components/Glossary";

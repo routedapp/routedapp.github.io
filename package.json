@@ -40,5 +40,8 @@
     "react-helmet": "^6.1.0",
     "styled-components": "^5.3.5",
     "theme-ui": "^0.15.7"
+  },
+  "engines" : { 
+    "node" : ">=18.0.0"
   }
 }

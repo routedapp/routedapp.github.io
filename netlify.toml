@@ -2,4 +2,4 @@
   environment = { NODE_VERSION = "18.0" }
 
 [context.deploy-preview]
-  environment = { NODE_VERSION = "18.0" 
+  environment = { NODE_VERSION = "18.0" }
